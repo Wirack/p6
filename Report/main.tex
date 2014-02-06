@@ -1,0 +1,28 @@
+\input{preamble.tex}
+
+\begin{document}
+	\include{formalities/frontpage}
+	\cleardoublepage
+
+	\include{formalities/titlesheet}
+	\addtocounter{page}{4}
+
+	\input{formalities/foreword}	
+	
+	\begin{KeepFromToc}
+		\tableofcontents
+	\end{KeepFromToc}
+	
+	%Contents
+		
+	\afterpage{\thispagestyle{empty}}
+
+	\bibliography{bib}
+	
+	\label{lastpagewithoutappendix}
+	
+	\appendix
+
+	\cleardoublepage
+	\phantomsection
+\end{document}
