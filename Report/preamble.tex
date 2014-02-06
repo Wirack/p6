@@ -1,7 +1,26 @@
-\documentclass[10pt,a4paper,draft,twoside]{report}
-\usepackage[utf8]{inputenc}
+\documentclass[10pt,a4paper,draft,twoside]{memoir}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage[english]{babel}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{afterpage}
+\usepackage{lipsum}						% Lorem Ipsum
+
+
+\usepackage{refcount}
+
+\newcommand{\pagedifference}[2]{%
+  \number\numexpr\getpagerefnumber{#2}-\getpagerefnumber{#1}\relax} %To calculate the amount of pages between two pages
+
+\newcommand{\figref}[1]{\hyperref[#1]{Figure \ref{#1}}} %Hyperref for figure
+\newcommand{\tabref}[1]{\hyperref[#1]{Table \ref{#1}}} %Hyperref for table
+\newcommand{\chapref}[1]{\hyperref[#1]{Chapter \ref{#1}}} %Hyperref for chapter
+\newcommand{\secref}[1]{\hyperref[#1]{Section \ref{#1}}} %Hyperref for section
+\newcommand{\subsecref}[1]{\hyperref[#1]{Subsection \ref{#1}}} %Hyperref for subsection
+\newcommand{\lstref}[1]{\hyperref[#1]{List \ref{#1}}} %Hyperref for list
+\newcommand{\appref}[1]{\hyperref[#1]{Appendix \ref{#1}}} %Hyperref for appendix
+\renewcommand{\eqref}[1]{\hyperref[#1]{Equation (\ref{#1})}} %Hyperref for equation
