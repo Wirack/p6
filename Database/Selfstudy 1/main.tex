@@ -16,7 +16,7 @@ Mathias WP.
 
 
 \section*{Self study 1 - miniproject part 1}
-Actors, directors and writers are decided to be stored only as person, since they can preform multiple roles throughout their career, and have a name, birthday, and additional information. The table for these will be:
+Actors, directors, and writers are decided to be stored only as person, since they can preform multiple roles throughout their career. A person has a name, birthday, and additional information. The table for persons will be:
 
 \begin{table}[H] \centering
 \begin{tabular}{|c|c|c|}
@@ -40,7 +40,7 @@ MOVIE ID & MOVIE NAME & RELEASE DATE & RATING\\
 \end{tabular} 
 \end{table}
 
-To connect persons to movies another table is used. Where the role in this table is an enum that contains actor, director and writer.
+To connect persons to movies another table is used. Where the role in this table is an enum that contains actor, director, and writer.
 
 \begin{table}[H] \centering
 \begin{tabular}{|c|c|c|}
@@ -90,7 +90,7 @@ USER ID & USERNAME & PASSWORD \\
 \end{tabular} 
 \end{table}
 
-Furthermore a user can rate movies, and a table for this is created. This table contains user id, movie id and rating
+Furthermore, a user can rate movies, and a table for this is created. This table contains user id, movie id, and rating
 
 \begin{table}[H] \centering
 \begin{tabular}{|c|c|c|}
