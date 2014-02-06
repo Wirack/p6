@@ -1,0 +1,106 @@
+\documentclass[10pt,a4paper,final]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{float}
+
+
+\begin{document}
+Participants:
+Daniel SF,
+Lars A,
+S\o ren SA \&
+Mathias WP.
+
+
+\section*{Self study 1 - miniproject part 1}
+Actors, directors and writers are decided to be stored only as person, since they can preform multiple roles throughout their career, and have a name, birthday, and additional information. The table for these will be:
+
+\begin{table}[H] \centering
+\begin{tabular}{|c|c|c|}
+\hline 
+PERSON ID & PERSON NAME & BIRTHDAY \\ 
+\hline 
+123 & Johnny Known & 03-09-1934 \\ 
+\hline 
+\end{tabular} 
+\end{table}
+
+A movie can contain movie name, movie id, release data, and rating. The rating is calculated by taking the average of the user ratings for a specific movie.
+
+\begin{table}[H] \centering
+\begin{tabular}{|c|c|c|c|}
+\hline 
+MOVIE ID & MOVIE NAME & RELEASE DATE & RATING\\ 
+\hline 
+123 & The Hobbit & 05-12-2014 & 9.2\\ 
+\hline 
+\end{tabular} 
+\end{table}
+
+To connect persons to movies another table is used. Where the role in this table is an enum that contains actor, director and writer.
+
+\begin{table}[H] \centering
+\begin{tabular}{|c|c|c|}
+\hline 
+MOVIE ID & PERSON ID & ROLE \\ 
+\hline 
+637 & 463 & Actor \\ 
+\hline 
+563 & 563 & Director \\ 
+\hline 
+637 & 674 & Writer \\ 
+\hline 
+\end{tabular}
+\end{table}
+
+Awards can be given to both persons and movies, therefore it is necessary to have two tables, since the id's can be the same for both persons and movies. The tables will be as follows:
+
+\begin{table}[H] \centering
+\begin{tabular}{|c|c|c|}
+\hline 
+MOVIE ID & AWARD & YEAR \\ 
+\hline 
+542 & Best Picture & 2013 \\ 
+\hline 
+\end{tabular} 
+\end{table}
+
+\begin{table}[H] \centering
+\begin{tabular}{|c|c|c|c|}
+\hline 
+PERSON ID & MOVIE ID & AWARD & YEAR\\ 
+\hline 
+524 & 542 & Best Actor & 2013 \\ 
+\hline 
+\end{tabular} 
+\end{table}
+
+To become a user of the system it is necessary to have a user name and a user password. The password should be encrypted, but security is not the focus of this exercise.
+
+\begin{table}[H] \centering
+\begin{tabular}{|c|c|c|}
+\hline 
+USER ID & USERNAME & PASSWORD \\ 
+\hline 
+546 & NiceName & 123456 \\ 
+\hline 
+\end{tabular} 
+\end{table}
+
+Furthermore a user can rate movies, and a table for this is created. This table contains user id, movie id and rating
+
+\begin{table}[H] \centering
+\begin{tabular}{|c|c|c|}
+\hline 
+MOVIE ID & USER ID & RATING \\ 
+\hline 
+634 & 342 & 8 \\ 
+\hline 
+\end{tabular} 
+\end{table}
+
+
+\end{document}
