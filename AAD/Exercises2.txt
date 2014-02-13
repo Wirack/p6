@@ -1,0 +1,27 @@
+1. Using slide 12, do the approximate matching of the string "nite" in the text "tonight".
+	Hvis man skal finde en substring af nite i tonight, så bruger skal man max bruge 2 operationer.
+
+2. Using the last slide of the lecture as a guide, write a pseudocode of an algorithm to find the minimum number of coins needed to change the given amount A using the coins of the given denominations denom[1..n]. Note that on the slide, in the recurrence describing the solution to a sub-problem, j is the remaining amount of money to be changed and denom[i] is the largest denomination that we can consider using. Your algorithm should also provide information on which coins to use. Thus, in addition to the array of costs of subproblems, the algorithm has to fill the array recording all choices of coins made by the algorithm (The other algorithm may then be used on that array to print the coins in the optimal change). Run your algorithm for A = 7 and denom = {5, 4, 3, 1}.
+# == \inf
+
+alg(i,j)
+  if c[i,j] == #
+    if j == 0
+      c[i,j] = 0
+    else if denom(i) > j
+      c[i,j] == alg(i+1,j);0
+    else if denom(i) <= j
+      c[i,j] == min(alg(i+1,j);0,1+alg(i,j-denom[i]);1)
+  return c[i,j]
+
+; means which one we pick. 0 = down, 1 = right
+
+3. If you have time try solving CLRS 15-2 
+alg(i,j)
+  if j<i then s(i,j) == 0
+  if i==j then s(i,j) == 1
+  if i!=j then
+    if s[i]==s[j] then s(i,j) ==  2+s(i+1,j+1)
+    if s[i]!=s[j] then s(i,j) ==  max(s(i+1,j),s(i,j+1))
+return s(i,j)
+
