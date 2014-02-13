@@ -61,7 +61,7 @@ Each edge and vertice will be visited maximum once, so the running time is be $O
 
 \section*{Exercise 3}
 If we first sort each point $P_i$ according to their x value. We can for each point choose one of two choices, either the point is in the upper or the lower part of the path, which then leads to two subproblems.
-
+An algorithm can be seen hereafter, where u and $l$ corresponds to the indexes of the upper and lower part.
 \begin{lstlisting}
 B(u,$l$)
   if T[u,$l$] = #
