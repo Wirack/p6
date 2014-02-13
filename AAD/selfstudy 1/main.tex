@@ -1,0 +1,62 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\chead{2.1.10 - sw608f14 - Daniel S. F., Lars A, Mathias W. P. \& Søren S. A.}
+
+\lstset{mathescape = true}
+\usepackage{amsthm}
+\begin{document}
+\chapter*{Selfstudy 1}
+\section*{Exercise 1}
+\begin{lstlisting}
+Alg(S[1...n]):S'[1...n]
+     return Sort(S) // minimum processing time
+\end{lstlisting}
+
+\begin{proof}
+For our $S'$ we have 
+$$p_1 \leq p_2 ... p_{n-1} \leq p_n$$
+
+
+The average completiontime of this order we call $k$ and is calculated as:
+$$\frac{n*p_1 + (n-1)*p_2 + ... 1 * p_n}{n}$$. We swap $a_b$ and $a_c$ where we know that $p_b \leq p_c$ and $b < c \leq n$.
+
+The resulting average completion time will be 
+$$k + \frac{(n-c +1)*p_c}{n} - \frac{(n-b +1)*p_b}{n}$$
+
+And due to $b < c \leq n$ and $p_b \leq p_c$ we have that:
+$$\frac{(n-c +1)*p_c}{n} - \frac{(n-b +1)*p_b}{n} \geq 0$$
+
+So a swap would not lower the average completion time.
+\end{proof}
+
+\section*{Exercise 2}
+For a simple bruteforce algorithm for each edge you have the choice of choosing the edge or not choosing it, with $n$ edges we would have the running time $O(2^n)$.
+
+\begin{lstlisting}
+Alg(G,s,t)
+     if s = t
+          T[s,t] $\leftarrow$ 0
+     else if T[s,t] = #
+          max $\leftarrow$ $-\infty$
+          for each e in G.E where e = (s,a)
+               if(Alg(G,a,t)+e.w > max)
+                    chosen_e $\leftarrow$ e                    
+                    max $\leftarrow$ Alg(G,a,t)+e.w
+          T[s,t] $\leftarrow$ max, chosen_e
+     return T[s,t]
+\end{lstlisting}
+
+The subproblem graph would be the current node chosen and all paths from this node to any other node in the graph.
+
+The path is memoized in the table in conjunction with the cost, and can be traversed in linear time.
+
+Each edge and vertice will be visited maximum once, so the running time is be $O(|G.V| + |G.E|)$
+
+\end{document}
