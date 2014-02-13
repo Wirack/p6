@@ -59,4 +59,22 @@ The path is memoized in the table in conjunction with the cost, and can be trave
 
 Each edge and vertice will be visited maximum once, so the running time is be $O(|G.V| + |G.E|)$
 
+\section*{Exercise 3}
+If we first sort each point $P_i$ according to their x value. We can for each point choose one of two choices, either the point is in the upper or the lower part of the path, which then leads to two subproblems.
+
+\begin{lstlisting}
+B(u,$l$)
+  if T[u,$l$] = #
+    if u = n
+  	  T[u,$l$] $\leftarrow$ d($P_l$,$P_n$) 	
+    else if $l$ = n
+  	  T[u,$l$] $\leftarrow$ d($P_u$,$P_n$)
+    else if u $\geq$ $l$
+      T[u,$l$] $\leftarrow$ max(B(u+1, $l$) + d($P_u$, $P_u+1$),B(u,u+1) + d($P_l$,$P_u+1$))
+    else
+      T[u,l] $\leftarrow$ max(B($l$+1, $l$) + d($P_u$, $P_l+1$), B(u,$l$+1) + d($P_l$,$P_l+1$))
+  return T[u,$l$]
+\end{lstlisting}
+
+And has the required running time.
 \end{document}

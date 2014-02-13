@@ -11,3 +11,5 @@
 main.pdf
 Formelle Dokumenter/Gruppekontrakt/gruppekontrakt.pdf
 Database/Selfstudy 1/sw608f14-selfstudy1.pdf
+*.blg
+*.bbl
