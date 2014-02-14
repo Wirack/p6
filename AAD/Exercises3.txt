@@ -1,0 +1,10 @@
+1. Solve 25.2-1. Show not only the matrix D(k), but also the matrix P(k) (π(k) in the book) after each interation of the outer loop
+https://docs.google.com/spreadsheet/ccc?key=0AldDIss1xmFldGlDQzVEbnJ4Q2JxaG1YeFZjSHZKaFE#gid=0
+
+Suppose that we want to compute a table of distances between each pair of cities in a large map with V cities. Also, we know that each city has at most square root of V roads going from or to the city. Which algorithm (repeated Dijkstra's or Floyd-Warshall) would be the most efficient, asymptotically, for the task?
+Floyd = Theta(V³)
+repeated Dijkstra's = O(V²*log(V)+V^2.5) => O(V^2.5)
+
+Suppose that D is a matrix whose ij-th entry is the length of a shortest path from i to j in an undirected, weighted graph G with n vertices. Write an O(n^2) algorithm that updates D when an additional edge is inserted into G.
+
+
