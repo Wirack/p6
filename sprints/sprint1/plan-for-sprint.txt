@@ -1,0 +1,21 @@
+*. Connection med lokale database. (Save og load pictogrammer)
+*. Mikrofon skal virke (reducer støj)(tjek om samarbejdsmulighed med Cars)
+*. Standard farve skal laves om til sort.
+*. Baggrundsfarve switch
+*. Navigere fra Camera til Canvas
+*. Autofokus ved Camera (Der er en opskrift i rapporten til at gøre det)
+*. Erase stuff (viskelæder - kræver diskussion)
+*. Collision med roterede objekter
+*. Dialogboks til mikrofon optagelse skal ændres
+
+{*. Ikon til frihåndstegning ændre til blyant (paint ikon)
+*. Ikoner svarende til funktionalitet. (f.eks. markeringstool)
+		-help tools
+		}
+*. Refakturer koden
+
+Dette er baseret ud fra:
+	Egne observationer
+	Rapport Croc 2013:
+		Future work
+		Usability test
