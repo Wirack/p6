@@ -1,0 +1,13 @@
+Noter til Statusmøde d. 19/2
+1. Mail fra Ulrik - diskuter SCRUM her.
+2. Længde af sprint / deadline
+3. Guidelines til brug af GiT 
+4. Status fra gruppe: Vi skal til at gå i gang - alle har fået læst Croc rapporten
+5. Give us a group - redmine
+6. Fællesaktivitet? jævnfør 1.
+	6.1 idéer: Partey
+			   Lan
+			   Øl og snak
+7. Android Studio
+8. Til større møder: der skal være en deadline for forslag til dagsorden. Så har grupperne tid til at overveje hvad der skal snakkes om inden, og man undgår "dumme" spørgsmål.
+9. Kontrol af redmine?
