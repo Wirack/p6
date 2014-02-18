@@ -1,0 +1,55 @@
+Database
+
+1.
+Unknown or no value for a given cell.
+
+2.1
+a. 
+Projection(person_name), Selection(company_name = "First Bank Corporation")(works)
+
+b.
+Projection(person_name, city), Selection(company_name = "First Bank Corporation")(work Join employee)
+
+c.
+Projection(person_name, street, city), Selection(salary = "First Bank Corporation", salary > 10000)(work Join employee)
+
+d.
+Projection(person_name),(employee Join company)
+
+e.
+Projection(V2.company_name),Selection(V1.company_name = "Small Bank Corporation, V1.city = V2.city)(pV1(company)XpV2(company))
+
+2.2
+a.
+managersCityStreet = (P(person_name = manager_name(employee)) Join manages)
+
+result = Projection(person_name),(managersCityStreet Join employee)
+
+b.
+Projection(person_name),Selection(company_name != "First Bank Corpration"),(employee LeftOuterJoin work)
+
+c.
+maxSalary = Grouping(max(salary)),Selection(company_name = "Small Bank Corporation)(works)
+
+result = Projection(person_name),Selection(maxSalary.max(salary) < works.salary), (maxSalary X works)
+
+2.3
+a.
+Grouping(company_name;count(*)(works)
+
+b.
+avgSalaryFirstBankSalary = Grouping(avg(salary)),Selection(company_name = "First Bank Corporation)(works)
+
+avgSalary = Grouping(company_name,avg(salary))(works)
+
+result = Projection(company_name),Selection(avgSalaryFirstBankSalary.avg(salary) < avgSalary.avg(salary)), (avgSalaryFirstBankSalary X avgSalary)
+
+
+3.
+
+
+
+
+
+
+
