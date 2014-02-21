@@ -1,0 +1,14 @@
+Croc code description:
+	dk.aau.cs.giraf.pictocreator
+		CrocActivity.java
+			Er main activity der startes når Croc åbnes
+			Den sørger for at få GUI op at køre og forbinde GUI.
+				dvs. aktivere og deaktivere nødvendige knapper, samt subscribe på events så der kommer interaktion.
+			Der tjekkes for om der findes et kamera f.eks. til om kamera knappen skal kunne klikkes på.
+		StoragePictogram.java
+			Activity til at gemme pictogram 
+			Sørger for at kalde database helper til at lagre billede,lyd, id og tags
+			to forskellige constructors
+				1: for et helt nyt billede
+				2: for et billede der ændres
+			
