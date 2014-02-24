@@ -1,0 +1,92 @@
+\documentclass[12pt,a4paper,draft]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{parskip}
+
+\begin{document}
+\section{Tuple Relational Calculus}
+a:
+$$\{<t.A>|t\in R\}$$
+
+b:
+$$\{t|t \in R \land t.B = 17 \}$$
+
+c:
+$$\{<t.A, t.B, t.C, u.D, u.E, u.F>| t \in R \land u \in S\}$$
+
+d:
+$$\{<r.A, s.F>| r \in R \land s \in S \land r.C = s.D \}$$
+
+\section{Domain Relational Calculus}
+a:
+$$\{<A>|<A,\_,\_> \in R\}$$
+
+b:
+$$\{<A,17,C>|<A,17,C> \in R \}$$
+
+c:
+$$\{<A,B,C>|<A,B,C> \in R\; \lor <A,B,C> \in S\}$$
+
+d:
+$$\{<A,B,C>|<A,B,\_> \in R \;\land <\_,B,C> \in S\}$$
+
+\section{Advanced Relational Calculus Queries}
+tuple goes first, then domain. Somewhere in here we shorten the attribute names.
+
+a:
+$$\{<w.person\_name>| w \in works \land w.company\_name = "FBC"\}$$
+
+$$\{<P>|<P, "FBC", \_> \in works\}$$
+
+b:
+$$\{<e.P, e.C>|e \in employee \land \exists w (w \in works \land w.P = e.P \land w.company\_name = "FBC")\}$$
+
+$$\{<P,C>|<P,\_,C> \in employee \land <P,"FBC", \_> \in works\}$$
+
+c:
+
+$\{e|e \in employee \land \exists w (w \in works \land w.person\_name = e.person\_name \land w.company\_name = "FBC" \land w.salary > 10000)\}$
+
+$$\{<P,S,C>|<P,S,C> \in employee \land <P,"FBC", X> \in works \land X > 10000\}$$
+
+d:
+
+$\{<e.P>| e \in employee  \land \exists w ( w \in works \land w.P = e.P \land \exists c( c \in company \land c.C = w.C \land e.city = c.city))\}$
+
+$$\{<P>| <P,\_,city> \in employee \land <P,C,\_> \in works \land <C, city > \in company\}$$
+
+e:
+
+$\{<e.P>| e \in employee \land \exists m (m \in manages \land e.P = m.P \land \exists w ( w \in employee \land w.P = m.M \land e.S = w.S \land e.city = w.city))\}$
+
+$$\{<P>|<P,S,city> \in employee \land <P,M> \in manages \land <M,S,city> \in employee\}$$
+
+f:
+$$\{<e.P>| e \in employee \land \forall w (w \in works \land e.P = w.P \Rightarrow w.C \neq "FBC")\}$$
+
+$$\{<P>|<P,\_,\_> \in employee \land (<P,C,\_> \in works \Rightarrow C \neq "FBC")\}$$
+
+g:
+$$\{<w.P>| w \in works \land \forall v (v \in works \land v.C ="SBC" \land w.S > v.S)\}$$
+
+$$\{<P>|<P,\_,S> \in works \land \forall S' ( <\_, "SBC", S'> \in works \land S > S')\}$$
+
+h:
+
+$\{<c.C>|c \in company \land \forall c' (c' \in company \land c'.C = "SBC" \land \exists c'' (c'' \in company \land c.C = c''.C \land c''.city =c'.city))\}$
+
+$$\{<C>| \forall city (<"SBC",city> \in company \land \exists C (<C,city> \in company)) \}$$
+
+\section{Relational Calculus to Relational Algebra}
+a:
+$$\pi_a(\sigma_{b=17}(R))$$
+
+b:
+$$R \bowtie S$$
+
+c:
+$$\pi_a(S \cap \pi_{a,c}(\rho_{b\rightarrow b1}(R)\theta_{b1 > b2} \; \rho_{b\rightarrow b2}(R)))$$
+\end{document}
