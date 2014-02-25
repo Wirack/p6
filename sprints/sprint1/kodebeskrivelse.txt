@@ -19,5 +19,20 @@ dk.aau.cs.giraf.pictocreator
 		RecordDialogFragment.java
 			Sørger for at lave GUI'en til microfonen, og subscribe på en masse events.
 			Ydermere laver den funktionalitet til GUI'en.
-		
+		RecordInterface
+			Interface for binding the recording thread, the activity and the decibelmeter
+				contains one function:
+				 public void decibelUpdate(double dbValue);
+				which should update the value of the decibelmeter.
+		RecordThread
+			A thread for recording audio and storing audiofile, (implements runnable for this purpose)
+			Also utilises the RecordInterface -> it gets the recording interface to have access to update the decibelmeter of the audio dialogue.
 			
+			--Der hersker tivil om deres onAccept() metode, mht. mediaRecorder reset.
+		Cam
+			CamFragment
+				Handles UI part of the cam e.g. the camera fragment :D
+			CamPreview
+				Class used for the preview of the camera
+			PhotoHandler
+				This is Vogella stuff

@@ -1,0 +1,106 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{parskip}
+\usepackage{rotating}
+\pagestyle{fancy}
+\chead{2.1.10 - sw608f14 - Daniel S. F., Lars A, Mathias W. P. \& Søren S. A.}
+
+\lstset{mathescape = true}
+\usepackage{amsthm}
+\begin{document}
+\section*{Selfstudy 2}
+\section*{Exam Exercise 1}
+\subsection*{1.}
+
+For the 2nd second, the choice is whether to fire or wait. The remainder of the optimal schedule after that is then the remaining sequence $x_3,...x_n$ with either an $l-k$ of $1$ or $3$.
+
+If the cannon was activated during the 2nd second, it would be the sum of the kills gotten in the 2nd second $min(x_2,f(2))$ and the kills gotten for the remaining $n-2$ seconds with $j=2$.
+
+If the cannon was not activated during the 2nd second, it would be the kills gotten for the remaining $n-2$ seconds with $j=0$.
+
+For the same questions if the cannon was also activated in the first second:
+
+If the cannon was activated during the 2nd second, it would be the sum of the kills gotten in the 1st second $min(x_1,f(1))$, the 2nd second with $min(x_2,f(1))$ and the kills gotten for the remaining $n-2$ seconds with $j=2$.
+
+If the cannon was not activated during the 2nd second, it would be the sum of the kills gotten in the 1st second $min(x_1,f(1))$ and for the remaining $n-2$ seconds with $j=1$.
+
+\subsection*{2.}
+A counter example is:
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+i & 1 & 2 & 3 & 4 \\ 
+\hline 
+$x_i$ & 1 & 10 & 10 & 1 \\ 
+\hline 
+$f(i)$ & 1 & 9 & 6 & 9 \\ 
+\hline 
+\end{tabular}
+
+The algorithm would only shoot at the third and fourth second, whilst the correct answer would be to shoot on the second, third and fourth second.
+
+So the algorithm would eliminate $7$ robots, whilst the correct solution would eliminate $11$ robots.
+
+\subsection*{3.}
+The problem looks like
+$$D(i,A[1...n],k) =  \begin{cases}
+min(A[i],f(i-k))   & i = n \\
+max(D(i+1,A,k), min(A[i],f(i-k)) + D(i+1,A,i)) & i < n
+\end{cases}$$
+
+Here is the algorithm, where $f(i)$ is the kill potential function and T is a table used for memoization. T is assumed initialized to \#'s and the first call will be with $D(1,A,0)$.
+\begin{lstlisting}
+D(i,A[1...n],k)
+   if T(i,k) = # 
+      if i = n
+         T(i,k) $\leftarrow$ min(A[i],f(i-k))
+      else if i < n
+         T(i,k) $\leftarrow$ max(D(i+1,A,k), min(A[i], f(i-k)) + D(i+1,A,i))
+   return T(i,k)
+\end{lstlisting}
+
+The printing function is as follows.
+\begin{lstlisting}
+Printer(T[1...n,0...n-1])
+   int i $\leftarrow$ 1
+   int k $\leftarrow$ 0
+   while i $\leq$ n and k $\leq$ n-1
+      if(T(i,k) = T(i+1,k)
+         i $\leftarrow$ i+1
+      else
+         k $\leftarrow$ i
+         print(i)
+         i $\leftarrow$ i + 1
+\end{lstlisting}
+
+\subsection*{4.}
+The worst case running time of the algorithm is $O(n^2)$, as that is the size of $T$.
+
+\section*{Exercise 2}
+\subsection*{1.}
+If we invite $P$ we cannot invite $V_1$, $V_2$ and $V_3$. This leaves us with $S_1$, $S_2$ and $S_3$, and gives a total friendliness rating of $5 + (3 + 5 + 2) = 15$.
+
+If we do not invite $P$ we can invite $V_1$, $V_2$, $V_3$, $S_1$, $S_2$, $S_3$.
+here the optimal solution is $V_1$, $S_2$, $S_3$, $V_3$ giving a total friendliness rating of $6 + (5 + 2) + 3 = 16$
+
+\subsection*{2.}
+\newpage
+
+\begin{sideways}
+\parbox{1.1\textheight}{
+$$F(n:node,x \in {0,1}) = \begin{cases}
+     n.Value  & n.leftMC = null \land n.rightS = null\\
+     n.Value + F(n.rightS,0) & n.leftMC = null \land n.rightS \neq null \land x =0\\
+     F(n.rightS,1) & n.leftMC = null \land n.rightS \neq null \land x = 1
+     \\
+     max(n.Value + F(n.leftMC,1), F(n.leftMC,0)) & n.leftMC \neq null
+\end{cases}$$}
+\end{sideways}
+\newpage
+
+\end{document}
