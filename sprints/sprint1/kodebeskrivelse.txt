@@ -29,10 +29,16 @@ dk.aau.cs.giraf.pictocreator
 			Also utilises the RecordInterface -> it gets the recording interface to have access to update the decibelmeter of the audio dialogue.
 			
 			--Der hersker tivil om deres onAccept() metode, mht. mediaRecorder reset.
-		Cam
-			CamFragment
-				Handles UI part of the cam e.g. the camera fragment :D
-			CamPreview
-				Class used for the preview of the camera
-			PhotoHandler
-				This is Vogella stuff
+	Cam
+		CamFragment
+			Handles UI part of the cam e.g. the camera fragment :D
+		CamPreview
+			Class used for the preview of the camera
+		PhotoHandler
+			This is Vogella stuff
+	canvas
+		entity
+			BitmapEntity
+				The Bitmap to be displayed, not accesible from outside, but cloned when placed.
+			FreehandEntity
+		
