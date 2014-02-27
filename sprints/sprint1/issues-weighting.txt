@@ -1,0 +1,19 @@
+Issues weighting
+-draw Freehandline color changing - 5
+- change stroke width 2
+-loading pics from cam in correct size 2
+-color swap 5
+-straight line color 3
+-change background color 8
+-auto-focus cam 5
+-clear button 3
+-collision detection for rotated objects 13
+-eraser 13
+-save canvas state 5
+-update help pics 2
+-change icon selection tool 1
+-change icon freehand drawing 1
+-microphone dialogbox 5
+-scale cam pics 5
+-mic noise 8
+-preview recording 5
