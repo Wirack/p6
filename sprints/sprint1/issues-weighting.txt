@@ -1,19 +1,25 @@
-Issues weighting
--draw Freehandline color changing - 5
-- change stroke width 2
--loading pics from cam in correct size 2
--color swap 5
--straight line color 3
--change background color 8
--auto-focus cam 5
--clear button 3
--collision detection for rotated objects 13
--eraser 13
--save canvas state 5
--update help pics 2
--change icon selection tool 1
--change icon freehand drawing 1
--microphone dialogbox 5
--scale cam pics 5
--mic noise 8
--preview recording 5
+<--- means out of sprint
+
+Issues difficulty weighting and priority   -   * means done, # means done done (report done)
+
+-draw Freehandline color changing - 5 * medium   als,dani
+-change stroke width 2 * medium              als,dani
+-loading pics from cam in correct size 2 * high lars, winde
+-color swap 5 * high als, dani
+-straight line color 3 * high  als, dani
+-change icon selection tool 1 * medium lars, winde
+-change icon freehand drawing 1 * medium lars, winde
+
+-clear button 3 medium
+-collision detection for rotated objects 13 high
+-save canvas state 5 medium
+-microphone dialogbox 5 low
+-scale cam pics 5 high
+-preview recording 5 high
+
+-eraser 13 high <---
+-change background color 8 low  <---
+-auto-focus cam 5 low   <---
+-update help pics 2 low <---
+-mic noise 8 medium  <---
+-store and load from database 5 very high <--- {database people are not done}
