@@ -1,0 +1,16 @@
+Sprint 1 
+	Introduction
+	Croc
+		-Feature
+		-structure
+		-issues
+	Implementation
+		*bugs{
+			-Desription/Analysis
+			-Fix(code)
+			-Test(potentially)
+		}
+	{To be announced title}
+		-Remaining Issues
+		-Conclusion of the sprint
+	
