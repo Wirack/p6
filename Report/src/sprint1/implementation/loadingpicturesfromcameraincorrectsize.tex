@@ -1,25 +1,16 @@
 \subsection{Loading Pictures From Camera in Correct Size}
 In order to fix this issue, as described in \secref{}\fxwarning{Mangler en ref}, it was necessary to look at the function that loads the pictures into canvas.
-Previously the function took the picture as it was and loaded it into canvas.
+Previously, the function took the picture as it was and loaded it into canvas.
 Therefore it was imported in a too large scale, which could not fit into canvas.
 The issue was fixed by implementing a new constructor when creating a picture.
-The new constructor was similar to the old constructor but with the option of including a scale factor as input.
-The old constructor can be seen in \lstref{BitmapEnity-Constructor-Old}, and the new in \lstref{BitmapEnity-Constructor-New}, which is used to change the width and height by a percentage corresponding to the size value.
+The new constructor, seen in \lstref{BitmapEnity-Constructor-New}, was similar to the old constructor but with the option of including a scale factor as input that is used to change the width and height of the picture by this factor.
 
-\begin{lstlisting}[caption={Old Constructor}, label=lst:BitmapEnity-Constructor-Old, float=h]
-public BitmapEntity(Bitmap src) {
-  internalBitmap = Bitmap.createScaledBitmap(src);
-  
-  setHeight(internalBitmap.getHeight());
-  setWidth(internalBitmap.getWidth());
-}
-\end{lstlisting}
 
-\begin{lstlisting}[caption={New Constructor}, label=lst:BitmapEnity-Constructor-New, float=h]
-public BitmapEntity(Bitmap src, int size) {
-  internalBitmap = Bitmap.createScaledBitmap(src, 
-      src.getWidth() * size / 100, 
-      src.getHeight() * size / 100, true);
+\begin{lstlisting}[caption={New Constructor for \textit{BitmapEntity}}, label=lst:BitmapEnity-Constructor-New, float=h]
+public BitmapEntity(Bitmap src,(*@ \textcolor{green}{int size}  @*)) {
+  internalBitmap = Bitmap.createScaledBitmap(src,(*@\textcolor{green}{
+      src.getWidth() * size / 100, }@*)
+      (*@\textcolor{green}{src.getHeight() * size / 100, true}@*));
   
   setHeight(internalBitmap.getHeight());
   setWidth(internalBitmap.getWidth());
