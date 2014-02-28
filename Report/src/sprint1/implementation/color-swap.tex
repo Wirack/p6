@@ -12,7 +12,7 @@ In order to correct this issue, the event for touching \textit{PreviewButton} co
 %\end{figure}
 
 In order to correct this issue, the \textit{onTouch} event was moved from \textit{PreviewButton} to \textit{DrawFragment}, since \textit{DrawFragment} had access to both \textit{DrawView} and \textit{PreviewButton}.
-\textit{DrawFragment} already was already subscribed to the other buttons, thus it was a logical change to move the touch event of \textit{PreviewButton} to \textit{DrawFragment}.
+\textit{DrawFragment} was already subscribed to the other buttons, thus it was a logical change to move the touch event of \textit{PreviewButton} to \textit{DrawFragment}.
 The event implemented in \textit{DrawFragment} can be seen in \lstref{event-previewbuttonclick}.
 
 \begin{lstlisting}[caption={onPreviewButtonClick event},label=lst:event-previewbuttonclick]
