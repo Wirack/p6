@@ -103,4 +103,10 @@ $$F(n:node,x \in {0,1}) = \begin{cases}
 \end{sideways}
 \newpage
 
+Where $x$ indicates whether node n has been chosen ($1$) or not chosen ($0$).
+
+Case 1 corresponds to a leaf node, which is a trivial case where you are the last leaf in which case you just return $n.Value$
+Case 2 is when you are a leaf but you have a sibling, so also a trivial case, but you consider your siblings, with $n$ not having been picked.
+Case 3 is same as 2 but with $n$ having been picked, thus only propagation of your rightsiblings value.
+Case 4 is where you actually make your choice on whether to pick $n$ or not.
 \end{document}
