@@ -104,9 +104,40 @@ $$F(n:node,x \in {0,1}) = \begin{cases}
 \newpage
 
 Where $x$ indicates whether node n has been chosen ($1$) or not chosen ($0$).
+\begin{itemize}
+\item Case 1 corresponds to a leaf node, which is a trivial case where you are the last leaf in which case you just return $n.Value$
+\item Case 2 is when you are a leaf but you have a sibling, so also a trivial case, but you consider your siblings, with $n$ not having been picked.
+\item Case 3 is same as 2 but with $n$ having been picked, thus only propagation of your rightsiblings value.
+\item Case 4 is where you actually make your choice on whether to pick $n$ or not.
+\end{itemize}
 
-Case 1 corresponds to a leaf node, which is a trivial case where you are the last leaf in which case you just return $n.Value$
-Case 2 is when you are a leaf but you have a sibling, so also a trivial case, but you consider your siblings, with $n$ not having been picked.
-Case 3 is same as 2 but with $n$ having been picked, thus only propagation of your rightsiblings value.
-Case 4 is where you actually make your choice on whether to pick $n$ or not.
+Here is the pseudocode for it:
+
+\begin{lstlisting}[caption=pseudocode for exercise 2 part 1]
+F(n:node, x $\in {0,1}$
+   if T(n,x) = #
+      if n.leftMC = null
+         if n.rightS = null
+            T(n,x) $\leftarrow$ n.Value
+         else if x = 0
+            T(n,x) $\leftarrow$ n.Value + F(n.rightS, 0)
+         else if x = 1
+            T(n,x) $\leftarrow$ F(n.rightS, 1)
+      else
+         T(n,x) $\leftarrow$ max(n.Value + F(n.leftMC,1), F(n.leftMC,0))
+   return T(n,x)
+\end{lstlisting}
+To print the choices is then simply a matter of recording the choice in the max part of the code.
+
+\subsection*{3.}
+The worst case running time is then $O(|V|)$.
+
+\subsection*{4.}
+The greedy algorithm would here be to simply pick the employee, skip its children in the tree and pick its grand children and so forth.
+
+The greedy choice is then  to pick the node you are at if your parent is not taken.
+The subproblem will then be the part of the tree that is the children of the node considered.
+
+\subsection*{5.}
+The running time of the greedy algorithm would also be $O(|V|)$. For exact running time, the greedy algorithm is faster, as it will visit the node once, where the dynamic algorithm will visit the node twice.
 \end{document}
