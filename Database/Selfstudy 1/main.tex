@@ -6,6 +6,8 @@
 \usepackage{amssymb}
 \usepackage{float}
 \usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{graphicx}
 \pagestyle{fancy}
 
 \begin{document}
@@ -103,10 +105,37 @@ MOVIE ID & USER ID & RATING \\
 \hline 
 \end{tabular} 
 \end{table}
-
+\newpage
 \section*{Self study 2 - miniproject part 2}
 
-\subsection*{Identify relevant data}
+\subsection*{ER Diagram}
+\begin{figure}[h]
+     \includegraphics[scale=0.4]{ERdiagram.png}
+\end{figure}
+\subsection*{Relational Schema}
+\begin{description}[style=nextline]
+     \item[Genre]
+     $\{[\underline{Type:String}]\}$
+     \item[Movie]
+     $\{[\underline{MovieID:Int},Language:String,Year:Int,Title:String]\}$
+     \item[User]
+     $\{[\underline{Username:String},Password:String]\}$
+     \item[Award]
+     $\{[\underline{Title:String, Year:Int, Type:String}, Receiver \rightarrow Person]\}$
+     \item[Person]
+     $\{[\underline{PersonID:Int},FirstName:String, LastName:String, Gender:String, BirthYear:Int, BirthDate:String, DeathYear:Int, DeathDate:String]\}$
+     \item[Participated]
+     $\{[\underline{MovieID\rightarrow Movie, PersonID \rightarrow Person, Type \rightarrow Role}]\}$
+     \item[Is]
+     $\{[\underline{Type \rightarrow Genre, MovieID \rightarrow Movie}]\}$
+     \item[Reviewed]
+     $\{[\underline{MovieID \rightarrow Movie, Username \rightarrow User}, Rating:Int, Description:String]\}$
+\end{description}
 
+\subsection*{Reflections}
+The design is different from the initial design in that the initial design was at a mere table level. Furthermore, several additional attributes have been added to accommodate the expected information requirements.
+Another change is that there was no primary and foreign keys highlighted in the original answer.
+Average rating in the initial database was intended to be a calculated attribute, but was not listed as such, contrary to the new design.
+Additionally we have decided that an award only can be given to a person, as that made the design simpler.
 
 \end{document}
