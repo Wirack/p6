@@ -16,7 +16,7 @@ Daniel S. Fridjonsson,
 Lars Andersen,
 S\o ren S. Als \&
 Mathias W. Pedersen.
-sw608f14}
+sw608f14 - Room: 2.1.10}
 
 
 \section*{Self study 1 - miniproject part 1}
@@ -114,22 +114,24 @@ MOVIE ID & USER ID & RATING \\
 \end{figure}
 \subsection*{Relational Schema}
 \begin{description}[style=nextline]
-     \item[Genre]
-     $\{[\underline{Type:String}]\}$
-     \item[Movie]
-     $\{[\underline{MovieID:Int},Language:String,Year:Int,Title:String]\}$
-     \item[User]
-     $\{[\underline{Username:String},Password:String]\}$
-     \item[Award]
-     $\{[\underline{Title:String, Year:Int, Type:String}, Receiver \rightarrow Person]\}$
-     \item[Person]
-     $\{[\underline{PersonID:Int},FirstName:String, LastName:String, Gender:String, BirthYear:Int, BirthDate:String, DeathYear:Int, DeathDate:String]\}$
-     \item[Participated]
-     $\{[\underline{MovieID\rightarrow Movie, PersonID \rightarrow Person, Type \rightarrow Role}]\}$
-     \item[Is]
-     $\{[\underline{Type \rightarrow Genre, MovieID \rightarrow Movie}]\}$
-     \item[Reviewed]
-     $\{[\underline{MovieID \rightarrow Movie, Username \rightarrow User}, Rating:Int, Description:String]\}$
+     \item[genre]
+     $\{[\underline{type:String}]\}$
+     \item[movie]
+     $\{[\underline{movieID:Int},language:String,year:Int,title:String]\}$
+     \item[user]
+     $\{[\underline{username:String},password:String]\}$
+     \item[award]
+     $\{[\underline{title:String, year:Int, type:String}, receiver \rightarrow person]\}$
+     \item[person]
+     $\{[\underline{personID:Int},firstName:String, lastName:String, gender:String, birthYear:Int, birthDate:String, deathYear:Int, deathDate:String]\}$
+     \item[participated]
+     $\{[\underline{movieID\rightarrow movie, personID \rightarrow person, type \rightarrow role}]\}$
+     \item[is]
+     $\{[\underline{type \rightarrow genre, movieID \rightarrow movie}]\}$
+     \item[reviewed]
+     $\{[\underline{movieID \rightarrow movie, username \rightarrow user}, rating:Int, description:String]\}$
+     \item[referenceTo]
+     $\{[\underline{from \rightarrow movie, to \rightarrow movie}]\}$
 \end{description}
 
 \subsection*{Reflections}
@@ -137,5 +139,5 @@ The design is different from the initial design in that the initial design was a
 Another change is that there was no primary and foreign keys highlighted in the original answer.
 Average rating in the initial database was intended to be a calculated attribute, but was not listed as such, contrary to the new design.
 Additionally we have decided that an award only can be given to a person, as that made the design simpler.
-
+Finally we added the $referenceTo$ relation, as that was a requirement we missed in the first selfstudy.
 \end{document}
