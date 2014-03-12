@@ -1,0 +1,18 @@
+\subsection{Clear Button}
+Before adding the clear button, to clear the canvas you had to either clear each entity individually or to restart the program. 
+As this was highly undesired, we decided a clear button was necessary.
+The button can be seen in \figref{fig:clear-button}. We decide the icon of a trash can to be the most fitting, as it is our understanding that most people associate the trash can icon with throwing something away.
+
+\begin{figure}[h]
+     \centering
+     \includegraphics[scale=0.5]{clear-button}
+     \caption{Clear button.}
+     \label{fig:clear-button}
+\end{figure}
+
+In order to clear the canvas it is a matter of clearing the \textit{drawStack}, deselecting selected entities and redrawing the canvas through the \textit{Invalidate()} method, which is performed when the clearing action is accepted.
+
+An unintentional click of the clear button would be of great nuisance to ones work. 
+Thus, a dialogue box is added, requesting final confirmation for the clear operation.
+
+
