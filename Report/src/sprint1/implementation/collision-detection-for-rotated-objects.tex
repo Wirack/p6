@@ -1,0 +1,29 @@
+\subsection{Collision Detection for Rotated Objects}
+The user should be able to select the object by clicking inside of the hitbox, even when the object is rotated.
+This gave an issue when rotating an object the hitbox did not follow and to click on the object you had to click inside the misplaced hitbox.
+
+The reason for this was that when the object was created the hitbox was set but never changed after rotating the object.
+Therefore, a change was made to the hitbox property such that the top left corner of the hitbox was set to the minimum x and y value of an objects coordinates.
+
+
+\begin{lstlisting}
+protected void changeHitbox(){
+	FloatPoint one = rotationMatrix( -(getWidth()/2), -(getHeight()/2));
+	FloatPoint two = rotationMatrix((getWidth()/2), -(getHeight()/2));
+	FloatPoint three = rotationMatrix((getWidth()/2), (getHeight()/2));
+	FloatPoint four = rotationMatrix( -(getWidth()/2), (getHeight()/2));
+	
+	hitboxTopLeft = new FloatPoint(findMin(one.x, two.x, three.x, four.x),
+	                               findMin(one.y, two.y, three.y, four.y));
+	hitboxWidth = (getCenter().x - hitboxTopLeft.x)*2;
+	hitboxHeigth = (getCenter().y - hitboxTopLeft.y)*2;
+}
+\end{lstlisting}
+
+
+
+%movehitboxwithline
+%collisiondetectionforline
+%collisiondetectionforrotatedrectangles
+%rotateline
+%collisiondetectionforrotatedellipses
