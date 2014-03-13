@@ -1,7 +1,7 @@
 \subsection{Draw Freehand Line Colour}
-\fxnote{husk at lave noget meta til at lede over til denne bug}
-An unexpected bug occurred when using the preview button to swap colours after drawing a freehand line. 
-By using the button it resulting in swapping the colour of the latest drawn freehand line. 
+Before the colour swap functionality was implemented, it was not possible to change the colour of the freehand line.
+However, with that feature implemented a bug occurred when using the preview button to swap colours after drawing a freehand line. 
+By using the button it resulted in swapping the colour of the latest drawn freehand line. 
 The bug happened since the latest drawn object was not released after being drawn.
 It was not released for the freehand line, since the freehand entity overrode that functionality from the superclass, and as of such it had to be added.
 

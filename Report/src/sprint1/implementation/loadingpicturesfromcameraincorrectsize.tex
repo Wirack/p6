@@ -1,9 +1,10 @@
 \subsection{Loading Pictures From Camera in Correct Size}
-In order to fix this issue, as described in \secref{}\fxwarning{Mangler en ref}, it was necessary to look at the function that loads the pictures into canvas.
+When loading pictures from the camera, it was not loaded in an appropriate size, making the image have a size multiple times larger than the canvas.
+In order to fix this issue, it was necessary to look at the function that loads the pictures into canvas.
 Previously, the function took the picture as it was and loaded it into canvas.
 Therefore it was imported in a too large scale, which could not fit into canvas.
 The issue was fixed by implementing a new constructor when creating a picture.
-The new constructor, seen in \lstref{BitmapEnity-Constructor-New}, was similar to the old constructor but with the option of including a scale factor as input that is used to change the width and height of the picture by this factor.
+The new constructor, seen in \lstref{lst:BitmapEnity-Constructor-New}, was similar to the old constructor but with the option of including a scale factor as input that is used to change the width and height of the picture by this factor.
 
 
 \begin{lstlisting}[caption={New Constructor for \textit{BitmapEntity}}, label=lst:BitmapEnity-Constructor-New, float=h]
