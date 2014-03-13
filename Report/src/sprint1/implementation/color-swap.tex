@@ -5,15 +5,16 @@ As seen in \figref{fig:clsdiagramsnippet}, two connections are found between \te
 \textit{ColorButton} is used when picking a new colour, and assigns this new colour to \textit{PreviewButton}.
 However, when pressing the \textit{PreviewButton}, no connection existed.
 In order to correct this issue, the event for touching \textit{PreviewButton} could be accessed from \textit{DrawFragment} and was already implemented for the other buttons. 
-\fxwarning{Har fjernet denne figur da den giver problemer}
-%\begin{figure}
-%     \includegraphics[scale=0.5]{media/classdiagram-swapcolour-issue.gif}
-%     \caption{Snippet of class diagram.}\label{fig:clsdiagramsnippet}
-%\end{figure}
+
+\begin{figure}
+     \includegraphics[scale=0.5]{classdiagram-swapcolour-issue}
+     \caption{Snippet of class diagram.}
+     \label{fig:clsdiagramsnippet}
+\end{figure}
 
 In order to correct this issue, the \textit{onTouch} event was moved from \textit{PreviewButton} to \textit{DrawFragment}, since \textit{DrawFragment} had access to both \textit{DrawView} and \textit{PreviewButton}.
 \textit{DrawFragment} was already subscribed to the other buttons, thus it was a logical change to move the touch event of \textit{PreviewButton} to \textit{DrawFragment}.
-The event implemented in \textit{DrawFragment} can be seen in \lstref{event-previewbuttonclick}.
+The event implemented in \textit{DrawFragment} can be seen in \lstref{lst:event-previewbuttonclick}.
 
 \begin{lstlisting}[caption={onPreviewButtonClick event},label=lst:event-previewbuttonclick]
 private final OnClickListener onPreviewButtonClick = new OnClickListener() {
