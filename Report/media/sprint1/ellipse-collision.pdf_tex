@@ -36,7 +36,7 @@
   }%
   \providecommand\rotatebox[2]{#2}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{63.97907251bp}%
+    \setlength{\unitlength}{63.9390614bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -48,7 +48,7 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.62620789)%
+  \begin{picture}(1,0.62659975)%
     \put(0,0){\includegraphics[width=\unitlength]{ellipse-collision.pdf}}%
   \end{picture}%
 \endgroup%

@@ -14,7 +14,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="New document 1">
+   sodipodi:docname="ellipse-collision.pdf">
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -106,14 +106,14 @@
        sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"
        id="path3755"
-       d="m 11.89829,1002.6363 c 40.356564,-0.1621 38.735819,0 38.735819,0"
-       style="fill:none;stroke:#00bb00;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow1Mstartt)" />
+       d="m 11.00688,1002.6483 c 41.285055,-0.2162 39.627021,0 39.627021,0"
+       style="fill:none;stroke:#00bb00;stroke-width:0.99999994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none" />
     <path
        sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"
        id="path3757"
-       d="m 49.75,979.33372 0,22.52848"
-       style="fill:none;stroke:#d30000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow1Mstart4)" />
+       d="m 49.750001,978.32423 0,23.51607"
+       style="fill:none;stroke:#d30000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none" />
     <path
        sodipodi:type="arc"
        style="fill:#000000;fill-opacity:1;stroke:none"
@@ -122,7 +122,7 @@
        sodipodi:cy="56.077797"
        sodipodi:rx="1.1345218"
        sodipodi:ry="1.1345218"
-       d="m 31.928686,56.077797 a 1.1345218,1.1345218 0 1 1 -2.269043,0 1.1345218,1.1345218 0 1 1 2.269043,0 z"
+       d="m 31.928686,56.077797 c 0,0.626579 -0.507942,1.134522 -1.134521,1.134522 -0.626579,0 -1.134522,-0.507943 -1.134522,-1.134522 0,-0.626579 0.507943,-1.134522 1.134522,-1.134522 0.626579,0 1.134521,0.507943 1.134521,1.134522 z"
        transform="matrix(2.2035715,0,0,2.2035715,-17.857144,878.79073)" />
     <path
        sodipodi:type="arc"
@@ -132,7 +132,7 @@
        sodipodi:cy="56.077797"
        sodipodi:rx="1.1345218"
        sodipodi:ry="1.1345218"
-       d="m 31.928686,56.077797 a 1.1345218,1.1345218 0 1 1 -2.269043,0 1.1345218,1.1345218 0 1 1 2.269043,0 z"
+       d="m 31.928686,56.077797 c 0,0.626579 -0.507942,1.134522 -1.134521,1.134522 -0.626579,0 -1.134522,-0.507943 -1.134522,-1.134522 0,-0.626579 0.507943,-1.134522 1.134522,-1.134522 0.626579,0 1.134521,0.507943 1.134521,1.134522 z"
        transform="matrix(1.3221429,0,0,1.3221429,24.250058,940.80763)" />
     <g
        style="font-size:6.80398655px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
