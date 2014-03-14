@@ -75,6 +75,37 @@ The formula is changed to avoid divide by zero errors, and is therefore changed 
 \end{equation} 
 
 \subsubsection{Precise Collision Detection for Rotated Ellipses}
+To get a precise collision detection for rotated ellipses, we used the standard form equation of an ellipse with the clicked point as input to check whether it is inside of the circle.
+If the clicked point is inside of the ellipse, the standard form equation of an ellipse will be smaller than or equal to 1 as seen in \eqref{eq:standard-equation}.
+
+\begin{equation}\label{eq:standard-equation}
+	\frac{P_x^2}{a^2} + \frac{P_y^2}{b^2} \leq 1
+\end{equation}
+
+To use \eqref{eq:standard-equation}, we first have to accommodate for the rotation of the ellipse.
+If the ellipse is rotated, we rotate the clicked point around the centre of the ellipse and compare it with an unrotated version of the ellipse.
+The rotation of the clicked point is done by use of the rotation matrix, as seen in \eqref{eq:ellipses-rotation-matrix}.
+
+\begin{equation}\label{eq:ellipses-rotation-matrix}
+\begin{aligned}
+	P'_x &= P''_x * cos(\alpha) - P''_y * sin(\alpha)\\
+	P'_y &= P''_x * sin(\alpha) - P''_y * cos(\alpha)
+\end{aligned}
+\end{equation}
+
+The variable $P''$ is the vector from the centre of the ellipse to the clicked point, 
+
+
+\begin{equation}\label{eq:final-ellipses-equation}
+\begin{aligned}
+	\frac{P_x^2}{a^2} &+ \frac{P_y^2}{b^2} \leq 1	\\
+	&\Downarrow\\
+	\frac{ P''_x * cos(\alpha) - P''_y * sin(\alpha)}{a^2} &+ \frac{P''_x * sin(\alpha) - P''_y * cos(\alpha)}{b^2} \leq 1\\
+\end{aligned}
+\end{equation}
+\begin{equation}		
+	\frac{ (P_x - C_x) * cos(\alpha) - (P_y - C_y) * sin(\alpha)}{a^2} + \frac{(P_x - C_x) * sin(\alpha) - (P_y - C_y) * cos(\alpha)}{b^2} \leq 1
+\end{equation}
 
 
 \subsubsection{Precise Collision Detection for Rotated Lines}
