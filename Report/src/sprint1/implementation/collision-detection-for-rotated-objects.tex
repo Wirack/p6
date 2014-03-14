@@ -1,9 +1,10 @@
 \subsection{Collision Detection for Rotated Objects}
 The user should be able to select the object by clicking inside of the hitbox, even when the object is rotated.
-This gave an issue when rotating an object the hitbox did not follow and to click on the object you had to click inside the misplaced hitbox.
+This gave an issue, as when rotating an object the hitbox did not follow and to click on the object you had to click inside the misplaced hitbox. 
+Originally before we changed the hitbox, when rotating an object, the hitbox would move out of the canvas, and thus not targetable. As the previous implementation was out of the question, its code was scrapped and the hitbox location remained stationary.
 
 The reason for this was that when the object was created the hitbox was set but never changed after rotating the object.
-Therefore, a change was made to the hitbox property such that the top left corner of the hitbox was set to the minimum x and y value of an objects coordinates.
+Therefore, a change was made to the hitbox property such that the top left corner of the hitbox was set to the minimum x and y value of an object's coordinates.
 
 To find the new points of the rotated object we used the rotation matrix to rotate the current corners of the object.
 As seen in \lstref{lst:changeHitbox} the minimum x and y values of these corners are then found, and used to find the top left corner of the hitbox.
@@ -50,7 +51,7 @@ protected void changeHitbox(){
 
 A new issue that emerged was that the collision detection for the object was now larger than the object.
 When an object was behind a rotated object, and the user clicked the in the top left corner of the hitbox, the rotated object would be selected instead of the object behind.
-To resolve this issue, an implementation was done to give a precise collision detection on the object, which will be described below.
+To resolve this issue, an implementation was done to give a precise collision detection on the object, which is described below.
 
 \subsubsection{Precise Collision Detection for Rotated Rectangles}
 To understand the mathematics behind the precise collision detection for rotated rectangles, an illustration of the problem can be seen in \figref{figure:rectangle-collision}.
@@ -70,9 +71,11 @@ The formula to determine a right rotation is:
 \end{equation}
 
 The formula is changed to avoid divide by zero errors, and is therefore changed to the following equation:
-\begin{equation}
+\begin{equation}\label{eq:crossPRectangle}
 	(B_x-A_x)*(P_y-B_y) \geq (P_x-B_x)*(B_y-A_y)
 \end{equation} 
+
+\eqref{eq:crossPRectangle} is then used with all four vectors of neighbouring corners of the rectangle to determine whether a point is inside the rectangle or not.
 
 \subsubsection{Precise Collision Detection for Rotated Ellipses}
 
@@ -80,9 +83,9 @@ The formula is changed to avoid divide by zero errors, and is therefore changed 
 \subsubsection{Precise Collision Detection for Rotated Lines}
 The last collision issue was a precise implementation to click on a line.
 We discussed how to click on a line and agreed that the click is allowed to be slightly off the line, since it otherwise was hard to click on.
-An idea was to calculate the distance from a point to the line and add a "jitter" range which determined the range of how close the point had to be to the line.
+An idea was to calculate the distance from a point to the line and add a click range in order to determine if the click was meant to target the line.
 
-To find this distance we used the formula for finding the area of a triangle, since the three points, clicked point, start point and end point of the line, formed a triangle.
+To find this distance we used the formula for finding the area of a triangle, since the three points, clicked point, start point, and end point of the line, formed a triangle.
 The distance is determined by the height of the triangle, from the base to the clicked point as seen in \figref{figure:line-collision}.
 \begin{figure}[h]
 	\centering
@@ -101,8 +104,8 @@ There are two formulas for finding the area of a triangle, as seen in \eqref{eq:
 	A =  \frac{1}{2}*|\vec{a} \times \vec{b}|
 \end{equation}
 
-We can combined these two formulas since we are not interested in the area but the height $h$.
-Once combined, we can isolate the height $h$ and find a final equation for the height, as seen in \eqref{eq:isolated-h}.
+We combine these two formulas since we are not interested in the area but the height $h$.
+Once combined, we isolate the height $h$ and find a final equation for the height, as seen in \eqref{eq:isolated-h}.
 \begin{equation}\label{eq:isolated-h}
 \begin{aligned}
 	\frac{1}{2}*h*b &=  \frac{1}{2}*|\vec{a} \times \vec{b}|\\
@@ -133,7 +136,7 @@ As can be seen in \eqref{eq:cross-product}, the vector $\vec{a}$ is equal to the
 \end{equation}
 
 From \eqref{eq:cross-product}, we can see how the cross product of the two vectors is determined, given the three coordinates.
-We can now replace that with the cross product in \eqref{eq:isolate-h}, and add the equation for finding the length of the vector $\vec{b}$ in the denominator, as seen in \eqref{eq:final-line-formula}.
+We can now replace that with the cross product in \eqref{eq:isolated-h}, and add the equation for finding the length of the vector $\vec{b}$ in the denominator, as seen in \eqref{eq:final-line-formula}.
 By expanding the brackets in the numerator, we get a final equation for finding the distance from a point to a line that goes through two points.
 
 \begin{equation}\label{eq:final-line-formula}
@@ -144,13 +147,5 @@ By expanding the brackets in the numerator, we get a final equation for finding 
 \end{aligned}
 \end{equation}
 
-Since the equation finds the distance from the clicked point and a line that goes through two known points, we have to limit the line so it does not go passed the two points.
+Since the equation finds the distance from the clicked point and a line that goes through two known points, we have to limit the line so it does not pass the two points.
 To do this limitation, we use the hitbox of the line so that the click also has to be inside of the hitbox.
-
-
-
-
-
-
-
-
