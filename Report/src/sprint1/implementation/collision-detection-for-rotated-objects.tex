@@ -78,7 +78,12 @@ The formula is changed to avoid divide by zero errors, and is therefore changed 
 
 
 \subsubsection{Precise Collision Detection for Rotated Lines}
+The last collision issue was a precise implementation to click on a line.
+We discussed how to click on a line and agreed that the click is allowed to be slightly off the line, since it otherwise was hard to click on.
+An idea was to calculate the distance from a point to the line and add a "jitter" range which determined the range of how close the point had to be to the line.
 
+To find this distance we used the formula for finding the area of a triangle, since the three points, clicked point, start point and end point of the line, formed a triangle.
+The distance is determined by the height of the triangle, from the base to the clicked point as seen in \figref{figure:line-collision}.
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=2]{sprint1/line-collision}
@@ -86,27 +91,35 @@ The formula is changed to avoid divide by zero errors, and is therefore changed 
 	\label{figure:line-collision}
 \end{figure}
 
-\begin{equation}
-	A = \frac{1}{2}*h*G
+There are two formulas for finding the area of a triangle, as seen in \eqref{eq:area1} and \eqref{eq:area2}.
+
+\begin{equation}\label{eq:area1}
+	A = \frac{1}{2}*h*b
 \end{equation}
 
-\begin{equation}
+\begin{equation}\label{eq:area2}
 	A =  \frac{1}{2}*|\vec{a} \times \vec{b}|
 \end{equation}
 
-\begin{equation}
+We can combined these two formulas since we are not interested in the area but the height $h$.
+Once combined, we can isolate the height $h$ and find a final equation for the height, as seen in \eqref{eq:isolated-h}.
+\begin{equation}\label{eq:isolated-h}
 \begin{aligned}
-	\frac{1}{2}*h*G &=  \frac{1}{2}*|\vec{a} \times \vec{b}|\\
+	\frac{1}{2}*h*b &=  \frac{1}{2}*|\vec{a} \times \vec{b}|\\
 	& \Downarrow \\
-	h &=  \frac{|\vec{a} \times \vec{b}|}{G}
+	h &=  \frac{|\vec{a} \times \vec{b}|}{b}
 \end{aligned}
 \end{equation}
 
+Another note to mention, is that the length of the vector $\vec{b}$ is the same as the base $b$.
+
 \begin{equation*}
-	|\vec{b}| = G
+	|\vec{b}| = b
 \end{equation*}
 
-\begin{equation}
+Since \eqref{eq:isolated-h} is based on given vectors and lengths, and the variables given in the program are coordinates, we have to change the formula to calculate the vectors and lengths from the coordinates.
+As can be seen in \eqref{eq:cross-product}, the vector $\vec{a}$ is equal to the difference in the clicked point $P$ and the start point $A$.
+\begin{equation}\label{eq:cross-product}
 	|\vec{a} \times \vec{b}| = 
 	\begin{bmatrix}
 		P_x-A_x \\
@@ -119,13 +132,21 @@ The formula is changed to avoid divide by zero errors, and is therefore changed 
 	\end{bmatrix}
 \end{equation}
 
-\begin{equation}
+From \eqref{eq:cross-product}, we can see how the cross product of the two vectors is determined, given the three coordinates.
+We can now replace that with the cross product in \eqref{eq:isolate-h}, and add the equation for finding the length of the vector $\vec{b}$ in the denominator, as seen in \eqref{eq:final-line-formula}.
+By expanding the brackets in the numerator, we get a final equation for finding the distance from a point to a line that goes through two points.
+
+\begin{equation}\label{eq:final-line-formula}
 \begin{aligned}
 	h &= \frac{|\vec{a} \times \vec{b}|}{|\vec{b}|}\\
 	  &= \frac{|(P_x-A_x)(B_y-A_y)-(P_y-A-y)(B_x-A_x)|}{\sqrt{b_x^2+b_y^2}}\\
 	  &= \frac{|P_xB_y-P_xA_y-A_xB_y-P_yB_x+P_yA_x+A_yB_x|}{\sqrt{b_x^2+b_y^2}}
 \end{aligned}
 \end{equation}
+
+Since the equation finds the distance from the clicked point and a line that goes through two known points, we have to limit the line so it does not go passed the two points.
+To do this limitation, we use the hitbox of the line so that the click also has to be inside of the hitbox.
+
 
 
 
