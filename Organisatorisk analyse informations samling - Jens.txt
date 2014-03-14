@@ -1,0 +1,139 @@
+1. Mission
+    - How clear is it?
+        Autism-friendly software for android tablets
+        Secondary goal is to develop working software over high quality software.
+        
+    - Is it understood by staff and board?
+        yes, but some groups work on IOS
+        
+    - To what extent are decisions based on it?
+        To the biggest extend possible, we hope...
+        
+    - How often is it referred to in meetings and in written material?
+        we have not counted
+
+2. Program
+    All groups should work in scrum
+    
+    - What do you do, how do you do it, who does it, and who do you do it for?
+        We are creating a timer for children with autism to understand time, it is a part of the android software.
+        We use android studio with the java programming language.
+        4 persons, our group, works on the timer. 
+            12 groups of 3-4 work are developing the android software. 
+            Two groups are making requirements analysis, they will develop later. 
+            Two groups are creating IOS software for autistic children.  
+        The software is in development for "Aalborg kumune" as the custemor
+        
+    - How do you select programming?
+        The programming language and development tool is an obvies choise since java is needed for android and android studio is a "nice" IDE
+        We work with the scrum development method which means that the custemor choose which functionallity we develop.
+        
+    - How do you evaluate your programs?
+        In our group code is reviewed when it is ready.
+        In the end of each sprint a meeting is conducted with the customer for feedback on the current development cycle
+        
+    - How do the programs serve the mission of the organizations?
+        Everything works towards the goal of creating a software package for android which assist children with autism in communication, learing, planning and play.
+    
+    - How do you perceive and measure the level of quality? 
+        We are developing software on a already existant codebase. Currently it seems like the groups are engaged however many complain of pure code quality on the currently existing codebase
+        The best mesure of quality currently is the meetings with the custemor at the end of the sprint.
+        We use a build tool called Jenkins to make automated builds of the whole codebase everyday
+        We use a tool called redmine to track the project and the work beeing preformed in the different groups
+        We use git to ??
+        
+3. Board
+
+    - How large is the board?
+        We don't have a board but a scrum of scrum status group.
+        The scrum group consists of a representative from each group, a secretary and a scrum of scrum master. 18 people in total
+        
+    - How clear are the roles of board members?
+        The roles is very clear.
+        Each representative is to explain the status of his group, what they have done since last meeting and what problems they have.
+        Each representative have a vote and voice for his group concerning problems for the entire projects.
+        The secretaries job is to take notes from the meeting and compile them into a summery of the meeting and destribute it by mail afterwards.
+        The scrum of scrum masters role is to conduct the meetings and the logistic around this such as booking rooms, creating agenda and more.
+        
+    - Is there a plan for succession and leadership?
+        Yes and no, since its a bachelor projects our reports will be written such that it works as an introduction to our part of the code base for the next year bachelors.
+        However it is up to the next year students to create their own management structure.
+        
+    - How are members recruited and oriented?
+        The members of the status group is selected by their own group to represent them
+        
+    
+4. Personnel
+
+    - Organization chart?
+        Done on paper, we have a very flat organization
+        
+    - Written job descriptions, personnel policies, wage & benefit plan?
+        A "written job descriptions" does not exist. However since we all are bachelor student and want to get our bachelor degree the study regulation can is opur job description.
+    
+    - Is there a formal performance review process?
+        No, only the exam, which does not secure quality of content only quality of knowleagde.
+
+5. External Environment
+
+    - Who are your peers and competitors?
+        Peers consists of the cosutmer at the sprint end, the internal members of a group when reviewing code and the company MYMO who develops learning games.
+        Competitors...  Pictoselector.eu which is a free pictogram database, some groups are trying to contact the creator for a collaboration.
+        We dont really have any big competitors, since this is a big software package with multiple functionallity, while other products only offer a single of the many functionallities.
+    
+    - What are the economic and social conditions of the community?
+        The developers are students at their bechelor projects.
+        The software will be free and open source.
+        The cost of the projects is for group rooms at the univeristy, the cordinator of the semester and the supervisor of the groups, which is all paied by the university.
+    
+    - What is likely to change?
+        Not likely at all, unless next years student choose to work with a traditional development method 
+
+    - How well does your organization collaborate or otherwise work with other organizations in the community?
+        We currently have 6 costumers who is all working with autictic children. 
+        We have 1 "peer/learning partner" who develops learning games for tablets and phones.
+        Beside that we have no collaborations with other organizations in the community
+
+    - Is your organization part of another organization, such as a university? If so, what issues involving the larger entity may have impact on your organization? 
+        The organization is part of Aalborg University. 
+        Bad economy may have an influence on the hardware we can work with.   
+        We are more or less restricted to the android platform.
+    
+6. Marketing
+    
+    - What mechanisms exist to understand your audience?
+        The costumers are experts on autictic children.
+        We work together with them for the requirements of the product.
+        They also provide us with the knowlegde we need to have an understanding of the cognitive abilities of the autictic children. 
+        
+    - What role does audience play in the organization’s positioning?
+        They play no role at all, only as customers and expert consulents
+
+    - What is the makeup and demographics of the audience?
+        Autictic children which is around 1% of all children, their parents, their teachers and their pedagogue. 
+        It is a small part of the overall population.
+    
+    - Is that the audience you want? 
+        Yes
+
+9. Facility
+
+    - Condition?
+        Aalborg University cassiopia
+
+    - Maintenance plan?
+        Maintenaced by Aalborg university not the "organization" developing this product
+
+    - Renovations or expansions planned?
+        Next years bachelor students will continue the project
+
+    - Is the space satisfactory for the nature of the work produced or exhibited?
+        Yes, everybode have a chair and a desk space, each group have at least one board and there are bigger rooms available for meetings
+
+    - Does the facility adequately serve the needs of the audience? 
+        We hope, the developers beeing students may have an effect on the quality of the product.
+    
+    
+Lignene projekt
+Point2Speak by Christian Jakobsen    
+https://itunes.apple.com/dk/app/point2speak/id664577321?mt=8
