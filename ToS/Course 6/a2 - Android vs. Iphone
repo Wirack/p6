@@ -1,0 +1,20 @@
+ANDROID vs. IPHONE T-Test Commute Time
+
+Group 1 has 20 samples
+Mean of Group 1 is 21.650000
+Variance of Group 1 is 433.923684
+Standard Deviation of Group 1 is 20.830835
+
+Group 2 has 37 samples
+Mean of Group 2 is 23.243243
+Variance of Group 2 is 337.355856
+Standard Deviation of Group 2 is 18.367250
+
+Overall standard deviation is 19.253978
+
+t value is -0.287018
+Degree of freedom is 35.05720910790932
+p value is 0.775788
+Result is not significant for 5% level
+
+The 95% confidence interval is from -12.440897 to 9.254411
