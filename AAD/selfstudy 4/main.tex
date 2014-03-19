@@ -1,0 +1,42 @@
+
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{parskip}
+\usepackage{rotating}
+\pagestyle{fancy}
+\chead{2.1.10 - sw608f14 - Daniel S. F., Lars A, Mathias W. P. \& Søren S. A.}
+
+\lstset{mathescape = true}
+\usepackage{amsthm}
+\begin{document}
+\section*{Selfstudy 4}
+\section*{17-2}
+Was answered in last self-study.
+
+\section*{33-1}
+\subsection*{a.}
+We can use Jarvis's march until Q is empty.  Its cost is $O(n*h)$, so if we run it several times for j layers such that all points have been wrapped in a layer the cost will be $O(n*h_1 + n*h_2 .... n*h_j$. And we have $\sum\limits_{i=0}^j{h_i} = n$. So the worst case running time will be $O(n^2)$
+
+\subsection*{b.}
+Proof by contradiction.
+First we see how we could use a convex layers algorithm to sort real numbers.
+We could make the n real numbers into points where their x coordinate is their real number value and the y coordinate is 0.
+This would result in the real numbers being chained and could be outputted in the correct order in $n$ time after being chained.
+so if we had an algorithm for the convex layers problem that could run faster than $n*lg(n)$ we would  be able to sort faster than $n*lg(n)$ which is impossible.
+
+\section*{33-2}
+\subsection*{a.}
+We observe that $y_i$ is the maximal $y$ value for the $i$'th layer, as if it was not the maximal $y$ value, it would be dominated by the other points in the layer, as they already have a higher x value.
+We then take a look at $y_i$ and $y_{i+1}$ we already know that $y_i \geq y_{i+1}$ but it cannot be equal, because then the point the $y_{i+1}$ value is connected to would be in the $i$'th layer. So we have that $y_{i} > y_{i+1}$.
+And thus $y_1 > y_2 > ... > y_k$
+
+\subsection*{b.}
+
+
+\end{document}

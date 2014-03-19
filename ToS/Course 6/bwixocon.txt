@@ -1,0 +1,9 @@
+Effective sample size is 61
+Sum of positive difference rank is 1378
+Sum of negative difference rank is 513
+W statistic is 513
+
+
+z-score is -3.106550
+p-value is 0.001893
+Reject Null Hypothesis as p-value is less than 0.05 - result is significant
