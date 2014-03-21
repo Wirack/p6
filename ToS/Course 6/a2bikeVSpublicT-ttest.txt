@@ -1,0 +1,18 @@
+Group 1 has 28 samples
+Mean of Group 1 is 16.285714
+Variance of Group 1 is 83.396825
+Standard Deviation of Group 1 is 9.132186
+
+Group 2 has 18 samples
+Mean of Group 2 is 36.500000
+Variance of Group 2 is 637.558824
+Standard Deviation of Group 2 is 25.249927
+
+Overall standard deviation is 17.248329
+
+t value is -3.879249
+Degree of freedom is 44
+p value is 0.000346
+Result is significant for 5% level
+
+The 95% confidence interval is from -30.716115 to -9.712456
