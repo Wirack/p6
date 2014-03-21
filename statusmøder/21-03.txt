@@ -1,0 +1,36 @@
+Status
+	We need to reference the list of issues.
+	It is confused that it is seperated into sprint chapter
+	Check if it is 60 pages in total, or if it is 60 normal pages
+	We might have to make some design changes, but not sure that we have to change that much in the design
+	The exam is about the report, therefore make sure that the report is also the focus.
+	Write down the efforts in the report.
+	Maybe describe the issue before solving it, and when solved, write what was done, and then how it was done
+	Ask the coordinater at the status meeting to refactor the 
+
+	
+	
+Organizational context
+	Is the hole picture of the 60 people, so I think it is how the groups work in this context.
+	Maybe the coorperation
+	We think it is about the hole scrum, and how features is choosen. How this part of the project works in the hole project.
+	
+	
+Current structure of the report
+	
+	
+Report feedback
+	Your structure is clear
+	Write about refactoring
+	Not sure that it is impossible to write the report the way I wanted.
+	
+	Use the appendix as a usecases?
+	
+	
+	
+Demonstation of PictoCreator
+	
+	
+AOB
+	Send him the project guidelines.
+	
