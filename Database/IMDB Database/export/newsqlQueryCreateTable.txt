@@ -1,0 +1,88 @@
+CREATE TABLE genre
+(
+     type varchar(15) PRIMARY KEY
+);
+
+CREATE TABLE role
+(
+     type varchar(15) PRIMARY KEY
+);
+
+
+CREATE SEQUENCE serialmovie START 1;
+
+CREATE TABLE movie
+(
+     movieID integer PRIMARY KEY DEFAULT nextval('serialmovie'),
+     language varchar(50) DEFAULT 'English',
+     year integer NOT NULL,
+     title varchar(500) NOT NULL
+);
+
+CREATE TABLE users
+(
+     username varchar(20) PRIMARY KEY,
+     password varchar(50) NOT NULL
+);
+
+CREATE SEQUENCE serialperson START 1;
+
+CREATE TABLE person
+(
+     personID integer PRIMARY KEY DEFAULT nextval('serialperson'),
+     name varchar(500) NOT NULL,
+     gender varchar(6),
+     birthDate varchar(20),
+     deathDate varchar(20)
+);
+
+CREATE TABLE award
+(
+     title varchar(30),
+     year integer,
+     type varchar(15),
+     receiver integer NOT NULL,
+     PRIMARY KEY(title,year,type),
+     FOREIGN KEY(receiver) REFERENCES person(personID)
+);
+
+
+CREATE TABLE involved
+(
+     movieID integer,
+     personID integer,
+     type varchar(15),
+     PRIMARY KEY(movieID, personID, type),
+     FOREIGN KEY(movieID) REFERENCES movie(movieID),
+     FOREIGN KEY(personID) REFERENCES person(personID),
+     FOREIGN KEY(type) REFERENCES role(type)
+);
+
+CREATE TABLE isA
+(
+     type varchar(15),
+     movieID integer,
+     PRIMARY KEY(type,movieID),
+     FOREIGN KEY(type) REFERENCES genre(type),
+     FOREIGN KEY(movieID) REFERENCES movie(movieID)
+);
+
+CREATE TABLE reviewed
+(
+     movieID integer,
+     username varchar(20),
+     rating integer NOT NULL,
+     description text,
+     PRIMARY KEY(movieID, username),
+     FOREIGN KEY(movieID) REFERENCES movie(movieID),
+     FOREIGN KEY(username) REFERENCES users(username)
+);
+
+CREATE TABLE referenceTo
+(
+     froma integer,
+     toa integer,
+     PRIMARY KEY(froma, toa),
+     FOREIGN KEY(froma) REFERENCES movie(movieID),
+     FOREIGN KEY(toa) REFERENCES movie(movieID)
+);
