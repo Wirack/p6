@@ -1,0 +1,92 @@
+export and imports to do
+genre(check)
+role(check)
+movie(check)
+user(check - men kun dem der har rated noget, og de har alle koden '1234')
+award   <--- ligger ikke i imdb database
+person(check)
+involved(check)
+isa (check)
+reviewed (check)
+referenceTO(check)
+
+needed modifications to our schema:
+remove birthyear and deathyear.
+make birthdate and deathdate 20 in size (person)
+make name 500 in size (there was some really long titles)(person)
+language length blev 50 a BRAZILIAN SIGN LANGUAGE var der.
+title for movie også for kort, så gav den 500.
+
+as there was no password stored for any given user, i just gave each user the password '1234'
+commands in order: rækkefølge går, export til csv og import denne csv fil til db
+måtte undlade at adde description, da den ikke var med i imdb, (er stadig i schema dog)
+
+genre:
+psql -d selftsudy5IMDB -U postgres -t -A -F"," -c "SELECT DISTINCT genre as type FROM genre" > genre.csv
+alternativ(som bruges)
+psql -d selftsudy5IMDB -U postgres -c "\COPY (SELECT DISTINCT genre.genre as type FROM genre) To 'C:\Users\Søren Als\Documents\p6\Database\IMDB Database\export\genre.csv'"
+    import til vores database: 
+psql -d ourmovieDB -U postgres -c "\COPY genre(type) FROM 'C:\Users\Søren Als\Documents\p6\Database\IMDB Database\export\genre.csv'
+
+person:
+psql -d selftsudy5IMDB -U postgres -c "\COPY (SELECT DISTINCT id, name, gender, birthdate, deathdate FROM person) To 'C:\Users\Søren Als\Documents\p6\Database\IMDB Database\export\person.csv'"
+psql -d ourmovieDB -U postgres -c "\COPY person(personID,name,gender,birthDate,deathDate) FROM 'C:\Users\Søren Als\Documents\p6\Database\IMDB Database\export\person.csv'
+
+role:
+psql -d selftsudy5IMDB -U postgres -c "\COPY (SELECT DISTINCT role FROM involved) To 'C:\Users\Søren Als\Documents\p6\Database\IMDB Database\export\role.csv'"
+psql -d ourmovieDB -U postgres -c "\COPY role(type) FROM 'C:\Users\Søren Als\Documents\p6\Database\IMDB Database\export\role.csv'
+
+movie:
+psql -d selftsudy5IMDB -U postgres -c "\COPY (SELECT DISTINCT id, language, year, title FROM movie) To 'C:\Users\Søren Als\Documents\p6\Database\IMDB Database\export\movie.csv'"
+psql -d ourmovieDB -U postgres -c "\COPY movie(movieID, language, year, title) FROM 'C:\Users\Søren Als\Documents\p6\Database\IMDB Database\export\movie.csv'
+
+danishmovies -> movie
+psql -d selftsudy5IMDB -U postgres -c "\COPY (SELECT DISTINCT 'Danish', year, title FROM danishmovies) To 'C:\Users\Søren Als\Documents\p6\Database\IMDB Database\export\danishmovie.csv'"
+psql -d ourmovieDB -U postgres -c "\COPY movie(language, year, title) FROM 'C:\Users\Søren Als\Documents\p6\Database\IMDB Database\export\danishmovie.csv'"
+
+referenceTO
+psql -d selftsudy5IMDB -U postgres -c "\COPY (SELECT DISTINCT fromid, toid FROM movieref) To 'C:\Users\Søren Als\Documents\p6\Database\IMDB Database\export\referemceto.csv'"
+psql -d ourmovieDB -U postgres -c "\COPY referenceTo(froma,toa) FROM 'C:\Users\Søren Als\Documents\p6\Database\IMDB Database\export\referemceto.csv'"
+
+involved
+psql -d selftsudy5IMDB -U postgres -c "\COPY (SELECT DISTINCT movieid, personid, role FROM involved) To 'C:\Users\Søren Als\Documents\p6\Database\IMDB Database\export\involved.csv'"
+psql -d ourmovieDB -U postgres -c "\COPY involved(movieID,personID,type) FROM 'C:\Users\Søren Als\Documents\p6\Database\IMDB Database\export\involved.csv'"
+
+involved (få directors fra danishmovies med)
+    Dette er kavt da postgresql ikke tillader queries over flere databaser, af denne grund laves en wrapper table i vores schema.
+        CREATE TABLE wrapperdanishdirector(
+            title varchar(500) NOT NULL,
+            director varchar(500) NOT NULL,
+        );
+     psql -d selftsudy5IMDB -U postgres -c "\COPY (SELECT DISTINCT title, director FROM danishmovies) To 'C:\Users\Søren Als\Documents\p6\Database\IMDB Database\export\involvedwrapper.csv'"
+     psql -d ourmovieDB -U postgres -c "\COPY wrapperdanishdirector(title,director) FROM 'C:\Users\Søren Als\Documents\p6\Database\IMDB Database\export\involvedwrapper.csv'"
+     
+     hvor man derefter kan køre:
+     INSERT INTO involved SELECT DISTINCT movie.movieID, person.personID,'director' FROM movie, wrapperdanishdirector, person WHERE movie.title = wrapperdanishdirector.title AND wrapperdanishdirector.director = person.name AND (movie.movieID, person.personID,'director') NOT IN (SELECT * FROM involved)
+
+users
+psql -d selftsudy5IMDB -U postgres -c "\COPY (SELECT DISTINCT ratings.user, '1234' FROM ratings) To 'C:\Users\Søren Als\Documents\p6\Database\IMDB Database\export\users.csv'"
+psql -d ourmovieDB -U postgres -c "\COPY users(username,password) FROM 'C:\Users\Søren Als\Documents\p6\Database\IMDB Database\export\users.csv'"
+
+isa
+psql -d selftsudy5IMDB -U postgres -c "\COPY (SELECT DISTINCT genre.genre, movieid FROM genre) To 'C:\Users\Søren Als\Documents\p6\Database\IMDB Database\export\is.csv'"
+psql -d ourmovieDB -U postgres -c "\COPY isa(type, movieid) FROM 'C:\Users\Søren Als\Documents\p6\Database\IMDB Database\export\is.csv'"
+
+reviewed
+der var åbenbart nogle movies der var blevet reviewed som ikke var en del af delmængden af movies vi har fået stillet til rådighed så brugte en wrapper her igen.
+CREATE TABLE tempreviewed(
+     movieID integer,
+     username varchar(20),
+     rating integer NOT NULL
+);
+
+psql -d selftsudy5IMDB -U postgres -c "\COPY (SELECT DISTINCT movieid, ratings.user, rating  FROM ratings) To 'C:\Users\Søren Als\Documents\p6\Database\IMDB Database\export\reviewed.csv'"
+psql -d ourmovieDB -U postgres -c "\COPY tempreviewed(movieid, username, rating) FROM 'C:\Users\Søren Als\Documents\p6\Database\IMDB Database\export\reviewed.csv'"
+INSERT INTO reviewed SELECT * FROM tempreviewed WHERE tempreviewed.movieid IN (SELECT DISTINCT movieid from movie)
+
+
+how i exported dump:
+pg_dump -U postgres extra > dumpourdatabase.sql
+
+how i imported dump:
+psql -U postgres extra < dumpourdatabase.sql
