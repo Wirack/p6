@@ -1,0 +1,16 @@
+Tekstboks entities:
+	flytte,
+	rotere,
+	ændre tekst,
+	slet
+	
+Ingen tekstboks i sit pictogram:
+	Krav at man skriver en inline tekst
+	
+1 eller flere tekstbokse i pictogram:
+	Valgfrit med inline tekst
+	eksempel :  ABC  har navn alfabet
+	eksempel : Teenagere der synes at billeder ikke er cool. Vil kun have en tekst på billedet.
+	
+	
+husk at snakke med informater

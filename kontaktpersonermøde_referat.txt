@@ -1,0 +1,45 @@
+Kontaktpersoner møde referat (20 min forventet tid)
+
+En præsentation af pictocreator blev vist
+	-
+	
+mikrofon dialogboks:
+	Drazenko: på dummy niveau. Det er lige at gå til.
+	
+hviskelæder:
+	tror det er nemmest for folk at slette objekter i entities.
+	andre programmer til mere avanceret biledredigering.
+	
+tekst på billeder:
+som udgangskpunkt ikke fonts
+ved gem, skriver man PC
+tekstposition kunne være specifik per barn.
+
+evt:
+
+import af gamle pictogrammer:
+	redigerbare eller som bitmap?
+
+redigering af piktogram
+-som mulighed, skal ikke være fast.
+
+skønner at det kan være at redigere 
+	- skal være med nyt navn.
+	
+	som grundlæggende fint.
+	
+	struktur af brugerflade
+	stregtykkelse af streg sammen med streg.
+	samle ting der er samlet.
+	gå det efter igen med layout.
+	har taget det billede, hvor ligger billedet henne man har taget.
+	en tanke om gem ikon er sjovt det er floppy disk.
+	brug billede eller prøve igen.
+	lad os inspirere af instagram. Hvordan de har designet det.
+	pensel ikon er forvirrende ( den der skifter til canvas) måske bruge pictocreator ikon der.
+	
+	saml skabende,
+	noget til teknisk,
+	noget til færdig.
+	
+	design for dummies. (lad et barn teste det)

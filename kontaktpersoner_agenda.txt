@@ -1,0 +1,29 @@
+Spørge:
+	hviskelæder
+	Tegne som hvid streg
+	Objekter skal kun flyttes en gang? 
+	snak om hvislæder.
+	
+	mikrofon dialogboks intuitiv?
+	
+
+de 20 minutter som plan:
+	Præsentation 1 min - vi er pictocreator
+	Demonstration af Pictocreator 5 min
+	Slette funktion: 10 min
+		Tegne som hvid streg
+		slette et objekt ad gangen og skraldespand (det har vi nu)
+		Paint style
+	Mikrofon dialogboks, godtaget? 3 min
+    Additional stuff:
+	Tekst på billeder
+	evt.
+	
+
+
+
+
+
+
+
+	
