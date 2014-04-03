@@ -1,40 +1,138 @@
-1. SELECT count(*) FROM movie WHERE language = "Danish";
+1. SELECT count(*) FROM movie WHERE language = 'Danish';
+670
 
 2. SELECT year, count(reviewed.rating) FROM movie,reviewed WHERE movie.movieID = reviewed.movieID GROUP BY year;
-
-3. SELECT title FROM movie WHERE movieID = (SELECT movieID FROM involved i1, involved i2 WHERE i1.movieID = i2.movieID AND i1.personID = (SELECT personID FROM person WHERE firstname = 'John' AND lastname = 'Travolta') AND i2.personID = (SELECT personID FROM person WHERE firstname = 'Uma' AND lastname = 'Thurman') AND i1.type = 'actor' AND i2.type = 'actor');
-
-4. SELECT count(*) FROM person WHERE personID = (SELECT DISTINCT personID FROM involved WHERE type = 'actor' OR type = 'director') AND firstname LIKE 'Q%'
-
-5. SELECT count(*) FROM reviewed GROUP BY username HAVING count(movieID) >= 3
-
-6. SELECT firstname, lastname, birthYear FROM person WHERE personID = (SELECT personID FROM involved WHERE movieID = (SELECT movieID FROM movie WHERE title = 'Pulp Fiction') AND type = 'actor') ORDER BY birthYear ASC;
-
-7. SELECT title, year FROM movie WHERE movieID = (SELECT movieID FROM involved WHERE personID = (SELECT personID FROM person WHERE firstname 'John' AND lastname = 'Travolta') AND type ='actor') AND year >= 1980 AND year < 1990;
-
-8. SELECT title FROM movie WHERE movieID = (SELECT movieID FROM reviewed GROUP BY movieID ORDERBY AVG(rating) DESC LIMIT 2) AND year >= 1990 AND year < 2000;
-
-9. SELECT title FROM movie WHERE movieID = (SELECT movieID FROM reviewed WHERE movieID = (SELECT movieID FROM reviewed GROUP BY movieID HAVING count(rating) >= 2) GROUP BY movieID ORDERBY AVG(rating) DESC LIMIT 2)  AND year >= 1990 AND year < 2000;
-
-10. SELECT language, AVG(rating) FROM reviewed, movie WHERE reviewed.movieID = movie.moveID AND year = 1994 GROUP BY language
-
-11. SELECT firstname, lastname FROM person WHERE personID =(SELECT i1.personID FROM involved i1,involved i2 WHERE movieID = (SELECT movieID FROM (SELECT movieID,personID FROM involved WHERE personID = (SELECT personID FROM involved,movie  WHERE title = 'Pulp Fiction' AND role = 'actor')) GROUP BY movieID HAVING count(personID) = 1) AND movieID = (SELECT movieID FROM movie WHERE title = 'Pulp Fiction' AND i1.personID = i2.personID)
-
-12. SELECT title FROM movie WHERE movieID = (SELECT movieID FROM reviewed WHERE movieID = (SELECT movieID FROM movie,involved, person WHERE firstname = 'John' AND lastname = 'Travolta' AND person.personID = involved.personID AND role = 'actor' AND movie.movieID and involved.movieID) GROUP BY movieID ORDER BY AVG(rating) DECS LIMIT 1);
-
-13. SELECT p1.firstname, p1.lastname FROM person p1, person p2 WHERE p1.personID = (SELECT personID FROM involved WHERE role = 'actor') AND p2.firstname = 'Charles' AND p2.lastname = 'Chaplin' AND (p1.birthYear > p2.deathYear OR p2.birthYear > p1.deathYear OR (p1.birthYear = p2.dearthYear AND p1.birthDate > p2.deathDate) OR (p2.birthYear = p1.dearthYear AND p2.birthDate > p1.deathDate));
-
-14. SELECT type,AVG(rating) FROM is, reviewed WHERE is.movieID = reviewed.movieID GROUP BY type;
-
-15. SELECT type,AVG(rating) FROM is, reviewed WHERE is.movieID = reviewed.movieID GROUP BY type HAVING count(rating) >= 2;
-
-16. SELECT title FROM movie WHERE movieID = (SELECT r1.from FROM referenceTo r1, referenceTo r2 WHERE r1.to = r2.from GROUP BY r1.from ORDER BY count(r2.to) DESC LIMIT 1);
-
-17. SELECT count(i1.personID) FROM (SELECT DISTINCT i1.personID FROM involved i1, involved i2 WHERE i1.personID = i2.personID AND i1.type = 'actor' AND i2.type = 'director');
-
-18. SELECT i1.type,i2.type FROM is i1, is i2 WHERE i1.type != i2.type AND i1.movieID = i2.movieID GROUP BY i1.type, i2.type ORDER BY count(movieID) DESC LIMIT 1;
+2000;24
+1962;1
+2007;25
+2002;19
+1992;3
+2008;40
+2003;27
+1999;48
+2005;30
+2004;13
 
 
+3. SELECT title FROM movie WHERE movieID IN (SELECT i1.movieID FROM involved i1, involved i2 WHERE i1.movieID = i2.movieID AND i1.personID IN (SELECT personID FROM person WHERE name = 'John Travolta') AND i2.personID IN (SELECT personID FROM person WHERE name = 'Uma Thurman') AND i1.type = 'actor' AND i2.type = 'actor');
+"\"Good Morning America\""
+"\"The Rosie O'Donnell Show\""
+"\"The Oprah Winfrey Show\""
+"\"The View\""
+"\"Wetten, dass..?\""
+"\"Late Show with David Letterman\""
+"\"The Tonight Show with Jay Leno\""
+"You're Still Not Fooling Anybody"
+"\"HBO First Look\""
+"Boffo! Tinseltown's Bombs and Blockbusters"
+
+4. SELECT count(*) FROM person WHERE personID IN (SELECT DISTINCT personID FROM involved WHERE type = 'actor' OR type = 'director') AND name LIKE 'Q%';
+153
+
+5. SELECT count(*) FROM (SELECT username FROM reviewed GROUP BY username HAVING count(movieID) >= 3) as alias;
+34
+
+6. SELECT name, substring(birthdate from 1 for 4) FROM person WHERE personID IN (SELECT personID FROM involved WHERE movieID IN (SELECT movieID FROM movie WHERE title = 'Pulp Fiction') AND type = 'actor') ORDER BY birthdate ASC;
+"Emil Sitka";"1914"
+"Harvey Keitel";"1939"
+"Rene Beard";"1941"
+"Christopher Walken";"1943"
+"Joseph Pilato";"1949"
+"Brenda Hillhouse";"1953"
+"John Travolta";"1954"
+"Bruce Willis";"1955"
+"Amanda Plummer";"1957"
+"Lawrence Bender";"1957"
+
+
+7. SELECT title, year FROM movie WHERE movieID IN (SELECT movieID FROM involved WHERE personID IN (SELECT personID FROM person WHERE name = 'John Travolta') AND type ='actor') AND year >= 1980 AND year < 1990;
+"\"Wetten, dass..?\"";1981
+"\"Larry King Live\"";1985
+"That's Dancing!";1985
+"Perfect";1985
+"\"Biography\"";1987
+"Two of a Kind";1983
+"Staying Alive";1983
+"\"Live with Regis and Kathie Lee\"";1988
+"\"Entertainment Tonight\"";1981
+"Urban Cowboy";1980
+
+
+8. SELECT title FROM movie WHERE movieID IN (SELECT movieID FROM reviewed GROUP BY movieID ORDER BY AVG(rating) DESC LIMIT 2) AND year >= 1990 AND year < 2000;
+The Usual Suspects
+
+9. SELECT title FROM movie WHERE movieID IN (SELECT movieID FROM reviewed WHERE movieID IN (SELECT movieID FROM reviewed GROUP BY movieID HAVING count(rating) >= 2) GROUP BY movieID ORDER BY AVG(rating) DESC LIMIT 2)  AND year >= 1990 AND year < 2000;
+The Usual Suspects
+
+10. SELECT language, AVG(rating) FROM reviewed, movie WHERE reviewed.movieID = movie.movieID AND year = 1994 GROUP BY language
+"";7.0000000000000000
+"French";9.0000000000000000
+"English";8.3043478260869565
+
+11. SELECT name FROM person WHERE personID IN (SELECT i1.personID FROM involved i1,involved i2 WHERE i1.movieID IN (SELECT movieID FROM (SELECT movieID,personID FROM involved WHERE personID IN (SELECT personID FROM involved,movie  WHERE title = 'Pulp Fiction' AND type = 'actor')) AS foo GROUP BY movieID HAVING count(personID) = 1) AND i1.movieID IN (SELECT movieID FROM movie WHERE title = 'Pulp Fiction' AND i1.personID = i2.personID));
+
+SELECT name FROM person WHERE personID IN (SELECT AVG(personID) FROM involved WHERE personID in (SELECT personID FROM involved WHERE movieID in (SELECT movieID FROM movie WHERE title = 'Pulp Fiction') AND type = 'actor') GROUP BY movieID HAVING count(personID) = 1);
+"Caleb Allen"
+"Rosanna Arquette"
+"Steve Buscemi"
+"Maria de Medeiros"
+"Karen Maruyama"
+"Burr Steers"
+"Eric Stoltz"
+"Julia Sweeney"
+"Quentin Tarantino"
+"Christopher Walken"
+
+
+12. SELECT title FROM movie WHERE movieID IN (SELECT movieID FROM reviewed WHERE movieID IN (SELECT movie.movieID FROM movie,involved, person WHERE name = 'John Travolta' AND person.personID = involved.personID AND type = 'actor' AND movie.movieID = involved.movieID) GROUP BY movieID ORDER BY AVG(rating) DESC LIMIT 1);
+Pulp Fiction
+
+13. SELECT p1.name FROM person p1, person p2 WHERE p1.personID IN (SELECT personID FROM involved WHERE type = 'actor') AND p2.name = 'Charles Chaplin' AND (p1.birthdate > p2.deathdate OR p2.birthdate > p1.deathdate);
+"Elisha Cuthbert"
+"Abe Forsythe"
+"Monique Ganderton"
+"Raushan Hammond"
+"Jason Momoa"
+"Josh Negrin"
+"Colin Platt"
+"Usher Raymond"
+"Sebastian Urzendowsky"
+"Breven Angaelica Warren"
+
+
+14. SELECT type,AVG(rating) FROM isa, reviewed WHERE isa.movieID = reviewed.movieID GROUP BY type;
+"Comedy";7.2380952380952381
+"Drama";7.8333333333333333
+"Fantasy";7.2429906542056075
+"Biography";8.1333333333333333
+"Thriller";7.7823529411764706
+"Crime";8.3949579831932773
+"Musical";7.0000000000000000
+"War";8.2692307692307692
+"History";8.1250000000000000
+"Adventure";7.4210526315789474
+
+15. SELECT type,AVG(rating) FROM isa, reviewed WHERE isa.movieID = reviewed.movieID GROUP BY type HAVING count(rating) >= 2;
+"Comedy";7.2380952380952381
+"Drama";7.8333333333333333
+"Fantasy";7.2429906542056075
+"Biography";8.1333333333333333
+"Thriller";7.7823529411764706
+"Crime";8.3949579831932773
+"War";8.2692307692307692
+"History";8.1250000000000000
+"Adventure";7.4210526315789474
+"Sci-Fi";7.4852941176470588
+
+
+16. SELECT title FROM movie WHERE movieID IN (SELECT r1.froma FROM referenceTo r1, referenceTo r2 WHERE r1.toa = r2.froma GROUP BY r1.froma ORDER BY count(r2.toa) DESC LIMIT 1);
+"\"Saturday Night Live\""
+
+17. SELECT count(foo.personID) FROM (SELECT DISTINCT i1.personID FROM involved i1, involved i2 WHERE i1.personID = i2.personID AND i1.type = 'actor' AND i2.type = 'director') AS foo;
+5930
+
+18. SELECT i1.type,i2.type FROM isa i1, isa i2 WHERE i1.type != i2.type AND i1.movieID = i2.movieID GROUP BY i1.type, i2.type ORDER BY count(i1.movieID) DESC LIMIT 1;
+"Romance";"Drama"
 
 
 
