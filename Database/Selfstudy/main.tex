@@ -760,12 +760,12 @@ SELECT title, year FROM movie WHERE movieID IN
 \begin{lstlisting}
 SELECT title FROM movie WHERE movieID IN 
    (SELECT movieID FROM reviewed GROUP BY movieID ORDER BY AVG(rating) 
-      DESC LIMIT 2) 
-   AND year >= 1990 AND year < 2000;
+      DESC) 
+   AND year >= 1990 AND year < 2000 LIMIT 2;
 \end{lstlisting}
 \textbf{Result:}\\
-The Usual Suspects
-
+The Usual Suspects\\
+The Shawshank Redemption
 \subsubsection*{9.}
 \textbf{Query:}
 \begin{lstlisting}
@@ -773,11 +773,12 @@ SELECT title FROM movie WHERE movieID IN
    (SELECT movieID FROM reviewed WHERE movieID IN 
       (SELECT movieID FROM reviewed 
       GROUP BY movieID HAVING count(rating) >= 2) 
-   GROUP BY movieID ORDER BY AVG(rating) DESC LIMIT 2)  
-AND year >= 1990 AND year < 2000;
+   GROUP BY movieID ORDER BY AVG(rating) DESC )  
+AND year >= 1990 AND year < 2000 LIMIT 2;
 \end{lstlisting}
 \textbf{Result:}\\
-The Usual Suspects
+The Usual Suspects\\
+The Shawshank Redemption
 
 \subsubsection*{10.}
 \textbf{Query:}
@@ -851,27 +852,15 @@ Pulp Fiction
 \subsubsection*{13.}
 \textbf{Query:}
 \begin{lstlisting}
-SELECT p1.name FROM person p1, person p2 WHERE p1.personID IN 
-   (SELECT personID FROM involved WHERE type = 'actor') 
-AND p2.name = 'Charles Chaplin' 
+SELECT count(*)FROM person p1, person p2 WHERE p1.personID IN 
+(SELECT personID FROM involved WHERE type = 'actor') 
+AND p2.name = 'Charles Chaplin' AND p1.gender='f'
 AND (p1.birthdate > p2.deathdate 
 OR p2.birthdate > p1.deathdate);
 \end{lstlisting}
 \textbf{Result:}
 
-\begin{tabular}{|c|}
-\hline Elisha Cuthbert \\ 
-\hline Abe Forsyhte \\ 
-\hline Manique Ganderton \\ 
-\hline Raushan Hammond \\ 
-\hline Jason Momoa \\ 
-\hline Josh Negrin \\ 
-\hline Colin Platt \\ 
-\hline Usher Raymond \\ 
-\hline Sebastian Urzendowsky \\ 
-\hline Breven Angaelica Warren \\ 
-\hline 
-\end{tabular}
+5405
 
 \subsubsection*{14.}
 \textbf{Query:}
