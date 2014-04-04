@@ -10,6 +10,7 @@
 \usepackage{lastpage}
 \usepackage{afterpage}
 \usepackage{lipsum}						% Lorem Ipsum
+\usepackage{enumitem}
 \usepackage{listings}
 \usepackage{lstlinebgrd}
 \usepackage[draft]{fixme}
@@ -17,6 +18,7 @@
 \usepackage{refcount}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage[small,compact]{titlesec}
 \usepackage[bookmarks=true,		
 			bookmarksopen=true,
 			bookmarksnumbered=true,
@@ -70,3 +72,8 @@
 \newcommand{\lstref}[1]{\hyperref[#1]{List \ref{#1}}} %Hyperref for list
 \newcommand{\appref}[1]{\hyperref[#1]{Appendix \ref{#1}}} %Hyperref for appendix
 \renewcommand{\eqref}[1]{\hyperref[#1]{Equation (\ref{#1})}} %Hyperref for equation
+
+\titleformat{\chapter}{\Huge\bfseries}{\thechapter .}{1em}{}
+\titleformat{\section}{\LARGE\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\Large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{}
