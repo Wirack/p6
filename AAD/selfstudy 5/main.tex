@@ -1,0 +1,87 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{parskip}
+\usepackage{rotating}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{mathtools}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+
+\pagestyle{fancy}
+\chead{2.1.10 - sw608f14 - Daniel S. F., Lars A, Mathias W. P. \& Søren S. A.}
+
+\lstset{mathescape = true}
+\usepackage{amsthm}
+\begin{document}
+\chapter*{Selfstudy 5}
+\section*{Exercise 1 - 33-2}
+Answered in the last selfstudy.
+
+\section*{Exercise 2}
+\subsection*{Multi-way merge sort algorithm analysis}
+$log_{m}(n) = log_{1000}(900000) \approx 1.985$
+
+So 2 iterations. 
+
+\subsection*{How to optimise}
+So the 900-way merging that we have would cost $2*\frac{900000}{1} = 1.8*10^6$.
+As that is reading 1 page from each block.
+
+Instead we could do 2-way merging.
+And so we could read read $30$ elements per block at at time as $30*30 = 900$
+So how many files we have is $1000/31 = 32$, we divide by $31$ as there is $1$ file for the buffer.
+
+The cost will then be $4*(\frac{900000}{32} + \frac{900000 - \frac{900000}{32}}{10}) = 0.46*10^6$
+So it is clearly cheaper than the 900-way merging.
+
+For a 3-way merging we would instead have.
+$6*(\frac{900000}{90} + \frac{900000 - \frac{900000}{90}}{10}) = 0.594*10^6$
+
+So the fastest variant is the 2-way merging for this example.
+
+\section*{Exercise 3 - 27-1}
+\subsection*{a.}
+\begin{lstlisting}
+Algo(A,B,C,l,r)
+   if l=r
+      C[l] = A[l] + B[l]
+   else
+      mid = $\floor{\frac{l+r}{2}}$
+      spawn Algo(A,B,C,l,mid)
+      Algo(A,B,C,mid,r)
+      sync
+\end{lstlisting}
+
+The work is $\Theta(n)$.
+
+The span is $\Theta(lg(n))$
+
+So the parallelism is $\Theta(\frac{n}{lg(n)})$
+
+\subsection*{b.}
+The work is $\Theta(n)$
+
+The span is $\Theta(n)$
+
+So the parallelism is $\Theta(1)$ which is bad.
+
+\subsection*{c.}
+The span is $\Theta(\frac{n}{g} + g)$
+
+$g$ is between $1$ and $n$ and for the parallelism to be maximal, the span should be minimal. So I have to find the minimum of the function $f(g) = \frac{n}{g} + g$
+which can be done by differentiation.
+
+$\frac{\delta (\frac{n}{g} +g)}{\delta g} = 1 - \frac{n}{g^2}$
+
+And so the minimum is where  $1 - \frac{n}{g^2} = 0 \Rightarrow g = \sqrt{n}$
+
+That would give a parallelism of $\Theta(\frac{n}{\frac{n}{\sqrt{n}} +\sqrt{n}}) =  \Theta(\sqrt{n})$
+
+And so we can conclude that even with the best value for $g$, it is still worse than the $a$ solution.
+\end{document}
