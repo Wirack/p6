@@ -1,1 +1,13 @@
 \subsection{Flatten Button}
+The flatten button functionality was implemented as seen in \lstref{lst:flatten}.
+
+\begin{lstlisting}[label={lst:flatten}, caption={Flatten Button functionality}]
+public void moveToBack(Entity entity){
+   int index = entities.indexOf(entity);
+   entities.remove(index);
+   entities.add(entities.size(), entity);
+}
+\end{lstlisting}
+
+As the entities was already stored in a List, it was a matter of moving the entity to the end of the list.
+With the flatten button functionality implemented, the order in which one draws entities can be disregarded, as the order can be changed.
