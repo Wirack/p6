@@ -1,1 +1,9 @@
 \subsection{Update GUI Components}
+This issue was a general issue for all the applications in the project. 
+A group was assigned to create a GUI framework to the project so that the GUI had the same look in all applications.
+
+To implement this framework, we had to add the path for the GUI-components such that they could be used in our XML-files that define our GUI.
+Each existing button was change to a matching gComponent and its functionality changed to work with the new framework.
+This implementation resulted in deletion of several XML-files that were used to create the previous buttons, their functionality now taken care of by the framework.
+
+The clear dialogue changed more drastically than the rest of the interface, as the framework also contains a method to create simple confirmation windows. This change resulted in removal of the clear dialogue XML-file, as it was no longer needed.

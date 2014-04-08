@@ -1,0 +1,11 @@
+\subsection{Rotation of Freehand Entities}
+The issue of rotating a freehand entity was that it would rotate around the starting point instead of the centre of the entity.
+The rotation centre of an entity is found via the start point and adding half the width and height to it, but for the freehand entity this gives issues, as the start point of this entity can be anywhere inside the area covered by the entity.
+To fix this, we kept the height and width in the hitbox of the freehand entity and assigned a width and height to the object itself which held the vector lengths from the starting point to the centre.
+This enables the rotation function to correctly find the rotation centre using the starting point.
+
+This problem could have been avoided if the rotation centre was not determined via the starting point but instead in a more consistent function throughout the entities.
+To carry out this change, an extensive refactoring of the entity objects is needed.
+The current solution is chosen since the focus is on working code rather than optimal code.
+
+
