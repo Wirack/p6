@@ -1,1 +1,14 @@
 \subsection{Load Existing Audio File to the Record Fragment}
+Reloading an existing audio file to play after having saved the recording, closed the audio dialogue and played again was found reasonable to implement.
+A pictogram can have associated a single sound file.
+As of such it was reasonable to make the saved sound file path static.
+
+As the sound file path was made static, it only needed to get assigned a path the first time the record dialogue is added. 
+Else you replace that file each time you save a new recording.
+
+One issue occured, which was associated with a play button press before no recording was performed.
+This was fixed by deactivating the button when no final file exists, and can be seen in \lstref{lst:playbuttonpress}.
+
+\begin{lstlisting}[label={lst:playbuttonpress},caption = {Activating or Deactivating playButton}]
+playButton.setEnabled((new File(handler.getFinalPath()).exists()));
+\end{lstlisting}
