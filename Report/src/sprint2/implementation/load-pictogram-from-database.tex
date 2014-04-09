@@ -4,9 +4,10 @@ To do this we decided to use Pictosearch, which is an application that is also u
 Pictosearch is a search tool that can find pictograms stored in the database.
 The chosen pictogram is then sent to calling application, which in this case is Pictocreator.
 
-The call to start Pictosearch also sends the guardian's ID, to allow access to their private pictograms, and the purpose of the call which is \textit{single} meaning Pictosearch can return at most one pictogram, as seen in \lstref{lst:callPictosearch}.
+The call to start Pictosearch also sends the guardian's ID, to allow access to their private pictograms, as well as the purpose of the call which is \textit{single} meaning Pictosearch can return at most one pictogram, as seen in lines $5-9$ in \lstref{lst:callPictosearch}.
+If Pictosearch is not installed, a message will inform the user about it.
 An event to receive the pictogram is create, called \textit{onActivityResult}, and checks whether it return a results or not.
-If there is a result, another function is called which loads the pictogram bitmap from the database using the pictogram ID returned from Pictosearch, as seen in \lstref{lst:loadPictogram}.
+If there is a result, another function is called which loads the pictogram bitmap from the database using the pictogram ID returned from Pictosearch, as seen in line 5 in  \lstref{lst:loadPictogram}.
 The bitmap is then loaded into the canvas in the original scale.
 
 \begin{lstlisting}[caption=Method used to launch Pictosearch., label=lst:callPictosearch]
@@ -21,7 +22,6 @@ private void callPictosearch(){
         startActivityForResult(intent, RESULT_FIRST_USER);
     } catch (Exception e){
         Toast.makeText( this, "Pictosearch er ikke installeret.", Toast.LENGTH_LONG).show();
-        Log.e(TAG, e + ": Pictosearch is not installed.");
     }
 }
 \end{lstlisting}
@@ -37,7 +37,6 @@ private void loadPictogram(Intent data){
     }catch(Exception e){
         Log.e(TAG, e + ": No pictogram returned.");
     }
-
 }
 \end{lstlisting}
 
