@@ -1,6 +1,3 @@
-\subsection{Save Canvas State}
-The canvas was cleared when swapping to camera mode and then going back to the canvas.
-It would result in the user losing its work if he decided to take a picture to use in his drawing.
-
+\subsection{Save Canvas State}\fxnote{Så kort at den er optional}
 To fix the issue, the \textit{drawStack} was saved as a singleton, which made a single \textit{drawStack} instance available across modes, such that even when the canvas was restarted, the \textit{drawStack} could be reloaded. 
 The canvas will still be cleared if the process is terminated, however, for the given issue the singleton will suffice.
