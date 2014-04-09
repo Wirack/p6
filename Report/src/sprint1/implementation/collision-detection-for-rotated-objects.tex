@@ -70,12 +70,12 @@ The formula to determine a right rotation is:
 	\frac{B_x-A_x}{B_y-A_y} \geq \frac{P_x-B_x}{P_y-B_y}
 \end{equation}
 
-The formula is changed to avoid divide by zero errors, and is therefore changed to the following equation:
+The formula is changed to avoid divide by zero errors, and is therefore changed to the following formula:
 \begin{equation}\label{eq:crossPRectangle}
 	(B_x-A_x)*(P_y-B_y) \geq (P_x-B_x)*(B_y-A_y)
 \end{equation} 
 
-\eqref{eq:crossPRectangle} is then used with all four vectors of neighbouring corners of the rectangle to determine whether a point is inside the rectangle or not.
+\formularef{eq:crossPRectangle} is then used with all four vectors of neighbouring corners of the rectangle to determine whether a point is inside the rectangle or not.
 
 \input{src/sprint1/implementation/collision-detection-for-rotated-ellipses}
 
@@ -94,7 +94,7 @@ The distance is determined by the height of the triangle, from the base to the c
 	\label{figure:line-collision}
 \end{figure}
 
-There are two formulas for finding the area of a triangle, as seen in \eqref{eq:area1} and \eqref{eq:area2}.
+There are two equations for finding the area of a triangle, as seen in \eqref{eq:area1} and \eqref{eq:area2}.
 
 \begin{equation}\label{eq:area1}
 	A = \frac{1}{2}*h*b
