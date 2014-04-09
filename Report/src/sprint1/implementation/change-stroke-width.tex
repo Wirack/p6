@@ -1,14 +1,4 @@
 \subsection{Change Stroke Width}
 Changing the stroke width was not possible for a freehand line.
 The other entities already had the feature implemented in its \textit{updateBuffer} function, which was called when the entity was created and assigned the stroke width to be that of the current handlers stroke width.
-To resolve this issue, we updated the stroke width in the \textit{updateBuffer} function, see \lstref{list:updateBuffer}.
-The update in the function was to add one line of code, which can be seen in line 4.
-
-\begin{lstlisting}[caption={Updated \textit{updateBuffer} function}, label=list:updateBuffer]
-@Override
-public PrimitiveEntity updateBuffer() {
-   // The FreehandEntity should manage to handle itself.
-   (*@\textcolor{green}{bufferedEntity.setStrokeWidth(getStrokeWidth());} @*)
-   return bufferedEntity;
-}
-\end{lstlisting}
+To resolve this issue, we updated the stroke width in the \textit{updateBuffer} function.
