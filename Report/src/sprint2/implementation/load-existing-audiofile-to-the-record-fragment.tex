@@ -6,8 +6,4 @@ As the sound file path was made static, it only needed to get assigned a path th
 Else you replace that file each time you save a new recording.
 
 One issue occurred, which was associated with a play button press before no recording was performed.
-This was fixed by deactivating the button when no final file exists, and can be seen in \lstref{lst:playbuttonpress}.
-
-\begin{lstlisting}[label={lst:playbuttonpress},caption = {Activating or Deactivating playButton}]
-playButton.setEnabled((new File(handler.getFinalPath()).exists()));
-\end{lstlisting}
+This issue was fixed by checking if a recording already existed at the static path. If a recording existed at the path the recording is played, if not, a toast is made telling the users that there is no recording.
