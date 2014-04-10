@@ -1,0 +1,19 @@
+User Story:
+	Tegn en glad mand
+	Optag: Glad lyd
+	Afspil lyd
+	Gem lyd
+	Gå tilbage til lyd
+	Hør lyd igen
+	Luk afspilningsvindue
+	Gem pictogram
+	inline text : Glad
+	Titel : Glad smiley
+	Tags: smiley, glad, ansigt, humør
+	tryk gem
+	(Evt: 
+		hent billede ind igen)
+
+lyd
+
+save
