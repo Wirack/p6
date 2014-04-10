@@ -50,7 +50,7 @@ protected void changeHitbox(){
 \end{figure}
 
 A new issue that emerged was that the collision detection for the object was now larger than the object.
-When an object was behind a rotated object, and the user clicked the in the top left corner of the hitbox, the rotated object would be selected instead of the object behind.
+When an object was behind a rotated object, and the user clicked in the top left corner of the hitbox, the rotated object would be selected instead of the object behind.
 To resolve this issue, an implementation was done to give a precise collision detection on the object, which is described below.
 
 \subsubsection{Precise Collision Detection for Rotated Rectangles}
