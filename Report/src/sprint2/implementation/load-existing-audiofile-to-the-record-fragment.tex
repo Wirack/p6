@@ -1,9 +1,9 @@
 \subsection{Load Existing Audio File to the Record Fragment}
 A pictogram can have a single sound file associated.
-As of such it was reasonable to make the saved sound file path static.
+As of such it is reasonable to make the saved sound file path static.
 
-As the sound file path was made static, it only needed to get assigned a path the first time the record dialogue is added. 
+As the sound file path is made static, it only needs to get assigned a path the first time the record dialogue is added. 
 Else you replace that file each time you save a new recording.
 
-One issue occurred, which was associated with a play button press before no recording was performed.
-This issue was fixed by checking if a recording already existed at the static path. If a recording existed at the path the recording is played, if not, a toast is made telling the users that there is no recording.
+One issue occurred, which is associated with a play button press before no recording is performed.
+This issue is fixed by checking if a recording already exists at the static path. If a recording exists at the path the recording is played, if not, a toast is made telling the users that there is no recording.
