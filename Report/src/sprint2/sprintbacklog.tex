@@ -45,4 +45,15 @@ Be able to add tags to ones pictogram when saving it and support this in the GUI
 
 \item[Rotation of Freehand Entities]
 Freehand entities are rotating around their start point, but should rotate around the centre of the entity.
+
+\item[Collision detection for high stroke width objects]
+The current collision detection does not take the stroke width into account. 
+This means that objects with a large stroke width are very hard to hit, if their center area is very small, even though one could swear they hit the area it covered.
+
+\item[Freehand collision detection]
+The collision detection should work so if you click the freehand drawing it should be marked.
+
+\item[Freehand hitbox]
+The hitbox have to follow the rotation, so the hitbox works as the line's hitbox.
+
 \end{description}
