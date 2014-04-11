@@ -1,0 +1,4 @@
+\subsection{Preview Pictogram}
+Previously when loading the preview, it was handled in the draw view and was saved on the cache.
+This proved to be a problem, as it was unclear how the timing of saving to the cache worked, and using that storage was vulnerable to sudden cache clearings.
+In order to fix this issue, the Bitmap encoding of the pictogram was parsed to the save dialogue instead, which made the preview unaffected by sudden cache clearings.
