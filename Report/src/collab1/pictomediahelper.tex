@@ -1,0 +1,107 @@
+\section{PictoMediaPlayer}
+Associating sound to pictograms was stated as of great importance from the customers.
+For that reason a library is developed that provides an easy to use sound playing service.
+
+Both \textit{Pikto Tegner} and \textit{Pikto Oplæser} need the sound playing feature. 
+
+\textit{Pikto Tegner} needs it to get a preview of the sound recorded, to be saved when creating a pictogram.
+
+\textit{Pikto Oplæser} needs the feature as the key of \textit{Pikto Oplæser} is to get the sound of the pictograms played sequentially. 
+
+The cooperation for developing the library was done by way of pair programming, with one person from each group.
+As of such, a mutual agreement was found for how the library should be developed.
+
+When initializing the library it needs a context and can additionally take a path for the sound file, a pictogram, or a bytearray. The context is needed for the PictoMediaPlayer to know where to play the sound. Below in \lstref{lst:constructor} we see a constructor for the PictoMediaPlayer.
+
+%\begin{code}{lst:constructor}{Constructor for PictoMediaPlayer.}
+\begin{lstlisting}[label=lst:constructor, caption = {Constructor for PictoMediaPlayer}]
+    public PictoMediaPlayer (Context activity, String path)
+    {
+        this.activity = activity;
+        assignMediaPlayer();
+        setDataSource(path);
+    }
+\end{lstlisting}
+%\end{code}
+
+When assigning a datasource to the PictoMediaPlayer the \textit{setDataSource} method, seen in \lstref{lst:setdatasource}, is called. The method releases an old MediaPlayer and assigns a new one if sound has already been attached to the MediaPlayer.
+Then the MediaPlayer gets a file descriptor assigned as source.
+
+%\begin{code}{lst:setdatasource}{SetDataSource method of PictoMediaPlayer.}
+\begin{lstlisting}[label=lst:setdatasource, caption={SetDataSource method of PictoMediaPlayer}]
+public void setDataSource(String path){
+        if(hasSound)
+        {
+            mediaPlayer.release();
+            assignMediaPlayer();
+        }
+
+        try {
+            FileInputStream fileInputStream = new FileInputStream(path);
+
+            mediaPlayer.setDataSource(fileInputStream.getFD());
+            hasSound = true;
+        }
+        catch (IOException e)
+        {
+            e.getStackTrace();
+        }
+    }
+\end{lstlisting}
+%\end{code}
+
+The OnCompleteListener, seen in \lstref{lst:completelistener}, is necessary for external sources to detect when a sound is finished playing. The CompleteListener allows external sources to respond to a sound finished playing, e.g. a button icon change.
+
+%\begin{code}{lst:completelistener}{onCompleteListener method of PictoMediaPlayer.}
+\begin{lstlisting}[label=lst:completelistener, caption = {onCompleteListener method of PictoMediaPlayer}]
+private final MediaPlayer.OnCompletionListener onCompletionListener = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mp) {
+            isPlaying = false;
+            if(customListener != null){
+                customListener.soundDonePlaying();
+            }
+        }
+    };
+
+    public interface CompleteListener{
+        public void soundDonePlaying();
+    }
+\end{lstlisting}
+%\end{code}
+
+To illustrate the ease of use of the PictoMediaPlayer we created the example seen in \lstref{lst:mediaplayerexample}. 
+We here see how a PictoMediaPlayer is used to play a sound and writing ``Sound is finished playing'' when the sound is finished playing.
+
+%\begin{code}{lst:mediaplayerexample}{Example of PictoMediaPlayer.}
+\begin{lstlisting}[label=lst:mediaplayerexample, caption={Example of PictoMediaPlayer}]
+public class example implements PictoMediaPlayer.CompleteListener{
+    private void examplemethod(Context context, String path)
+    {
+        PictoMediaPlayer pictoMediaPlayer = new PictoMediaPlayer(context, path);
+        pictoMediaPlayer.setCustomListener(this)
+        pictoMediaPlayer.playSound();
+    }
+
+    @Override
+    public void soundDonePlaying() {
+        System.out.print("Sound is finished playing");
+    }
+}
+\end{lstlisting}
+%\end{code}
+
+%Disposition
+%interest in the feature from both groups
+
+% why?
+% easy use
+% just specify a filepath and all features are there. 
+
+
+
+% List of features:
+    % abstracts away of the states of android's MediaPlayer
+    % Play and stop music
+    % supports customer listerner for listening to when sound is done playing.
+    % 
