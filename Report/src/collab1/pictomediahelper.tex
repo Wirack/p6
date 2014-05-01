@@ -79,7 +79,7 @@ public class example implements PictoMediaPlayer.CompleteListener{
     private void examplemethod(Context context, String path)
     {
         PictoMediaPlayer pictoMediaPlayer = new PictoMediaPlayer(context, path);
-
+        pictoMediaPlayer.setCustomListener(this)
         pictoMediaPlayer.playSound();
     }
 
