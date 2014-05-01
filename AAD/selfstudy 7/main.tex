@@ -1,0 +1,76 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{parskip}
+\usepackage{rotating}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{mathtools}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+
+\pagestyle{fancy}
+\chead{2.1.10 - sw608f14 - Daniel S. F., Lars A, Mathias W. P. \& Søren S. A.}
+
+\lstset{mathescape = true}
+\usepackage{amsthm}
+\begin{document}
+\chapter*{Selfstudy 7}
+\section*{1. -- 27.3-3}
+Assuming parallel copy takes care of copying the arrays in parallel.
+So, the $B$ is used as a transfer array to swap subarrays.
+
+\begin{lstlisting}
+wrapperpartition(A,p)
+	pivot <- A[p]
+	Allocate B which is an auxiliary array
+     p $\leftarrow$ Algo(B,A,0,A.length-1)
+     
+Algo(B,A,l,r)
+	if l <= r
+		if A[l] < pivot
+			return l+1
+		else
+			return l
+	else
+		mid $\leftarrow$ $\lceil \frac{l+r}{2}\rceil$
+		res1 $\leftarrow$ spawn Algo(B,A,l,mid-1)
+		res2 $\leftarrow$ Algo(B,A,mid,r)
+		sync
+		parallel copy A[res1...mid-1] to B[mid...res2]
+			     and  A[mid...res2 to B[res1...mid-1]
+		then 
+		parallel copy B[res1...res2] to A[res1...res2]
+\end{lstlisting}
+
+The work is then:
+$$W(n) = 2*W(n/2) + O(n) = O(n*lg(n))$$
+
+The span is then
+$$S(n) = S(n/2) + O(lg(n)) = O(lg^2(n))$$
+
+So the parallelism is $O(\frac{n}{lg(n)})$
+
+\section*{2.}
+So, before splitting on y we have to partition with respect to x.
+The algorithm in exercise 1 will keep the order, so we can split and not destroy order.
+Before splitting on x we have to partition with respect to y, but not for the first phase, as it is already sorted.
+So we only need the presort, as the partition algorithm will keep the order.
+
+The work will be:
+$$W(n) = 2* W(n/2) + O(n*lg(n))$$
+
+The span will be:
+$$S(n) = S(n/2) + O(lg^2(n)) = lg^3(n)$$
+
+The parallelism is then:
+$$\frac{n}{lg^2(n)}$$
+
+\section*{3. -- 35-4}
+
+
+\end{document}

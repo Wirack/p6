@@ -1,0 +1,31 @@
+meeting 1/05-2014
+seems better than other group
+
+he can see our efforts
+
+coordinator feedback:
+he didnt get any more than us
+coordinator meeting after steering meeting
+
+
+structure matches project guidelines
+content seems decent and on track
+two chapters on colaboration,  group might be ok, but better get 2
+
+write something about how you use the database.
+
+not so sure the sensor will understand the way colision detection is written
+should write about it in principle
+
+be able to explain, simply, how the math in fx colision detection works
+
+resize after rotate still has room for improvement, he has trouble understanding how it works exactly
+
+about resize, write what you tried, even though it didnt work.
+
+make issues understandable and look at their importance and remove insignificant ones.
+
+maybe write what came of communication with the custommers (likely sprint2 related)
+
+make sure the change in colision detection is clear, going from hitting with click inside the hitbox to hit when clicking the object itself.
+
