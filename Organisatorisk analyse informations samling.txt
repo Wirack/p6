@@ -1,83 +1,109 @@
 ﻿1. Mission
     - How clear is it?
-	
+	very clear
 
     - Is it understood by staff and board?
+	yes
         
     - To what extent are decisions based on it?
 	Often
         
     - How often is it referred to in meetings and in written material?
-	Often
+	often
 
 
-2. Program
-    All groups should work in scrum
-    
+2. Program    
     - What do you do, how do you do it, who does it, and who do you do it for?
-	
+	a paint program for guardians of autistic people to create pictograms. program is created as an android application. created by students on bachelor in software engineering 6th semester. We do it for aalborg university and Aalborg kommune.
                 
     - How do you select programming?
-        
+        language and platform were already chosen, the IDE was discussed in a meeting involving all the staff
+
     - How do you evaluate your programs?
-        
+	programs are evaluated based on user satisfaction and understandability, as well as our own intuition of what is considered logical. Also testing
+
     - How do the programs serve the mission of the organizations?
+	help the guardians save time by allowing easy and fast creation and editing of pictograms
         
     - How do you perceive and measure the level of quality? 
-        
+        usability and level of user goals fulfillment
+
 3. Board
 
     - How large is the board?
-        
+        no board as this is purely managed by students (the staff). Done by using scrum of scrums with one or more members from each group (16 groups)
+
     - How clear are the roles of board members?
-        
+        very clear
+
     - Is there a plan for succession and leadership?
-        
+        we have experts on the tools, a scrum master who handles general planning, and a sprint end leader who handles the sprint end meetings
+
     - How are members recruited and oriented?
+	students, oriented by previous students.
         
     
 4. Personnel
 
     - Organization chart?
+	no chart
         
     - Written job descriptions, personnel policies, wage & benefit plan?
-    
+	job describtion can be considered the study regulations and the project guidelines. dont have any of the rest.
+
     - Is there a formal performance review process?
+	yes if the exam is considered as such.
 
 5. External Environment
 
     - Who are your peers and competitors?
+	peers: the other students 
+	competitors: any one creating similar programs
 
     - What are the economic and social conditions of the community?
+	they are students so they must be poor.
+	social: geeks, no social
     
     - What is likely to change?
+	The customers connected to the development.
+	
 
     - How well does your organization collaborate or otherwise work with other organizations in the community?
+	decently well
 
-    - Is your organization part of another organization, such as a university? If so, what issues involving the larger entity may have impact on your organization? 
+    - Is your organization part of another organization, such as a university? If so, what issues involving the larger entity may have impact on your organization?
+	yes, part of a university. Have to write extensive documentation and very limited timeframe. results in frequent changes in staff and work area of staff.
     
 6. Marketing
     
     - What mechanisms exist to understand your audience?
+	interviews, useability tests,
         
     - What role does audience play in the organization’s positioning?
+	They give ideas and decide the overall structure of what is to be developed.
 
     - What is the makeup and demographics of the audience?
+	middelaged people with limited technical capabilities. Guardians of autistic people
     
     - Is that the audience you want? 
+	both yes and no. some parts are designed for the guardians, so they are perfect audience for that, however, some are designed for autistic people, so they would be better, however, they are too difficult to communicate with.
 
 9. Facility
 
     - Condition?
+	decent
 
     - Maintenance plan?
+	groundskeeper and cleaning crew.
 
     - Renovations or expansions planned?
+	no clue
 
     - Is the space satisfactory for the nature of the work produced or exhibited?
+	somewhat, every group has a group room, but they need to share it with another group, so space is a little bit limited, but is alright.
 
     - Does the facility adequately serve the needs of the audience? 
-    
+	yes
     
 Lignene projekt
 Point2Speak by Christian Jakobsen    
