@@ -70,6 +70,44 @@ private final MediaPlayer.OnCompletionListener onCompletionListener = new MediaP
 \end{lstlisting}
 %\end{code}
 
+For \textit{Pikto Oplæser} to play the sound of multiple pictograms in succession we made the playListOfPictograms method as seen in \lstref{lst:playlist}. 
+We first store the old listener in a temporary variable and stop playing sounds. Then we overwrite the method which is run after a sound is complete, so that it plays the sound of the next pictogram in the list. When all pictograms in the list have been read the listener is reset. %Kan måske skrives bedre.
+
+%\begin{code}{lst:playlist}{playListOfPictograms method of PictoMediaPlayer.}
+\begin{lstlisting}[label={lst:playlist}, caption = {playListOfPictograms method of PictoMediaPlayer.}]
+public void playListOfPictograms(ArrayList<Pictogram> pictogramList)
+{
+    pictogramListIndex = 0;
+    this.pictogramList = pictogramList;
+    TempCompleteListener = customListener;
+
+    if(isPlaying)
+    {
+        stopSound();
+    }
+    this.setCustomListener(this);
+    this.setDataSource(pictogramList.get(pictogramListIndex));
+    this.playSound();
+}
+
+@Override
+public void soundDonePlaying()
+{
+    pictogramListIndex ++;
+    if (pictogramListIndex < pictogramList.size() && pictogramList.get(pictogramListIndex) != null)
+    {
+        setDataSource(pictogramList.get(pictogramListIndex));
+        playSound();
+    }
+    else
+    {
+        this.setCustomListener(TempCompleteListener);
+        pictogramListIndex = 0;
+    }
+}
+\end{lstlisting}
+%\end{code}
+
 To illustrate the ease of use of the PictoMediaPlayer we created the example seen in \lstref{lst:mediaplayerexample}. 
 We here see how a PictoMediaPlayer is used to play a sound and writing ``Sound is finished playing'' when the sound is finished playing.
 

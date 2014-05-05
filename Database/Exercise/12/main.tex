@@ -1,0 +1,31 @@
+\documentclass[12pt,a4paper]{letter}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\begin{document}
+\begin{multline}
+     \pi_{firstname}(\\
+          \sigma_{preferredCoffee=CID \land variant = 'decaffeinated' \land s.studID = m.studId \land m.FID = f.FID \land subsidizedCoffee = CID}(\\
+     \rho_f(studentCouncil)\times coffee \times \rho_s(student) \times \rho_m(memberOf)       
+          )    
+     )
+\end{multline}
+
+\begin{multline}
+     \pi_{firstname}(\\
+          \sigma_{preferredCoffee=CID \land s.studID = m.studId \land m.FID = f.FID \land subsidizedCoffee = CID}(\\
+     \rho_f(studentCouncil)\times \sigma_{variant = 'decaffeinated'}(coffee) \times \rho_s(student) \times \rho_m(memberOf)       
+          )    
+     )
+\end{multline}
+
+\begin{multline}
+     \pi_{firstname}(          
+     ((studentCouncil \Join_{sc.FID = mo.FID}memberOf) \\ \Join_{j.studID = s.studID \land j.subsidizedCoffee = s.preferredCoffee} student) \\  \Join_{c.CID= j.preferredCoffee} \sigma_{variant = 'decaffeinated'}(coffee)         
+     )
+\end{multline}
+
+
+\end{document}
