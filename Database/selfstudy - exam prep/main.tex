@@ -1,0 +1,171 @@
+\documentclass[10pt,a4paper,final]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{listings}
+
+
+\title{Selfstudy 7 - Database}
+\author{sw608f14 - Daniel S. F., Lars A., Mathias W. P. and Søren S. A.}
+
+\begin{document}
+
+\maketitle
+
+\section*{1. Multiple Choice}
+The marked answers will be presented in lists.
+\subsection*{1.}
+\begin{itemize}
+     \item The results of both queries are sometimes the same, sometimes not; depending on the
+relations’ extension
+\end{itemize}
+
+\subsection*{2.}
+\begin{itemize}
+     \item The query result is NULL
+\end{itemize}
+
+\subsection*{3.}
+\begin{itemize}
+     \item is equivalent to the cross product
+\end{itemize}
+
+\subsection*{4.}
+\begin{itemize}
+     \item SELECT a,b FROM R GROUP BY a,b;
+     \item SELECT a FROM R GROUP BY a,b;
+\end{itemize}
+
+
+\subsection*{5.}
+\begin{itemize}
+     \item SELECT a FROM R JOIN S ON a=b;
+\end{itemize}
+
+
+\subsection*{6.}
+\begin{itemize}
+     \item contains any prime attributes
+     \item $\alpha$ is a super key
+\end{itemize}
+
+\section*{2 -- Integrity Constraints}
+\begin{lstlisting}[language=SQL]
+CREATE TABLE user (
+ID INTEGER PRIMARY KEY,
+name VARCHAR(32) UNIQUE,
+age INTEGER,
+CHECK(age >= 16 AND age < 150)
+);
+
+CREATE TABLE topic (
+ID INTEGER PRIMARY KEY,
+name VARCHAR(32),
+author INTEGER,
+FOREIGN KEY(author) REFERENCES user(ID) ON DELETE CASCADE
+);
+
+CREATE TABLE post (
+ID INTEGER PRIMARY KEY,
+author INTEGER,
+topic INTEGER,
+subject VARCHAR(32),
+content VARCHAR(1024),
+FOREIGN KEY(author) REFERENCES user(ID) ON DELETE CASCADE,
+FOREIGN KEY(topic) REFERENCES topic(ID) ON DELETE CASCADE
+);
+\end{lstlisting}
+
+\section*{3 -- Recursion in SQL}
+\begin{lstlisting}[language=SQL]
+WITH RECURSIVE tempTable(number, counter) AS (
+(SELECT 2,5)
+UNION
+SELECT (number*2), counter - 1
+FROM tempTable
+WHERE counter > 1
+)
+SELECT max(number) FROM tempTable
+\end{lstlisting}
+
+\section{4 -- SQL Queries}
+
+\subsection*{1.}
+\begin{lstlisting}[language=SQL]
+SELECT creator, count(BID) LIMIT 10
+FROM post 
+GROUP BY creator
+ORDER BY count(BID) DESC
+\end{lstlisting}
+
+\subsection*{2.}
+\begin{lstlisting}[language=SQL]
+SELECT title, count(BID)
+FROM topic JOIN post ON topic.TID = post.TID
+GROUP BY TID
+HAVING count(BID) = max(count(BID))
+\end{lstlisting}
+
+\subsection*{3.}
+\begin{lstlisting}[language=SQL]
+SELECT title LIMIT 10
+FROM topic JOIN post ON topic.TID = post.TID
+ORDER BY creationDate DESC
+\end{lstlisting}
+
+\subsection*{4.}
+\begin{lstlisting}[language=SQL]
+SELECT creator as UID
+FROM post
+GROUP BY creator
+HAVING count(BID) > 30
+\end{lstlisting}
+
+\section*{5 -- Normalization}
+\subsection*{1.}
+Candidate keys:
+AC, BC, AD, BD
+
+It fulfills 2NF because all attributes are prime.
+For that reason it is also 3NF, on third rule.
+That gives us that it is not BCNF since it is the third rule that makes in 3NF.
+
+\subsection*{2.}
+Candidate keys:
+EC, EAB
+
+It fulfills 2NF as all non-prime attribute is fully functionally dependent on each candidate key.
+
+It is not 3NF as $AB \rightarrow CDF$ does not fulfill any of the rules.
+
+\subsection*{3.}
+Candidate keys:
+A, B, C, D
+
+2NF as all left sides are candidate keys, giving fully functional dependency.
+
+3NF and BCNF as all left sides are super keys (second rule fulfilled)
+
+\section*{6 -- Functional Dependencies}
+\subsection*{1.}
+
+\begin{itemize}
+     \item[$AB \rightarrow C$] as the last two tuples break it
+     \item[$CDE \rightarrow B$] true
+     \item[$CE \rightarrow A$] true
+     \item[$BC \rightarrow E$] no, tuple 3 and 4 breaks it.
+     \item[$BCDE \rightarrow A$] true
+     \item[$D \rightarrow AE$] nope, tuple 2 and 3 breakts it as an example.
+\end{itemize}
+
+\subsection*{2.}
+BCDE is a super key, as CD is a candidate key.\\
+ABE is a candidate key.\\
+DE is not a super key.\\
+CD is a candidate key.
+\end{document}
