@@ -1,0 +1,46 @@
+\subsection{Drawstack}
+After a pictogram is created and saved with \textit{Pikto Tegner}, the customers want to be able to load it again, without loss of pictogram information.
+This information consists of the drawstack of a pictogram, such that different painting entities can be edited individually and not a singular bitmap.
+If the pictogram s saved in the database from some other source that is not \textit{Pikto Tegner}, it is the singular bitmap you load.
+
+\subsubsection*{Save Drawstack}
+The idea to save the drawstack on the database was to convert the drawstack into a byte array.
+Java can provide this service if you implement the Serializable interface, which is a keyword where you do not need any implementation if the data types of the fields are all Serializable.
+However, RectF and Paint from the Android Graphics Library did not implement the Serializable interface.
+
+A first way this was tried to be solved was to make Serializable versions of those classes, which then extended RectF and Paint respectively but implement the Serializable interface.
+This method resulted in the drawstack being able to be converted to a byte array, however, the information of the stroke width and color of entities was lost.
+This was due to the Paint and RectF classes again including fields that were not Serializable.
+As of such, integers were introduced to contain the information of those objects, in order to bypass the usage of those objects as fields and thereby be able to convert the drawstack to a byte array.
+Paint and RectF could be solved in this way, but when containing a camera picture represented as a bitmap in the drawstack, difficulty arose when converting to a byte array.
+
+If the drawstack contains a bitmap, a solution is not as easy as introducing integers to hold information.
+A library is instead tried to manually convert the bitmap to a byte array and back again.
+However, for the current sprint a satisfying solution is not found, as if the bitmap had to regain a certain quality, the conversion is too resource demanding.
+As of such, for future work, a way to save the drawstack when a bitmap is an element thereof is needed.
+At present, the drawstack only gets saved if there is no bitmap for the pictogram, else the singular bitmap saving and loading is performed.
+
+\subsection*{Load Drawstack}
+For loading a drawstack, it is not a problem, as the drawstack has already been saved as a byte array and the classes have been made serializable.
+Then it is just a matter of using the developed method to convert the byte array to a drawstack, see \lstref{lst:desrialize}.
+
+\begin{lstlisting}[caption={Method for converting byte array to object}, label=lst:desrialize]
+public static Object deserialize(byte[] data) throws IOException, ClassNotFoundException {
+	ByteArrayInputStream in = new ByteArrayInputStream(data);
+	ObjectInputStream is = new ObjectInputStream(in);
+	return is.readObject();
+}
+\end{lstlisting}
+%save drawstack
+     %Serializable
+     %Android classes that is not serializable
+          %RectF
+          %Paint
+               %usage of integers          
+          
+          %meta to bitmap
+
+     %Problem with bitmaps <- too resource consuming
+
+%load drawstack
+     %convert byte[] to list and invalidate
