@@ -1,0 +1,90 @@
+﻿pictocreator.canvas.Entity.java:
+Line 26-59: Overkommentering
+Line 127-129: Giver det mening hvis du prøver at give en negativ angle?
+Line 142: FloatPoint giver ikke den idé at det er et Point i 2 dimensionelt rum. 
+Hvorfor starter den som null og ikke FloatPoint(0, 0)?
+Line 179: Sætter top-left corner, det med at sætte center er en side effekt.
+Line 191-200: Forvirrende, Android har nogle meget forvirrende metode navne.
+Line 276-280: Er der kun for at blive overridet, kommentar gør ikke det klart, den giver indtrykket at den returnerer en entity hvilket den ikke gør.
+Line 295-303: Hvordan er man sikker på at det er gyldige værdier? F.eks -90 i vals[0], setX laver intet tjek.
+Line 366-369: Hvad er det meningen at den skal gøre?
+Line 376-379: Hvorfor er det vigtigt at serialize det? Er det på grund at det skal være parcelable?
+Line 385-393: Hvad bliver den ændret til? Dårligt metode navn.
+Line 405-416: Hvorfor er Math.min mindre readable? Kunne de værdier ikke lægges ind i en ArrayList og så find minimum, ligesom i C#?
+Line 418-429: Rotaterer punkt omkring entity's vinkel, kommentar er uklar og forvirrende. Kald metoden rotatePoint, og gør det klart i kommentar hvilken formel det er.
+Line 431-439: Kommentar kunne være mere klart, det er ikke særlig godt forklaret hvorfor det fungerer. Link til teori?
+
+pictocreator.canvas.entity.PrimitiveEntity.java:
+Line 14-31: I har kategoriseret setters og getters, hvilket ikke er gjort i Entity.java.
+Line 24-31: I mangler 'this' til fields.
+Line 41: Gør det klart at den kalder en anden constructor i samme klasse, og ikke Entity's constructor.
+Line 53-61: Hvorfor står der ShapeEntity og ikke PrimitiveEntity?
+
+pictocreator.canvas.entity.OvalEntity.java:
+Line 19: Omnavngiv SerializePaint -> SerializablePaint
+Line 20: Hvorfor gemmes ovelShape aldrig, i laver en ny en hver eneste gang?
+Line 35: Hvorfor bruger i ikke den metode i har lavet til at få fat i radians fra Entity, getRadiansAngle?
+Line 42-61: Kommentar passer ikke til jeres ad hoc løsning.
+
+pictocreator.canvas.entity.RectEntity.java:
+line 21: Hvorfor gemmes rectShape ingen steder?
+line 38-42: dokumentér da lige hvorfor de variabler hedder det de gør.
+line 47-52: Ret kommentar, og forklar det bedre.
+
+pictocreator.canvas.entity.LineEntity.java:
+Line 49: Log?
+Line 55: Kan i ikke gemme den Path og genbruge den?
+Line 59: Den kommentar er for lang.
+Line 63-81: Redundant kommentar?
+Line 139-140: Meget dårlige variable navne.
+Line 160: Log?
+
+pictocreator.canvas.entity.FreehandEntity.java:
+Line 100: Hvorfor ikke? Må man ikke få lov til at lave en plet?
+Line 107: Log?
+Line 111-115: Kan erstattes med en for(LinePoint tp : drawPoints) {...}
+Line 158-161: Log?
+Line 165: Challenge? 
+Line 186: Challenge?
+Line 190: Challenge?
+Line 196-242: Kan erstatte de for loops med foreach, som set ^.
+
+pictocreator.canvas.entity.BitmapEntity.java
+Line 95-99: Dårlig variable navne. Kan det virkelig ikke gøres på en bedre måde?
+
+pictocreator.canvas.ColorButton.java:
+Line 96: init metoden er underlig, kan den ikke flyttes ind i en general constructor metode som alle de andre constructorer kalder istedet for at lave en helt anden metode.
+
+pictocreator.canvas.DrawFragment.java:
+Line 93: Log?
+Line 96-129: Kan det med onclick ikke gøres gennem XML?
+Line 156-173: Lav en farve resource fil og brug den.
+Line 339: Progress variabel navn for det til at lyde som om det ikke er en installations bar eller sådan noget.
+Line 342: Log?
+Line 361: Log?
+
+pictocreator.canvas.drawType.java:
+Skal den hedde DrawType.java?
+
+pictocreator.canvas.DrawView.java:
+General overkommentering, f.eks. skal strokeWidth virkelig have en kommentar som siger at det er width af strokes?
+Line 105: initStuff? Kan det ikke lægges ind i en overordnet constructor som de andre kalder?
+Line 107: Hvad er det for en farve? 0xAA777777
+Line 116: Overvej fulde navne af input param.
+Line 131: Random padding???
+Line 135: Kan i ikke bruge bedre variable navn til rHeight.
+Line 148-153: Her bruges der this? Vær konsistent.
+Line 171: Hvorfor skal den måske redraw?
+Line 208-209: Brug string resource fil til strenge.
+Line 251-253: Mystisk lavet, hold styr på tuborg.
+
+pictocreator.canvas.EntityGroup.java:
+Line 74-77: For each.
+Line 84: getSize() istedet for size måske? Eller vil i have den skal emulerer en ArrayList?
+Line 95-98: For each
+
+pictocreator.canvas.FloatPoint.java:
+Point istedet for FloatPoint
+
+pictocreator.canvas.PreviewButton.java:
+init() igen?
