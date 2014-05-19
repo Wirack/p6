@@ -29,6 +29,19 @@
 			urlcolor=black]{hyperref}	% Cross reference, clickable links and refs.
 
 \usepackage[numbers,sort&compress]{natbib}			% BIB Citation
+\usepackage{tikz} 
+\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{arrows}
+\tikzstyle{linear} = [draw, -latex']
+\tikzstyle{firkant} = [ font={\bfseries},outer sep=4,inner sep=7,minimum size=0.5cm,line width=1, text=black, very thick, draw=black!55, top color=white, align=center]
+\tikzstyle{rude} = [ draw, diamond, aspect=2 ,font={\bfseries},outer sep=4,inner sep=7,minimum size=0.5cm,line width=1, text=black, very thick, draw=black!55, top color=white, align=center]
+\tikzstyle{io} = [font={\bfseries},trapezium,trapezium left angle=70,trapezium right angle=-70,minimum height=0.5cm,line width=1, text=black, very thick, draw=black!55, top color=white, align=center ]
+
+\usepackage{footnote}
+\makesavenoteenv{tikzpicture}
+\usepackage{tabularx}
+\newcolumntype{R}{>{\raggedright\arraybackslash}X}
+
 \bibliographystyle{unsrtnat} %Take care of bib
 
 \definecolor{bluekeywords}{rgb}{0.13,0.13,1}

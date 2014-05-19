@@ -1,0 +1,32 @@
+\subsection{Handling TTS}%hjælp til bedre titel
+As seen in \secref{sec:ttstool}, Google Translate TTS is chosen as the TTS tool for this project. As it is a web based tool, it must be considered how is should be used, and how to handle the situation where there are no internet connection. There is also the possibility, that the creator of the pictogram has recorded his own reading of the pictogram. In this case the TTS should not be used. From these statements, a flowchart of the behavior of playing a pictograms sound can be seen on \figref{fig:soundflow}.
+
+\begin{savenotes}
+\begin{figure}[H]
+\begin{tikzpicture}
+\node [rude] (v2) at (1,4) {Is there a \\ sound file attached \\ to the pictogram?};
+
+
+\node [io] (v1) at (1,7) {Get selected pictogram};
+\node [firkant] (v6) at (1,-11) {Play stored sound};
+\node [rude] (v3) at (1,-1) {Is there \\ connection to \\ the internet?};
+\node [firkant] (v9) at (8,-1) {Make a toast\footnote{A toast is a small message on the screen \citep{androidtoast}. The GToast, which is a customization of the Android toast, is used.}\\ with error message };
+\node [firkant] (v4) at (1,-5) {Use TTS to \\ generate sound file};
+\node [io] (v5) at (1,-8) {Store sound file \\ to pictogram in DB \\ for later use};
+
+\path [linear] (v1) -- node {}(v2);
+\path [linear] (v2) -- node[right] {No}(v3);
+\path [linear] (v3) -- node[right] {Yes}(v4);
+\path [linear] (v4) -- node {}(v5);
+\path [linear] (v5) -- node {}(v6);
+\path [linear] (v3) -- node[above] {No}(v9);
+\path [linear] (v2) edge [bend right = 55] node[left]{Yes} (v6) ;
+
+
+\end{tikzpicture}
+\caption{Flowchart for the use of sound on pictograms}
+\label{fig:soundflow}
+\end{figure}
+\end{savenotes}
+
+With the behavior in place, the TTS and soundplaying method can now be implemented. Note that once the sound has been generated, it is stored to the pictogram in the database, so it should only be generated once. The updated pictogram in synchronized with the remote database, so every other tablet also get the soundfile.

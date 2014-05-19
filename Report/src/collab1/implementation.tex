@@ -1,0 +1,26 @@
+\subsection{Implementation}
+The implementation of the TTS functionality is created by opening an url connection to \textit{Google Translate}s TTS method.
+When the url connection is established a stream starts to return bytes.
+These bytes are then saved in an array so they can be translated into sound afterwards.
+How to get the bytes and save them can be seen in \lstref{lst:download-sound}.
+
+\begin{lstlisting}[caption={Download Sound event},label={lst:download-sound}]
+private void DownloadFile() {
+    try{
+    URL url = new URL(soundURL);
+
+    URLConnection urlConnection = url.openConnection();
+    InputStream inputStream = urlConnection.getInputStream();
+    BufferedInputStream bis = new BufferedInputStream(inputStream);
+    ByteArrayBuffer byteArrayBuffer = new ByteArrayBuffer(50);
+    int current = 0;
+    while ((current = bis.read()) != -1)
+        byteArrayBuffer.append((byte) current);
+
+    SoundData = byteArrayBuffer.toByteArray();
+}
+\end{lstlisting} 
+
+Before calling this method, it must be ensured that the device has a valid internet connection, because if there is no internet connection you are not able to connect to \textit{Google Translate}.
+To check if there is an internet connection, a connection manager checks if it can get network activity.
+If the connection manager does not find an internet connection the \textit{DownloadFile} method cannot be called.
