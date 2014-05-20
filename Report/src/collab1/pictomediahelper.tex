@@ -4,15 +4,12 @@ Associating sound to pictograms was stated as of great importance from the custo
 For that reason a library is developed that provides an easy to use sound playing service.
 
 Both \textit{Piktotegner} and \textit{Piktooplæser} need the sound playing feature. 
-
 \textit{Piktotegner} needs it to get a preview of the sound recorded, to be saved when creating a pictogram.
-
 \textit{Piktooplæser} needs the feature as the key feature of \textit{Piktooplæser} is to get the sound of the pictograms played sequentially. 
 
-The cooperation for developing the library was done by way of pair programming, with one person from each group.
-As of such, a mutual agreement was found for how the library should be developed.
-
-When initializing the library it needs a context and can additionally take a path for the sound file, a pictogram, or a bytearray. The context is needed for the PictoMediaPlayer to know where to play the sound. Below in \lstref{lst:constructor} we see a constructor for the PictoMediaPlayer.
+When initialising the library it needs a context and can additionally take a path for the sound file, a pictogram, or a bytearray. 
+The context is needed for the PictoMediaPlayer to know where to play the sound.
+In \lstref{lst:constructor} we see a constructor for the PictoMediaPlayer.
 
 \begin{lstlisting}[caption={Constructor for PictoMediaPlayer.},label={lst:constructor}]
 public PictoMediaPlayer (Context activity, String path)
@@ -72,7 +69,7 @@ public interface CompleteListener
 \end{lstlisting}
 
 For \textit{Piktooplæser} to play the sound of multiple pictograms in succession we made the \textit{playListOfPictograms} method as seen in \lstref{lst:playlist}. 
-We first store the old listener in a temporary variable and stop playing sounds. Then we overwrite the method which is run after a sound is complete, so that it plays the sound of the next pictogram in the list. When all pictograms in the list have been read the listener is reset. %Kan måske skrives bedre.
+We first store the old listener in a temporary variable and stop playing sounds. Then we overwrite the method which is run after a sound is complete, so that it plays the sound of the next pictogram in the list. When all pictograms in the list have been read the old listener is restored.
 
 \begin{lstlisting}[caption={playListOfPictograms method of PictoMediaPlayer.}, label={lst:playlist}]
 public void playListOfPictograms(ArrayList<Pictogram> pictogramList)
