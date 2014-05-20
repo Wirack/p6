@@ -1,6 +1,6 @@
 \section{Implementing Text-To-Speech}
 The motivation for creating a Text-To-Speech (TTS) functionality is that the customers should be able to play the sound of all pictograms, even if the pictogram does not have a sound associated with it.
 The reason why the customers need to play a sound of a pictogram is to teach the autistic people to associate a pictogram with a sound.
-The \textit{Piktooplæser} app should use the TTS functionality whenever a pictogram without a sound is added to the sequence to be read.
-Furthermore, \textit{Piktooplæser} should replace the empty sound with the newly created TTS sound, so the pictogram have the specific sound for later usage. The newly generated TTS sound should therefore be stored to the local database, which will synchronize the updated pictograms with the other users, so the sound should only be generated once.
+The \textit{Piktooplæser} application should use the TTS functionality whenever a pictogram without a sound is added to the sequence to be read.
+Furthermore, \textit{Piktooplæser} should add the newly created TTS sound, so the pictogram have the specific sound for later usage. The newly generated TTS sound should therefore be stored in the local database, which will synchronize the updated pictograms with the other users, such that the sound is only generated once.
 For \textit{Piktotegner} with pictograms created by the customer where no sound is recorded, a sound should be created by reading the inline text of the pictogram. This should of course also be stored to the database for later use.

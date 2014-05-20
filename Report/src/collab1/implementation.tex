@@ -1,9 +1,10 @@
 \subsection{Implementation}
-The implementation of the TTS functionality is created by opening an url connection to \textit{Google Translate}s TTS method.
-When the url connection is established a stream starts to return bytes.
+The implementation of the TTS functionality is created by opening an url connection to \textit{Google Translate}'s TTS method.
+When the url connection is established, a stream starts to return bytes.
 These bytes are then saved in an array so they can be translated into sound afterwards.
 How to get the bytes and save them can be seen in \lstref{lst:download-sound}.
 
+\fxwarning{mangler curly bracket, enten for try eller for hele metoden. Kopier den drikete fra original code}
 \begin{lstlisting}[caption={Download Sound event},label={lst:download-sound}]
 private void DownloadFile() {
     try{
