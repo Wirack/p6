@@ -1,0 +1,5 @@
+\subsection*{Bug in the Camera Fragment}
+When using the camera to take pictures after the camera has been swapped between back and front camera, a bug was found.
+The bug was that the next time the camera fragment was accessed, the camera was not available and had to be solved.
+The bug was determined to be that the camera was not released when the camera fragment was closed.
+Two surfaces was used in the camera fragment, so the releasing of camera could not only be performed in the \textit{onPause} method, but had to be added to the \textit{surfaceDestroyed} method.
