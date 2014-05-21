@@ -1,8 +1,8 @@
-The product -> The program -> The application
+﻿The product -> The program -> The application
 Croc skal refere til det gamle projekt.
 PictoCreator vores projekt i sprint 1-2.
 PiktoTegner vores projekt i sprint 3-4.
 I -> FY!
 just -> Skal helst ikke stå der.
 only -> Fy fy
-
+PiktoTegner / Pikto Tegner -> Piktotegner
