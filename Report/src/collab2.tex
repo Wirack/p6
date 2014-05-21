@@ -1,2 +1,77 @@
-\chapter{Code Review}
+\chapter{Collaboration - Code Review}
+A code review corporation was performed between the Webadmin (sw606f14) and Piktotegner (sw608f14) groups.
+It was done in order to secure a better code quality, to find bugs, and as a learning experience.
+By code quality meaning e.g. suitable comments, reducing redundancy, and following the code standards, camel casing for example.
 
+The code review was constructed in an informal way, as it made us able to cover more code in the same time span as a formal code review.
+The formal code review may find more serious bugs, however, it would only be able to cover a limited amount of code with the time at hand, thus the prioritisation of an informal code review over a formal version.
+% Hvem har arbejdet sammen - piktotegner og webadmin, uformelt code review, formelt ville tage for lang tid.
+
+% Motivation
+  % fordele ved code review
+     %kvalitets sikring
+         % bugs
+         % code er aestically pleasing
+         % overholder vi code standard
+     % Læringsproces
+
+\section*{Approach}
+% Fremgangsmåde
+     % Kort fremlæggelse til introduktion af systemerne
+          % Sikrer en bedre code review
+          % For at kende hinandens arkitektur.
+In order to secure that the two groups understood each others applications' architecture, before the code review a presentation was performed. 
+For \textit{Webadmin}, it was told how it is based on the model-view-controller pattern.
+For \textit{Piktotegner} a class diagram showing how entities are structured as well as their respective handlers were presented.
+This gave insight to how the code to be reviewed was structured, in order to avoid confusion that could help us get to review more code and to give a better review of this code.
+
+% Sidder i samme rum:
+% fordi vi ikke har nok viden til individuelt kan reviewe
+% bruger hinanden som resourcer
+The review was done in a pair of two, such that two groups from \textit{Webadmin} reviewed \textit{Piktotegner} and vice versa.
+The presentation was the first time the groups got presented for each others code, and as of such we sat in the same room when reviewing.
+This ensured that if any questions arose regarding the architecture and language specific operations, a group from the other application could then fast be consulted.
+
+The corrections and suggestions found during code reviewing was documented with a quick title of the comment, a description of it, as well as the file to look at and the corresponding line number(s).
+
+% kunne have haft større effekt hvis folk var erfarne i de forskellige sprog
+% stof til fremtidige code reviews
+In hindsight, it would be good if the two groups had more experience in the languages of the code they reviewed, as \textit{Webadmin} is primarily programmed in \textit{PHP} and \textit{Piktotegner} is programmed in \textit{Java}.
+If the groups had more experience with these different languages, more bugs would likely be discovered.
+However, despite this, it was found that the code reviewing was helpful and is a practice that should be continued in the future.
+
+% Hvordan sørger vi for at få review rettelserne ført ud i liveet.
+We find it a good practice to review code, however, if the comments given on ones code is not addressed, the code review does not give much value.
+Therefore both groups addressed the problems found during the code review session as the first activity the day after the code review.
+
+\subsection*{Experience}
+The overall impression of the code review activity was positive, and is agreed upon by both groups.
+About 2500 lines, including comments, was covered by the code review, which may have been too much for a single day and four hours was used on this activity.
+It is believed that instead of having a singular lengthy code review activity, it would be better to perform several shorter ones, in order to not get tired and do inefficient code reviewing.
+
+\textit{Webadmin} was lacking comments to document their code, it was recommended that all functions was given a comment to concisely describe them. 
+\textit{Webadmin} had inconsistency in their naming conventions. 
+\textit{camelCase} and underscores for variable names, \textit{PascalCase} and underscores for functions, and \textit{camelCase}, \textit{PascalCase}, underscores, and dashes for \textit{css}, were used. 
+Furthermore, redundant code was found in the \textit{PHP} classes and it was suggested that the similar code could be moved to a new function or separate library. 
+Lastly suggestions for optimization of \textit{SQL} queries was given.
+
+\textit{Piktotegner} had a lot of comments explaining both complex functions as well as the simple ones, some comments were deemed unnecessary or being superfluous.
+The variable names followed a coding convention but a few were found to not follow this convention or were found to have non describing names.
+Most properties had no constraints which might cause an error in the application if the properties were to be used improperly.
+%kommentarer på kommentarer - for mange kommentarer
+%ikke beskrivende navne
+% forslag til sikkerhed i properties
+% 
+
+In addition to this, an opinion of both groups is that having people not familiar with the code try and read the code gives the advantage that it checks which parts of the code is hard to read and what code may need more documentation or refactoring.
+
+% Erfaring
+ % 2500 lines
+     % Synes det var godt
+     % smart med code review løbende, så tre sessions i løbet af semester, (en gang om ugen måske)
+     % Fik gjort kode mere sigende
+     % fik kode til at følge samme standard
+     % sikkershed ting,
+     % ændringer af loops
+     % kommentar ændringer
+     % unused code.
