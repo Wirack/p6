@@ -1,0 +1,152 @@
+Åben Piktotegner
+	Ingen problem
+	
+Tag et billede
+	Kan ikke trykke på vores knapper fordi de sidder i midten. 
+	Kan ikke finde ud af sort/hvid, prøver at bruge vælg farver
+	Vil gerne kunne vælge sort hvid efter billedet er taget.
+	Knapperne i midten af kamera er meget problematisk
+	
+optag lyd
+	Kan nemt finde ud af vores optag lyd, det gav ingen problem.
+
+gem piktogram
+	Tro at man gemmer automatisk
+	Finder nemt ud af vores gem funktion
+	Giver absolut ingen problemer at gemme
+
+sæt tekst
+
+sæt navn
+
+sæt tilgængelighed
+
+sæt søgeord
+
+
+ryd tegnebrættet
+	Vil gerne trykke luk for at rydde tegnebrættet.
+	Vil gerne trykke hjælp for at se hvordan man sletter
+	Skete der en fejl ved hjælp funktionen, muligvis det kan være et memory problem.
+	Finder efter hjælp ud af hvordan man ryder
+	
+tegn en traktor
+	Finder nemt ud af frihåndstegning
+	Kan ikke finde ud af hvordan cirkler fungere
+	Mangler en fyld knap
+	Efter lidt tid kan hun finde ud af hvordan en cirkel fungere.
+	Prøver at køre oven i en cirkel for at fylde den.
+	Kan ikke finde af hvornår man benytter hvad.
+	Mangler en spand funktion - Altså en fylde funktion
+		
+gem piktogram
+	Finder nemt gem anden gang
+	Og finder nemt ud af gem.
+	
+
+sæt tekst
+
+sæt navn
+
+afspil lyd
+	Tro optag ikke er noget med afspil lyd at gøre.
+	
+Fjern objekter
+	Mangler viskelæder - men prøver en anden metode, synes vælgeren skal vise noget med det samme
+	
+Flytte objekter
+	Går okay godt
+	Endnu en fejl, kan ikke resize mærkeligt nok.
+	
+Forstørre objekt
+	Findes hurtigt ud af.
+	
+	Skal slette noget, hvor det kommer til at gå godt
+	Afprøver rotation, ved at prøve
+	Trykket på firkanten efter den er tegnet for at fange den, for at gøre det hurtigere at gøre.
+	
+Flyt et objekt bagved
+	Synes at tilbage knap skal være opfront knap.
+	Ville meget gerne kunne flytte hjulene op front.
+	
+	Skal lige vende sig til at gå op i vælgeren
+	Dobbeltryk på et objekt, så den automatisk går over i vælgeren
+	Trykker på vores skift farve, og går ud fra at det er den anden der skal ændre.
+	Synes den virker meget mærkelig.
+	
+	
+	
+	
+Åben Piktotegner
+	
+Tag et billede
+	Glemte sort/hvid
+	Havde helt glemt at se at der var et sort hvid ikon.
+	
+optag lyd
+	Synes at gem under optag burde tage hende til gem
+	
+gem piktogram
+	
+sæt tekst
+	
+	
+sæt navn
+	Glemte navn for piktogrammet
+	Synes det skal være det samme, altså tekst og navn
+	Synes det skal være en katagori
+	Vil gerne kunne gemme det som en katagori med det samme
+	Tvivler på om det er en katagori
+	
+	
+sæt tilgængelighed
+	Finder nemt igennem tilgængelighed
+	
+sæt søgeord
+	Tror at søgeord er navnet for piktogrammet
+	Har svært ved at finde søgeordet
+	Synes gem er en knap til at gemme det, men det burde være en instilling til at tilføje ord og piktogram
+	Finder efter lidt tid et søgeordsknap
+	Finder ikke ud af at tilføje søgeordet piktogrammet
+	Kan ikke tilføje flere søgeord, vil gerne kunne trykke på et grønplus
+	Skal hjælpes helt til at tilføje et søgeord.
+
+ryd tegnebrættet
+	Måske ændre ordet i stedet for ryd tegnebrættet til "nyt piktogram?"
+	
+tegn en traktor
+	Makeringen af hvilket element der er valgt er svær at finde ud af.
+	
+	
+gem piktogram
+	Synes at gem skal være en knap man trykker på når man er 100% færdig med at lave alt til piktogrammet, vil gerne have navn osv. et andet sted.
+	
+sæt tekst
+
+sæt navn
+
+afspil lyd
+	Kan ikke afspille lyden til piktogrammet.
+
+	Kan ikke finde ud af at teksten vælge farve er til at vælge farven.
+	Kan ikke se hvilken farve der er markeret, men mener det er fordi det er noget nyt
+	
+	Føler at man bare skal trykke for at lave en cirkel
+	Bruger to fingre til at gøre den større.
+	Vil gerne holde nede på firguren for at slette.
+	Mangler en slet funktion, hvis man bevæger skal den slette område og hvis man trykker kan man slette objektet
+	Finder sent ud af at vælgeren er til at slette med
+	Synes man putter noget ind i figuren
+	
+	Rund cirkel skal være lukke ned
+	Rødt kryds mener aflysning
+	Luk ned = Cirkel med streg
+	
+Skal gøre cirklen større
+	Bruger to fingre til at starte med, men finder hurtigt at man bare trykker
+	Vil gerne bruge to fingre til at roter objektet, men finder igen hurtigt ud af hvordan man rotere objektet
+	Finder nemt ud af hvordan frihånd fungere
+	
+	Vores skift farve er meget dårlig
+	Trykker forviret rundt, og føler den meget svær at benytte
+	
