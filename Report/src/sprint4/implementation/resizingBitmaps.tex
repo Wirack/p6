@@ -1,0 +1,7 @@
+\subsection{Resizing camera pictures}
+A request from the customer was that the pictures from the camera should scale instead of resizing its dimensions independently such that the picture would retain its quality.
+To constrain the resizing of pictures we found the ratio between its dimensions and multiplied the drag vector with this ratio.
+
+The ratio was found by dividing the width with height, as the height of the pictures from the camera is always smaller than the width.
+The new dimension are then found by finding the length from the top-left corner of the picture to the where the user clicks.
+The width of this vector is simply assigned to the width of the picture, and the height is assigned to the width of the vector multiplied with the ratio.
