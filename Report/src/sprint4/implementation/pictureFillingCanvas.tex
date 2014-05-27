@@ -7,12 +7,12 @@ The code implementation for this can be seen in \lstref{lst:loadPicture}.
 
 \begin{lstlisting}[caption={Method which scales the picture},label=lst:loadPicture]
 private void loadPicture(Bitmap bitmap){
-	int sizeHeightPercentage = (int)(((double)(this.getBitmap().getHeight())/(double)(bitmap).getHeight())*100.0) + 1;
-	int sizeWidthPercentage = (int)(((double)(this.getBitmap().getWidth())/(double)(bitmap).getWidth())*100.0);
-	
-	BitmapEntity tempEntity = new BitmapEntity(bitmap, Math.max(sizeHeightPercentage, sizeWidthPercentage));
-	tempEntity.setCenter(drawFragment.drawView.getMeasuredWidth()/2, drawFragment.drawView.getMeasuredHeight()/2 - 4.0f);
-	DrawStackSingleton.getInstance().mySavedData.addEntity(tempEntity);
-	drawFragment.drawView.invalidate();
+  int sizeHeightPercentage = (int)(((double)(this.getBitmap().getHeight()) / (double)(bitmap).getHeight())*100.0) + 1;
+  int sizeWidthPercentage = (int)(((double)(this.getBitmap().getWidth()) / (double)(bitmap).getWidth())*100.0);
+
+  BitmapEntity tempEntity = new BitmapEntity(bitmap, Math.max(sizeHeightPercentage, sizeWidthPercentage));
+  tempEntity.setCenter( drawFragment.drawView.getMeasuredWidth()/2, drawFragment.drawView.getMeasuredHeight()/2 - 4.0f);
+  DrawStackSingleton.getInstance().mySavedData.addEntity( tempEntity);
+  drawFragment.drawView.invalidate();
 }
 \end{lstlisting}

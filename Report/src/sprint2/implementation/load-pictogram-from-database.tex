@@ -27,7 +27,9 @@ An event to receive the pictogram is created, called \textit{onActivityResult}, 
 If there is a result, another function is called which loads the pictogram bitmap from the database using the pictogram ID returned from \textit{Pictosearch}, as seen in line 5 in  \lstref{lst:loadPictogram}.
 The bitmap is then loaded into the canvas in the original scale.
 
-\begin{lstlisting}[caption=Method to load a pictogram from Id received from \textit{Pictosearch}, label=lst:loadPictogram]
+\newpage
+%\begin{minipage}{\textwidth}
+\begin{lstlisting}[caption=Method to load a pictogram from Id received from \textit{Pictosearch}., label=lst:loadPictogram]
 private void loadPictogram(Intent data){
     try{
         int pictogramID = data.getExtras().getIntArray("checkoutIds")[0];
@@ -40,3 +42,4 @@ private void loadPictogram(Intent data){
     }
 }
 \end{lstlisting}
+%\end{minipage}

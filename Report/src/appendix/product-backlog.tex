@@ -3,12 +3,14 @@
 \item[Editing pictograms]
 It should be possible to edit pictograms, when it is the same author editing it. 
 By editing we mean a change to either its name, sound, picture, access settings, or tags.
+Currently, if you have to edit a pictogram, you load it into \textit{Piktotegner} from \textit{Pictosearch}, and save it as another instance in the database.
 
 \item[Crop camera pictures]
 A request from a customer was to crop pictures taken with the camera.
+For example if the user takes a picture of an apple on a table and would like to only have the apple, they would like to exclude the unnecessary parts of the picture before inserting it.
 
 \item[Undo button]
-Some colleagues suggested to add an undo button, as it was tedious to select the object first and then delete it every time they made a mistake.
+Some colleagues suggested to add an undo button, as it was tedious to select the entity first and then delete it every time they made a mistake.
 
 \item[Categorising pictograms]
 Newly created pictograms could have the possibility of being categorised when saved.
@@ -17,24 +19,20 @@ Newly created pictograms could have the possibility of being categorised when sa
 It should be possible to change the colour of already drawn entities.
 This could be by either drag-and-dropping a colour onto an entity or selecting the entity and then choosing a colour.
 
-\item[Camera fragment buttons]
+\item[Camera dialogue buttons]
 During the usability test, the testees had trouble reaching the \textit{capture} button when they tried to take a picture.
+A suggestion is to reorder the buttons such that they are on the side of the tablet.
 
 \item[Template pictures]
 A suggestion was to add a setup assistant for template pictures, such that users could add some customisable figures into their pictogram.
 An example of this could be a stick figure, but with a customisable posture. 
 
 \item[Memory issues]
-The application used a lot of high quality pictures which caused memory issues on certain tablets. 
-These were pictures seen in the help dialogue and camera pictures.
-
-\item[Send the guardian id to \textit{Pictosearch}]
-A guardian ID is received from \textit{Launcher} when \textit{Piktotegner} is launched.
-The guardian id is used to determine whether people should be able to save a pictogram.
-Other \textit{GIRAF} applications may also need the guardian ID, such as \textit{Pictosearch} which is launchable from \textit{Piktotegner}, and should therefore be passed to them.
+The application uses a lot of high quality pictures which causes memory issues on certain tablets. 
+These are the pictures seen in the help dialogue and the camera pictures.
 
 \item[New icon for clearing the canvas]
-The current icon is a trash can with the text \textit{Ny} which means new. 
+The current icon for clearing the canvas is a trash bin with the text \textit{Ny} which means new. 
 The text does not hint at the functionality usually associated with such an icon, and should thus be changed to something more appropriate.
 A suggestion to such an icon would be the usual blank paper with a folded edge and a plus sign, as seen in most text editors and graphics painting application. 
 
@@ -57,7 +55,7 @@ An example of this is two pictures, one with a red car and the other with a blue
 \item[Rethink preview button]
 Both in the usability tests and the sprint end meeting, the preview button was found unintuitive.
 The doubt was first the double functionality of the button, as it is a preview button and a swap colour button.
-A solution could be to scrap the preview button and instead have a clearer illustration of what tool is used, and at the same time have a new button with its functionality being the swapping of colours.
+A solution could be to scrap the preview button and instead have a clearer illustration of what tool is selected, and at the same time have a new button with its functionality being the swapping of colours.
 
 \item[Alternative help dialogue]
 During the sprint 4 sprint end meeting it was proposed that the help pictures of the help dialogue should be made larger.
@@ -74,5 +72,7 @@ With training they may get used to the tool, however, they tried some other gest
 Gestures used was double click on a given entity to select it or long clicking.
 Maybe these forms of gestures should replace the selection tool or be an alternative way to select entities.
 
+\item[Saving and loading \textit{drawStack} with bitmaps in the database]
+Find a reasonably efficient way to serialize bitmaps, so they can be stored in the \textit{drawStack} in the database and loaded again.
 
 \end{description}

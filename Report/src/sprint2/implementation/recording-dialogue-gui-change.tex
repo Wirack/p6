@@ -22,10 +22,10 @@ By satisfiability testing it is found that the record dialogue should be changed
                 \caption{Playing mode}
                 \label{fig:recordplaying}
         \end{subfigure}
-        \caption{Record Dialogue GUI}\label{fig:recorddia}
+        \caption{Record Dialogue GUI.}\label{fig:recorddia}
 \end{figure}
 
-The record dialogue GUI to be changed is the one seen in \figref{fig:record-dialogue}.
+The record dialogue GUI to be changed is the one seen in \figref{figure:record-dialogue}.
 However, the customers desires fewer buttons, and point out that the play and stop button can be combined into one button, as they are mutually exclusive and are causing confusion.
 
 To support this change, the audio player is changed to the Android \textit{MediaPlayer} instead of \textit{SoundPool}, as \textit{MediaPlayer} supports an event for registering when a sound is finished playing.
