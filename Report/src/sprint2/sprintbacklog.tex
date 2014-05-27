@@ -1,11 +1,11 @@
 \section{Sprint Backlog}
-For sprint 2, the sprint backlog consists of the following.
+For the second sprint, the sprint backlog consists of the following.
 
 \begin{description}[style=nextline]
-\item[Load existing audiofile to the record fragment]
-After recording an audio file and exiting the record fragment, the recorded file can not be played when you enter the record fragment again, which it should.
+\item[Load existing audio file to the record dialogue]
+After recording an audio file and exiting the record dialogue, the recorded file can not be played when you enter the record dialogue again, which it should.
 
-\item[playButton press before no recording is performed]
+\item[\textit{playButton} press before no recording is performed]
 The play button should be deactivated when no recording exists.
 
 %\item[Save without name] 
@@ -14,16 +14,16 @@ The play button should be deactivated when no recording exists.
 %\item[Change name Croc to PictoCreator]
 %Make contact with different groups to get croc renamed to PictoCreator everywhere.
 
-\item[Change Pictocreator icon]
+\item[Change \textit{Pictocreator} icon]
 Needs to be changed to a pencil drawing on a paper, as requested by the customer.
 
 \item[Record dialogue GUI change]
 Needs to be changed to one record button that switches icon to a stop icon when recording.
 In addition have a single toggle button for playing and stopping of audio. 
-This was a request from the customer.
+This was a request from the customers.
 
-\item[Colour settings from Launcher use in Pictocreator]
-Apply colour settings parsed from Launcher in \textit{Pictocreator}.
+\item[Use colour settings from Launcher in \textit{Pictocreator}]
+Apply colour settings parsed from \textit{Launcher} in \textit{Pictocreator}.
 
 \item[Update GUI Components]
 Update GUI such that it uses \textit{gComponents}, developed by another group in the \textit{GIRAF} project.
@@ -46,16 +46,16 @@ Be able to add tags to ones pictogram when saving it and support this in the GUI
 \item[Rotation of Freehand Entities]
 Freehand entities are rotating around their start point, but should rotate around the centre of the entity.
 
-\item[Collision detection for high stroke width objects]
+\item[Collision detection for large stroke width entities]
 The current collision detection does not take the stroke width into account. 
-This means that objects with a large stroke width are very hard to hit, if their center area is very small, even though one could swear they hit the area it covered.
+This means that entities with a large stroke width are very hard to hit, if their centre area is very small.
 
 \item[Freehand collision detection]
 The collision detection should work so if you click the freehand drawing it should be marked.
 
 \item[Freehand hitbox]
-The hitbox have to follow the rotation, so the hitbox works as the line's hitbox.
+The hitbox has to follow the rotation, so it encapsulates the freehand entity.
 
 \item[Preview Pictogram]
-When trying to save a pictogram, the preview sometimes does not load.
+A bug occurs when trying to save a pictogram as the preview sometimes does not load.
 \end{description}

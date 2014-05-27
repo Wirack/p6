@@ -1,5 +1,5 @@
 \subsection{Handling TTS}%hjælp til bedre titel
-As seen in \secref{sec:ttstool}, Google Translate TTS is chosen as the TTS tool for this project. As it is a web-based tool, it must be considered how it should be used, and how to handle the situation where there is no internet connection. There is also the possibility that the creator of the pictogram has recorded his own reading of the pictogram. In this case the TTS should not be used. From these statements, a flowchart of the behavior of playing a pictograms sound can be seen on \figref{fig:soundflow}.
+As seen in \secref{sec:ttstool}, Google Translate TTS is chosen as the TTS tool for this project. As it is a web-based tool, it must be considered how it should be used, and how to handle the situation where there is no internet connection. There is also the possibility that the creator of the pictogram has recorded his own reading of the pictogram. In this case the TTS should not be used. From these statements, a flowchart of the behaviour of playing a pictograms sound can be seen on \figref{fig:soundflow}.
 
 \begin{savenotes}
 \begin{figure}[h]
@@ -29,4 +29,4 @@ As seen in \secref{sec:ttstool}, Google Translate TTS is chosen as the TTS tool 
 \end{figure}
 \end{savenotes}
 
-With the behavior in place, the TTS and soundplaying method can now be implemented. Note that once the sound has been generated, it is stored to the pictogram in the database, so it should only be generated once. The updated pictogram is synchronized with the remote database, so every other tablet also gets the sound file.
+With the behaviour in place, the TTS and soundplaying method can now be implemented. Note that once the sound has been generated, it is stored to the pictogram in the database, so it should only be generated once. The updated pictogram is synchronized with the remote database, so every other tablet also gets the sound file.

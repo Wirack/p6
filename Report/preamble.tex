@@ -6,6 +6,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{commath}
 \usepackage{graphicx}
 \graphicspath{{media/}}					% Directory that holds images.
 \usepackage{lastpage}
@@ -80,13 +81,13 @@
 \newcommand{\pagedifference}[2]{%
   \number\numexpr\getpagerefnumber{#2}-\getpagerefnumber{#1}\relax} %To calculate the amount of pages between two pages
 
-\newcommand{\figref}[1]{\hyperref[#1]{Figure \ref{#1}}} %Hyperref for figure
+\renewcommand{\figref}[1]{\hyperref[#1]{Figure \ref{#1}}} %Hyperref for figure
 \newcommand{\tabref}[1]{\hyperref[#1]{Table \ref{#1}}} %Hyperref for table
 \newcommand{\chapref}[1]{\hyperref[#1]{Chapter \ref{#1}}} %Hyperref for chapter
-\newcommand{\secref}[1]{\hyperref[#1]{Section \ref{#1}}} %Hyperref for section
+\renewcommand{\secref}[1]{\hyperref[#1]{Section \ref{#1}}} %Hyperref for section
 \newcommand{\subsecref}[1]{\hyperref[#1]{Subsection \ref{#1}}} %Hyperref for subsection
 \newcommand{\lstref}[1]{\hyperref[#1]{List \ref{#1}}} %Hyperref for list
-\newcommand{\appref}[1]{\hyperref[#1]{Appendix \ref{#1}}} %Hyperref for appendix
+\renewcommand{\appref}[1]{\hyperref[#1]{Appendix \ref{#1}}} %Hyperref for appendix
 \renewcommand{\eqref}[1]{\hyperref[#1]{Equation (\ref{#1})}} %Hyperref for equation
 \newcommand{\formularef}[1]{\hyperref[#1]{Formula (\ref{#1})}} %Hyperref for equation
 

@@ -1,16 +1,16 @@
-\subsection{Collision Detection for Rotated Objects}
-The user should be able to select the object by clicking inside of the hitbox, even when the object is rotated.
-This gave an issue, as when rotating an object the hitbox did not follow and to click on the object you had to click inside the misplaced hitbox. 
-Originally before we changed the hitbox, when rotating an object, the hitbox would move out of the canvas, and thus not targetable. As the previous implementation was out of the question, its code was scrapped and the hitbox location remained stationary.
+\subsection{Collision Detection for Rotated Entities}
+The user should be able to select the entity by clicking inside of the hitbox, even when the entity is rotated.
+This gave an issue, as when rotating an entity the hitbox did not follow and to click on the entity you had to click inside the misplaced hitbox. 
+Originally before we changed the hitbox, when rotating an entity, the hitbox would move out of the canvas, and thus not targetable. As the previous implementation was out of the question, its code is scrapped and the hitbox location remains stationary.
 
-The reason for this was that when the object was created the hitbox was set but never changed after rotating the object.
-Therefore, a change was made to the hitbox property such that the top left corner of the hitbox was set to the minimum x and y value of an object's coordinates.
+The reason for this is that when the entity was created the hitbox was set but never changed after rotating the entity.
+Therefore, a change is made to the hitbox property such that the top left corner of the hitbox is set to the minimum x and y value of coordinates of an entity.
 
-To find the new points of the rotated object we used the rotation matrix to rotate the current corners of the object.
+To find the new points of the rotated entity we use the rotation matrix to rotate the current corners of the entity.
 As seen in \lstref{lst:changeHitbox} the minimum x and y values of these corners are then found, and used to find the top left corner of the hitbox.
-Once this corner has been found, the width and height can be calculated by using the corner and the center of the object.
+Once this corner is found, the width and height can be calculated by using the corner and the centre of the entity.
 
-In \figref{figure:hitbox} the hitbox can be seen around the hitbox both when rotated and not rotated.
+In \figref{figure:hitbox}, the hitbox can be seen around the hitbox both when rotated and not rotated.
 
 \begin{lstlisting}[caption={Method to change the hitbox},label=lst:changeHitbox]
 protected void changeHitbox(){
@@ -35,7 +35,7 @@ protected void changeHitbox(){
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
 		\includegraphics[scale = 0.3]{sprint1/rectangle}
-		\caption{Hitbox for standard rectangle}
+		\caption{Hitbox for a un-rotated rectangle.}
 		\label{figure:hitbox-rectangle}
 	\end{subfigure}
 	\qquad
@@ -49,9 +49,9 @@ protected void changeHitbox(){
 	\label{figure:hitbox}
 \end{figure}
 
-A new issue that emerged was that the collision detection for the object was now larger than the object.
-When an object was behind a rotated object, and the user clicked in the top left corner of the hitbox, the rotated object would be selected instead of the object behind.
-To resolve this issue, an implementation was done to give a precise collision detection on the object, which is described below.
+A new issue that emerged was that the collision detection for the entity was now larger than the entity.
+When an entity was behind a rotated entity, and the user clicked in the top left corner of the hitbox, the rotated entity would be selected instead of the entity behind.
+To resolve this issue, an implementation is done to give a precise collision detection on the entity, which is described below.
 
 \subsubsection{Precise Collision Detection for Rotated Rectangles}
 To understand the mathematics behind the precise collision detection for rotated rectangles, an illustration of the problem can be seen in \figref{figure:rectangle-collision}.
@@ -64,7 +64,7 @@ To understand the mathematics behind the precise collision detection for rotated
 \end{figure}
 
 The idea behind the mathematical formula is to see whether the vector to the point is a right rotation of all the rectangle's sides.
-To determine this we compare the slope of the vectors.
+To determine this, we compare the slope of the vectors.
 The formula to determine a right rotation is:
 \begin{equation}
 	\frac{B_x-A_x}{B_y-A_y} \geq \frac{P_x-B_x}{P_y-B_y}
@@ -81,11 +81,11 @@ The formula is changed to avoid divide by zero errors, and is therefore changed 
 
 
 \subsubsection{Precise Collision Detection for Rotated Lines} \label{sec:rotatedlines}
-The last collision issue was a precise implementation to click on a line.
-We discussed how to click on a line and agreed that the click is allowed to be slightly off the line, since it otherwise was hard to click on.
-An idea was to calculate the distance from a point to the line and add a click range in order to determine if the click was meant to target the line.
+The last collision detection issue is a precise detection of a click on a line.
+We discuss how to click on a line and agree that the click is allowed to be slightly off the line, since it otherwise is hard to click on.
+An idea is to calculate the distance from a point to the line and add a click range in order to determine if the click is meant to target the line.
 
-To find this distance we used the formula for finding the area of a triangle, since the three points, clicked point, start point, and end point of the line, formed a triangle.
+To find this distance we use the formula for finding the area of a triangle, since the three points, clicked point, start point, and end point of the line, form a triangle.
 The distance is determined by the height of the triangle, from the base to the clicked point as seen in \figref{figure:line-collision}.
 \begin{figure}[h]
 	\centering
@@ -120,10 +120,10 @@ Another note to mention, is that the length of the vector $\vec{b}$ is the same 
 	|\vec{b}| = b
 \end{equation*}
 
-Since \eqref{eq:isolated-h} is based on given vectors and lengths, and the variables given in the application are coordinates, we have to change the formula to calculate the vectors and lengths from the coordinates.
+Since \eqref{eq:isolated-h} is based on given vectors and lengths, and the variables given in the application are coordinates, we change the formula to calculate the vectors and lengths from the coordinates.
 As can be seen in \eqref{eq:cross-product}, the vector $\vec{a}$ is equal to the difference in the clicked point $P$ and the start point $A$.
 \begin{equation}\label{eq:cross-product}
-	|\vec{a} \times \vec{b}| = 
+	|\vec{a} \times \vec{b}| =\abs{ 
 	\begin{bmatrix}
 		P_x-A_x \\
 		P_y-A_y
@@ -132,7 +132,7 @@ As can be seen in \eqref{eq:cross-product}, the vector $\vec{a}$ is equal to the
 	\begin{bmatrix}
 		B_x-A_x \\
 		B_y-A_y
-	\end{bmatrix}
+	\end{bmatrix}}
 \end{equation}
 
 From \eqref{eq:cross-product}, we can see how the cross product of the two vectors is determined, given the three coordinates.
@@ -142,7 +142,7 @@ By expanding the brackets in the numerator, we get a final equation for finding 
 \begin{equation}\label{eq:final-line-formula}
 \begin{aligned}
 	h &= \frac{|\vec{a} \times \vec{b}|}{|\vec{b}|}\\
-	  &= \frac{|(P_x-A_x)(B_y-A_y)-(P_y-A-y)(B_x-A_x)|}{\sqrt{b_x^2+b_y^2}}\\
+	  &= \frac{|(P_x-A_x)(B_y-A_y)-(P_y-A_y)(B_x-A_x)|}{\sqrt{b_x^2+b_y^2}}\\
 	  &= \frac{|P_xB_y-P_xA_y-A_xB_y-P_yB_x+P_yA_x+A_yB_x|}{\sqrt{b_x^2+b_y^2}}
 \end{aligned}
 \end{equation}

@@ -1,5 +1,4 @@
-\section{PictoMediaPlayer}
-\label{sec:pictomediaplayer}
+\section{PictoMediaPlayer}\label{sec:pictomediaplayer}
 Associating sound to pictograms was stated as of great importance from the customers.
 For that reason a library is developed that provides an easy to use sound playing service.
 
@@ -8,10 +7,10 @@ Both \textit{Piktotegner} and \textit{Piktooplæser} need the sound playing feat
 \textit{Piktooplæser} needs the feature as the key feature of \textit{Piktooplæser} is to get the sound of the pictograms played sequentially. 
 
 When initialising the library it needs a context and can additionally take a path for the sound file, a pictogram, or a bytearray. 
-The context is needed for the PictoMediaPlayer to know where to play the sound.
-In \lstref{lst:constructor} we see a constructor for the PictoMediaPlayer.
+The context is needed for the \textit{PictoMediaPlayer} to know where to play the sound.
+In \lstref{lst:constructor} we see a constructor for the \textit{PictoMediaPlayer}.
 
-\begin{lstlisting}[caption={Constructor for PictoMediaPlayer.},label={lst:constructor}]
+\begin{lstlisting}[caption={Constructor for \textit{PictoMediaPlayer}.},label={lst:constructor}]
 public PictoMediaPlayer (Context activity, String path)
 {
     this.activity = activity;
@@ -20,10 +19,10 @@ public PictoMediaPlayer (Context activity, String path)
 }
 \end{lstlisting}
 
-When assigning a datasource to the PictoMediaPlayer the \textit{setDataSource} method, seen in \lstref{lst:setdatasource}, is called. The method releases an old MediaPlayer and assigns a new one if sound has already been attached to the MediaPlayer.
-Then the MediaPlayer gets a file descriptor assigned as source.
+When assigning a datasource to the \textit{PictoMediaPlayer} the \textit{setDataSource} method, seen in \lstref{lst:setdatasource}, is called. The method releases an old \textit{MediaPlayer} and assigns a new one if sound has already been attached to the \textit{MediaPlayer}.
+Then the \textit{MediaPlayer} gets a file descriptor assigned as source.
 
-\begin{lstlisting}[caption={SetDataSource method of PictoMediaPlayer.},label={lst:setdatasource}]
+\begin{lstlisting}[caption={SetDataSource method of \textit{PictoMediaPlayer}.},label={lst:setdatasource}]
 public void setDataSource(String path)
 {
     if(hasSound)
@@ -48,7 +47,7 @@ public void setDataSource(String path)
 
 The \textit{OnCompletionListener}, seen in \lstref{lst:completelistener}, is necessary for external sources to detect when a sound is finished playing. The listener allows external sources to respond to a sound finished playing, e.g. a button icon change.
 
-\begin{lstlisting}[caption={onCompletionListener method of PictoMediaPlayer.}, label={lst:completelistener}]
+\begin{lstlisting}[caption={onCompletionListener method of \textit{PictoMediaPlayer}.}, label={lst:completelistener}]
 private final MediaPlayer.OnCompletionListener onCompletionListener = new MediaPlayer.OnCompletionListener()
 {
     @Override
@@ -68,10 +67,10 @@ public interface CompleteListener
 }
 \end{lstlisting}
 
-For \textit{Piktooplæser} to play the sound of multiple pictograms in succession we made the \textit{playListOfPictograms} method as seen in \lstref{lst:playlist}. 
+For \textit{Piktooplæser} to play the sound of multiple pictograms in succession we make the \textit{playListOfPictograms} method as seen in \lstref{lst:playlist}. 
 We first store the old listener in a temporary variable and stop playing sounds. Then we overwrite the method which is run after a sound is complete, so that it plays the sound of the next pictogram in the list. When all pictograms in the list have been read the old listener is restored.
 
-\begin{lstlisting}[caption={playListOfPictograms method of PictoMediaPlayer.}, label={lst:playlist}]
+\begin{lstlisting}[caption={playListOfPictograms method of \textit{PictoMediaPlayer}.}, label={lst:playlist}]
 public void playListOfPictograms(ArrayList<Pictogram> pictogramList)
 {
     pictogramListIndex = 0;
@@ -104,10 +103,10 @@ public void soundDonePlaying()
 }
 \end{lstlisting}
 
-To illustrate the ease of use of the PictoMediaPlayer we created the example seen in \lstref{lst:mediaplayerexample}. 
-We here see how a PictoMediaPlayer is used to play a sound and writing ``Sound is finished playing'' when the sound is finished playing.
+To illustrate the ease of use of the \textit{PictoMediaPlayer} we created the example seen in \lstref{lst:mediaplayerexample}. 
+We here see how a \textit{PictoMediaPlayer} is used to play a sound and writing ``Sound is finished playing'' when the sound is finished playing.
 
-\begin{lstlisting}[caption={Example of PictoMediaPlayer.},label={lst:mediaplayerexample}]
+\begin{lstlisting}[caption={Example of \textit{PictoMediaPlayer}.},label={lst:mediaplayerexample}]
 public class example implements CompleteListener
 {
     private void examplemethod(Context context, String path)

@@ -1,4 +1,5 @@
 \subsection{Freehand Collision Detection}
-This issue was resolved by using the collision detection used for a line.
-However, the freehand drawing only contains points, so these points had to be combined into a line.
-All of these lines had to be compared to the collision detection from the line collision, see \secref{sec:rotatedlines}.
+This issue is resolved by using the collision detection method used for a line.
+A collision with the freehand entity should occur when the clicked point is close to the drawn part of the freehand entity.
+To do this, each of the line segments have to be compared with the clicked point using the method for line collision detection which is presented in \secref{sec:rotatedlines}.
+However, the freehand entity only contains points, so these points are used to create the line segments.

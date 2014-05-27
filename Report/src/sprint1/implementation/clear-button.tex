@@ -1,11 +1,10 @@
 \subsection{Clear Button}
-Before adding the clear button, to clear the canvas you had to either clear each entity individually or to restart the application. 
-As this was highly undesired, we decided a clear button was necessary.
-It is decided that the icon of a trash bin is the most fitting, as it is our understanding that most people associate the trash can icon with throwing something away.
+Before adding the clear button, to clear the canvas you had to either delete each entity individually or to restart the application. 
+As this was highly undesired, we decide a clear button is necessary.
+It is decided that the icon of a trash bin is the most fitting as it is our understanding that most people associate the trash bin icon with throwing something away.
 
-In order to clear the canvas it is a matter of clearing the \textit{drawStack}, deselecting selected entities and redrawing the canvas through the \textit{Invalidate()} method, which is performed when the clearing action is accepted.
+In order to clear the canvas it is a matter of clearing the \textit{drawStack}, deselecting the selected entity, and redrawing the canvas through the \textit{Invalidate()} method, which is performed when the clearing action is accepted. 
+\textit{drawStack} is an \textit{ArrayList} consisting of entities, which conceptually functions as a stack, with entities drawn on top of each other.
 
 An unintentional click of the clear button would be of great nuisance to ones work. 
 Thus, a dialogue box is added, requesting final confirmation for the clear operation.
-
-

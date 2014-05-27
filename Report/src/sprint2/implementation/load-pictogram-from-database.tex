@@ -1,14 +1,11 @@
 \subsection{Load Pictogram from Database}
 The application should be able to load existing pictograms, so they can be modified to accommodate desired changes.
-To do this we decided to use \textit{Pictosearch}, which is an application that is also under development in the \textit{GIRAF} project.
+To do this we decide to use \textit{Pictosearch}, which is an application that is also under development in the \textit{GIRAF} project.
 \textit{Pictosearch} is a search tool that can find pictograms stored in the database.
-The chosen pictogram is then sent to calling application, which in this case is \textit{Pictocreator}.
+The chosen pictogram ID is then sent to the calling application, which in this case is \textit{Pictocreator}.
 
-The call to start \textit{Pictosearch} also sends the guardian's ID, to allow access to their private pictograms, as well as the purpose of the call which is \textit{single} meaning \textit{Pictosearch} can return at most one pictogram, as seen in lines $5-9$ in \lstref{lst:callPictosearch}.
+The call to start \textit{Pictosearch} also sends the guardian's ID, to allow access to their private pictograms, as well as the purpose of the call which is \textit{single} meaning \textit{Pictosearch} can return at most one pictogram ID, as seen in lines $5-9$ in \lstref{lst:callPictosearch}.
 If \textit{Pictosearch} is not installed, a message will inform the user about it.
-An event to receive the pictogram is create, called \textit{onActivityResult}, and checks whether it return a results or not.
-If there is a result, another function is called which loads the pictogram bitmap from the database using the pictogram ID returned from \textit{Pictosearch}, as seen in line 5 in  \lstref{lst:loadPictogram}.
-The bitmap is then loaded into the canvas in the original scale.
 
 \begin{lstlisting}[caption=Method used to launch \textit{Pictosearch}., label=lst:callPictosearch]
 private void callPictosearch(){
@@ -25,6 +22,10 @@ private void callPictosearch(){
     }
 }
 \end{lstlisting}
+
+An event to receive the pictogram is created, called \textit{onActivityResult}, which checks whether it returns a results or not.
+If there is a result, another function is called which loads the pictogram bitmap from the database using the pictogram ID returned from \textit{Pictosearch}, as seen in line 5 in  \lstref{lst:loadPictogram}.
+The bitmap is then loaded into the canvas in the original scale.
 
 \begin{lstlisting}[caption=Method to load a pictogram from Id received from \textit{Pictosearch}, label=lst:loadPictogram]
 private void loadPictogram(Intent data){

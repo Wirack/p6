@@ -4,11 +4,11 @@ To enable the TTS function, the different available TTS tools should be compared
 There are a lot of different TTS tools, but there are some requirements:
 \begin{itemize}
 	\item The tool must be free to use
-	\item The tool must be able to speak the given text in danish
+	\item The tool must be able to pronounce the given text in danish
 	\item The tool must be usable with an android application
 \end{itemize}
-From these requirements, the build-in Android TTS can be excluded, because it does not support the danish language.
-Tools which fulfil these requirements have been found and the ones we chose to compare are listed below:
+From these requirements, the built-in Android TTS can be excluded, because it does not support the danish language.
+Tools which fulfil these requirements are found and the ones we compare are listed below:
 \begin{itemize}
 	\item Voice RSS
 	\item eSpeak
@@ -17,7 +17,7 @@ Tools which fulfil these requirements have been found and the ones we chose to c
 \end{itemize}
 
 \subsubsection{Voice RSS}
-Voice RSS \citep{voicerss} is an online TTS tool with an API. Voice RSS have a Danish voice for their TTS, but have a limitation of usage. It is only the first 350 TTS requests per day which are free, thereafter there must be paid a fee for more requests. The sound of the TTS is relatively good, and the Danish voice is understandable. To make a request to Voice RSS, the device must be connected to the internet.
+Voice RSS \citep{voicerss} is an online TTS tool with an API. Voice RSS has a Danish voice for their TTS, but has a limitation of usage. It is only the first 350 requests per day which are free, thereafter you have to pay a fee for more requests. The sound of the TTS is relatively good, and the Danish voice is understandable. To make a request to Voice RSS, the device must be connected to the internet.
 
 \subsubsection{eSpeak}
 eSpeak is a free open source TTS build for Linux and Windows with many supported languages, including Danish \citep{espeak}. The advantage of eSpeak is that it is free to use, and do not need internet access to work. The disadvantage is that it is not made directly for use with Android. 
@@ -31,20 +31,19 @@ Google Translate TTS is a possibility to use their API to make web based request
 \subsubsection{Comparison and Selection of TTS Tool}
 As seen, there are four examined solutions for enabling TTS in the \textit{GIRAF} project. A comparison of the different TTS tools can be seen in \tabref{tab:ttscomp}.
 
-
 \begin{table}[h]
 	\rowcolors{2}{gray!25}{white}
-    \begin{tabularx}{\textwidth}{|R|R|R|R|R|}
+    \begin{tabularx}{1.1\textwidth}{|R|R|R|R|R|}
     \rowcolor{gray!50}
     \hline
     \textbf{TTS Tool}             &\textbf{Advantage}                                   &\textbf{Disadvantage}                               & \textbf{Requires Internet Access} &\textbf{Price}                                                      \\ \hline
-    Voice RSS            & Easy well documented API, understandable voice    & Requires internet access, limit in requests & Yes                     & Free up to 350 requests per day, hereafter a fee starting from 5\$ \\ \hline
-    eSpeak               & Free, does not require internet access            & Not built for use with Android             & No                      & Free, Open Source                                          \\ \hline
-    JeSpeak              & Free, made for Java                             & Not made directly for use with Android.    & No                      & Free                                                       \\ \hline
+    Voice RSS            & Easy well documented API, understandable voice    & Requires internet access, limit in requests & Yes                     & Free up to 350 requests per day, hereafter a fee starting from 5\$ \\ 
+    eSpeak               & Free, does not require internet access            & Not built for use with Android             & No                      & Free, Open Source                                          \\ 
+    JeSpeak              & Free, made for Java                             & Not made directly for use with Android.    & No                      & Free                                                       \\ 
     Google Translate TTS & Free, supports many languages, easy to implement & Requires internet access                    & Yes                     & Free                                                       \\ \hline
     \end{tabularx}
     \caption{Comparison table for different TTS tools.}
     \label{tab:ttscomp}
-\end{table}
+\end{table} 
 
-Due to this comparison, Google Translate TTS has been chosen. It is very easy to implement, compared to e.g. JeSpeak, free to use, and it has a good Danish TTS.
+Due to this comparison, Google Translate TTS is chosen. It is very easy to implement, compared to e.g. JeSpeak, free to use, and it has a good Danish TTS.

@@ -1,3 +1,3 @@
-\subsection{Save Canvas State}\fxnote{Så kort at den er optional}
-To fix the issue, the \textit{drawStack} was saved as a singleton, which made a single \textit{drawStack} instance available across modes, such that even when the canvas was restarted, the \textit{drawStack} could be reloaded. 
-The canvas will still be cleared if the process is terminated, however, for the given issue the singleton will suffice.
+\subsection{Save Canvas State}
+To fix the issue, the \textit{drawStack} is saved as a singleton, which makes a single \textit{drawStack} instance available across modes, such that even when the canvas is restarted, the \textit{drawStack} can be reloaded. 
+The canvas is still be cleared if the process is terminated, however, for the given issue the singleton will suffice.
