@@ -1,0 +1,31 @@
+structure is good
+
+context of the multiproject, what was the reasoning behind the creation of GIRAF.
+motivation for creating pictotegner
+maybe compare this tool with other excisting tools
+why is pictotegner even needed?
+
+what was your role in the multiproject
+semester seems to be about project management, so talk about how you did development, in addition to what you did.
+place project management after slide 6 (suggestion) or as a part of the media player colaboration slide.
+
+define what a specialist is, since it is unique for GIRAF.
+
+good ideas from the other group:
+project management.
+pictures of current situation at the institutes
+requirements -> redmine issues
+useability methodology
+conclusion? (might be contained in our future work)
+
+start with the interesting stuff, gets audience attention and keep it
+mention program early
+overview maybe not needed.
+focus on what the goal of the presentation is
+title smaller than content
+limit information on slides
+animations for steps, to keep audience attention
+
+
+emulator and tablet at the same time might distract the audience.
+sensor likely to try to break it.
