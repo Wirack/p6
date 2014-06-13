@@ -1,0 +1,42 @@
+Introduction - winde
+-group
+-motivation
+-multi-project (customer og software package)
+
+Pictogram Creation tool - winde
+-motivation
+-croc
+
+
+new features - als
+-rotate
+-resize
+-collision
+-design changes
+	-record
+	-cam
+	-save
+
+	
+demo-dani
+
+usability test - dani
+-why
+-how
+-results
+
+
+collab-lars
+-general
+	-scrum,
+	-banke på døren
+	-code review
+	-roller
+	-code review
+	-project management
+	-media library
+	(-icon creation) evt. lig op i roller
+	
+
+Reflections - lars
+	
