@@ -1,4 +1,5 @@
 \documentclass[10pt]{beamer}
+
 \usetheme[
 %%% options passed to the outer theme
 %    hidetitle,           % hide the (short) title in the sidebar
@@ -32,6 +33,9 @@
 % Or whatever. Note that the encoding and the font should match. If T1
 % does not look nice, try deleting the line with the fontenc.
 \usepackage{helvet}
+
+\usepackage{subcaption}
+\captionsetup{compatibility=false}
 
 % colored hyperlinks
 \newcommand{\chref}[2]{%
@@ -72,7 +76,7 @@
 %  \hspace{1cm}\pgfuseimage{titlepagelogo2}
 }
 
-
+\graphicspath{ {media/} }
 \begin{document}
 % the titlepage
 {\aauwavesbg%
@@ -89,20 +93,8 @@
 	
 	
 \include{Winde}
-	
-	\section{Key Changes}
-	\begin{frame}
-	\frametitle{Key Changes}
-		Each key changes listed here will have slides for that given change. Before and after pictures will be shown for this.
-		\begin{itemize}
-		\item Rotation
-		\item Resize
-		\item Collision detection
-		\item Recording audio
-		\item Saving and loading for piktograms
-		\item Camera
-		\end{itemize}
-	\end{frame}
+\include{Als}
+
 	
 	\section{Usability test}
 		\begin{frame}
