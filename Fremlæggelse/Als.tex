@@ -59,21 +59,31 @@
 %\end{frame}
 
 \begin{frame}
-	\frametitle{Resize}
+	\frametitle{Resize, Old}
 	\begin{itemize}
 		\item Old version: When resizing just add dragvector components to width and height.
-		\item Was bad with large rotations
-		\item New version:
+		
+	\end{itemize}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.6\textwidth]{how-rotate+resize-worked}
+	\end{figure}
+	\end{frame}
+		
+		
+\begin{frame}
+	\frametitle{Resize, New}
+	
 		\begin{itemize}
 			\item More stable
 			\item Still \textit{floats} a bit, but acceptable up to $45 ^\circ$
 			\item Let us utilize that when resizing!
 		\end{itemize}
-	\end{itemize}
+	
 \end{frame}
 
 \begin{frame}
-	\frametitle{Resize - New Version}
+	\frametitle{Resize, New}
 			\begin{figure}
 			\centering
 				\includegraphics[width=0.6\textwidth]{approach6}
