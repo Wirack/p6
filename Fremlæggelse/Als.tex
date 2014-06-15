@@ -17,9 +17,9 @@
 		\item Resizing of entities
 		\item Design changes
 		\begin{itemize}
-			\item Record Dialogue
-			\item Camera Dialogue
-			\item Save Dialogue
+			\item Record dialogue
+			\item Camera dialogue
+			\item Save dialogue
 		\end{itemize}
 	\end{itemize}
 \end{frame}
@@ -27,14 +27,14 @@
 \begin{frame}
 	\frametitle{Rotation}
 	\begin{itemize}
-	\item Before: Resize Icon not clickable, but worked.
+	\item Before: Rotate Icon not click-able, but worked.
 	\item After, use rotation matrix: $R = \begin{bmatrix}
 			cos\, \theta & - sin\, \theta\\
 			sin\, \theta & cos\, \theta
 			\end{bmatrix}$
 	\item Rotate point $p = \begin{bmatrix}x\\y\end{bmatrix}$ around (0,0) to get $p'$
 	\item $p' = R*p$
-	\item Solved Rotation issue with collision detection correctly implemented for rotated entities.
+	\item Solved rotation issue with collision detection correctly implemented for rotated entities.
 	\end{itemize}
 \end{frame}
 
@@ -62,11 +62,11 @@
 	\frametitle{Resize}
 	\begin{itemize}
 		\item Old version: When resizing just add dragvector components to width and height.
-		\item Was bad with "large" rotations
+		\item Was bad with large rotations
 		\item New version:
 		\begin{itemize}
 			\item More stable
-			\item Still "floats" a bit, but acceptable up to $45 ^\circ$
+			\item Still \textit{floats} a bit, but acceptable up to $45 ^\circ$
 			\item Let us utilize that when resizing!
 		\end{itemize}
 	\end{itemize}
@@ -108,7 +108,7 @@
 
 %flere slides til design changes
 \begin{frame}
-	\frametitle{Design Changes - Camera, old}
+	\frametitle{Design Changes - Camera, Old}
 	Switch to camera.
 		\begin{figure}
 		\centering
@@ -117,7 +117,7 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Design Changes - Camera, old}
+	\frametitle{Design Changes - Camera, Old}
 	Take picture.
 		\begin{figure}
 		\centering
@@ -126,7 +126,7 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Design Changes - Camera, old}
+	\frametitle{Design Changes - Camera, Old}
 	Load picture.
 		\begin{figure}
 		\centering
@@ -135,7 +135,7 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Design Changes - Camera, old}
+	\frametitle{Design Changes - Camera, Old}
 	Load picture.
 		\begin{figure}
 		\centering
@@ -153,8 +153,8 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Design Changes - Camera, new}
-	Open Camera
+	\frametitle{Design Changes - Camera, New}
+	Open camera
 		\begin{figure}
 		\centering
 			\includegraphics[width=0.8\textwidth]{final-main-ui}
@@ -162,7 +162,7 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Design Changes - Camera, new}
+	\frametitle{Design Changes - Camera, New}
 	Take picture
 		\begin{figure}
 		\centering
@@ -171,7 +171,7 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Design Changes - Camera, new}
+	\frametitle{Design Changes - Camera, New}
 	Accept picture
 		\begin{figure}
 		\centering
@@ -180,7 +180,7 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Design Changes - Camera, new}
+	\frametitle{Design Changes - Camera, New}
 	Result
 		\begin{figure}
 		\centering
@@ -192,7 +192,7 @@
 	\frametitle{Design Changes - Save Dialogue}
 	\begin{itemize}
 	\item Database not finished previous years
-	\item A Dialogue was made, but functionality to save was not.
+	\item A dialogue was made, but functionality to save was not.
 	\item Now able to save pictograms as the database got developed.
 	\end{itemize}
 \end{frame}
