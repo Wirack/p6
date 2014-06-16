@@ -25,16 +25,18 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Rotation}
+	\frametitle{Collision Detection - Rotation Theory}
 	\begin{itemize}
-	\item Before: Rotate Icon not click-able, but worked.
-	\item After, use rotation matrix: $R = \begin{bmatrix}
+	\item Before: Rotate Icon not click-able, due to bad collision detection.
+	\item Theory needed: 
+	\begin{itemize}
+	\item use rotation matrix: $R = \begin{bmatrix}
 			cos\, \theta & - sin\, \theta\\
 			sin\, \theta & cos\, \theta
 			\end{bmatrix}$
 	\item Rotate point $p = \begin{bmatrix}x\\y\end{bmatrix}$ around (0,0) to get $p'$
 	\item $p' = R*p$
-	\item Solved rotation issue with collision detection correctly implemented for rotated entities.
+	\end{itemize}
 	\end{itemize}
 \end{frame}
 
@@ -90,7 +92,7 @@
 			\end{figure}
 			\begin{itemize}
 			\item Look at $46^\circ$ as $-44^\circ$
-			\item Reset starting point of rectangle
+			\item Change base point of rectangle
 			\item Swap width and height
 			\item Then resize with dragvector
 			\end{itemize}
